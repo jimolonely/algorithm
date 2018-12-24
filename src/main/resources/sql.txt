@@ -1,0 +1,63 @@
+SELECT
+        oce.NAME countername,
+        oce.DESC,
+        COALESCE (r.count0, null) count0,
+        COALESCE (r.count1, null) count1,
+        COALESCE (r.count2, null) count2,
+        COALESCE (r.count3, null) count3,
+        COALESCE (r.count4, null) count4
+        from
+        <choose>
+            <when test="type != null and type == 1">
+                oms_counter_extend oce
+            </when>
+            <otherwise>
+                oms_vm_counter oce
+            </otherwise>
+        </choose>
+        left join (
+        select metric,
+        sum(CASE t.etype WHEN 0 THEN t.count ELSE 0 END ) count0,
+        sum(CASE t.etype WHEN 1 THEN t.count ELSE 0 END ) count1,
+        sum(CASE t.etype WHEN 2 THEN t.count ELSE 0 END ) count2,
+        sum(CASE t.etype WHEN 3 THEN t.count ELSE 0 END ) count3,
+        sum(CASE t.etype WHEN 4 THEN t.count ELSE 0 END ) count4
+        from (
+        select exceptiontype etype,region,metric,resultNum "count" from
+        oms_report_clear_record
+        where devtype = #{type} and dataTime between #{dateTimeStart} and #{dateTimeEnd}
+        <choose>
+            <when test="iadTag!= null and iadTag!=''">
+                AND iad_tag = #{iadTag}
+            </when>
+            <otherwise>
+                <if test="region != null and region !=''">
+                    AND region = #{region}
+                </if>
+                <if test="cloudUuid != null and cloudUuid !=''">
+                    AND cloud_uuid = #{cloudUuid}
+                </if>
+            </otherwise>
+        </choose>
+        union all
+        select 0 etype,region,countername,sum(count) "count" from
+        oms_report_host_monitor_variety
+        where framtimetype = '1' and "type" = #{type} and dataTime between #{dateTimeStart} and #{dateTimeEnd}
+        <choose>
+            <when test="iadTag!= null and iadTag!=''">
+                AND iad_tag = #{iadTag}
+            </when>
+            <otherwise>
+                <if test="region != null and region !=''">
+                    AND region = #{region}
+                </if>
+                <if test="cloudUuid != null and cloudUuid !=''">
+                    AND cloud_uuid = #{cloudUuid}
+                </if>
+            </otherwise>
+        </choose>
+        group by region,countername
+        ) t
+        group by metric
+        ) r on oce.name = r.metric
+        order by metric
