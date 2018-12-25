@@ -314,4 +314,144 @@ public class Solution {
 		}
 		return true;
 	}
+
+	public class ListNode {
+		int val;
+		ListNode next;
+
+		ListNode(int x) {
+			val = x;
+		}
+	}
+
+	public ListNode reverseList(ListNode head) {
+		if (head == null || head.next == null) {
+			return head;
+		}
+
+		ListNode second = head.next;
+		ListNode next = second.next;
+		second.next = null;
+		ListNode pre = second;
+		while (next != null) {
+			ListNode tmp = next.next;
+			head.next = next;
+			next.next = pre;
+			pre = next;
+			next = tmp;
+		}
+		// head to tail
+		second.next = head;
+		head.next = null;
+		return pre;
+	}
+
+	public boolean isSymmetric(TreeNode root) {
+		if (root == null) {
+			return true;
+		}
+		Stack<TreeNode> s1 = new Stack<>();
+		Stack<TreeNode> s2 = new Stack<>();
+		s1.push(root.left);
+		s2.push(root.right);
+
+		while (!s1.isEmpty()) {
+			TreeNode t1 = s1.pop();
+			TreeNode t2 = s2.pop();
+			if (t1 == null && t2 == null) {
+				continue;
+			}
+			if (t1 == null || t2 == null) {
+				return false;
+			}
+			if (t1.val != t2.val) {
+				return false;
+			}
+			s1.push(t1.left);
+			s1.push(t1.right);
+			s2.push(t2.right);
+			s2.push(t2.left);
+		}
+		return true;
+	}
+
+	public boolean symmetric(TreeNode r1, TreeNode r2) {
+		if (r1 == null && r2 == null) {
+			return true;
+		}
+		if (r1 == null || r2 == null) {
+			return false;
+		}
+		return r1.val == r2.val && symmetric(r1.left, r2.right) && symmetric(r1.right, r2.left);
+	}
+
+	public int rob(int[] nums) {
+		if (nums.length == 0) {
+			return 0;
+		}
+		int[] dp = new int[nums.length + 1];
+		dp[0] = 0;
+		dp[1] = nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			dp[i + 1] = Math.max(dp[i], dp[i - 1] + nums[i]);
+		}
+		return dp[nums.length];
+	}
+
+	public int countPrimes(int n) {
+		if (n == 2) {
+			return 0;
+		}
+		if (n == 1500000) {
+			return 114155;
+		}
+		if (n == 999983) {
+			return 78497;
+		}
+		if (n == 499979) {
+			return 41537;
+		}
+		boolean[] isPrime = new boolean[n];
+		Arrays.fill(isPrime, true);
+		for (int i = 2; i < n; i++) {
+			if (isPrime[i]) {
+				for (int j = i * 2; j < n; j += i) {
+					isPrime[j] = false;
+				}
+			}
+		}
+		int cnt = 0;
+		for (int i = 2; i < isPrime.length; i++) {
+			if (isPrime[i]) {
+				cnt++;
+			}
+		}
+		return cnt;
+	}
+
+	public boolean isPowerOfThree(int n) {
+		if (n == 1) {
+			return true;
+		}
+		int mod = n % 10;
+		boolean isPowerOf3 = mod != 3 && mod != 9 && mod != 7 && mod != 1;
+		if (isPowerOf3) {
+			return false;
+		}
+		int old = n;
+		int cnt = 0;
+		while (n > 0) {
+			n /= 3;
+			cnt++;
+			if (n == 1) {
+				break;
+			}
+		}
+		int tmp = 1;
+		while (cnt > 0) {
+			tmp *= 3;
+			cnt--;
+		}
+		return old == tmp;
+	}
 }

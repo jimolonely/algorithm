@@ -10,7 +10,7 @@ import static java.lang.Math.*;
  */
 public class BigEyeballDp {
 
-	int bigEyeball(int[] eyes) {
+	public int bigEyeball(int[] eyes) {
 		int n = eyes.length;
 		int[][] dp = new int[n + 1][];
 
@@ -68,7 +68,7 @@ public class BigEyeballDp {
 	}
 
 
-	int bigEyeballDim1(int[] eyes) {
+	public int bigEyeballDim1(int[] eyes) {
 		int n = eyes.length;
 		int sum = sum(eyes);
 		int[] dp = new int[sum + 1];

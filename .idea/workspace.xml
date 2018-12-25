@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9daf3a3c-c66b-4b11-8680-9d77600a14a4" name="Default Changelist" comment="" />
+    <list default="true" id="9daf3a3c-c66b-4b11-8680-9d77600a14a4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jimo/algo/week1/BigEyeball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jimo/algo/week1/BigEyeball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jimo/algo/week1/BigEyeballBfs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jimo/algo/week1/BigEyeballBfs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jimo/algo/week1/BigEyeballDp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jimo/algo/week1/BigEyeballDp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,10 +24,12 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="660">
-                  <caret line="254" column="31" lean-forward="true" selection-start-line="254" selection-start-column="31" selection-end-line="254" selection-end-column="31" />
+                <state relative-caret-position="393">
+                  <caret line="406" column="9" lean-forward="true" selection-start-line="406" selection-start-column="9" selection-end-line="406" selection-end-column="9" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="e#6176#6177#0" expanded="true" />
+                    <element signature="e#6192#6193#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -30,47 +39,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/BigEyeballTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="418">
-                  <caret line="28" selection-start-line="28" selection-end-line="28" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="622">
-                  <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/BigEyeballBfsTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="779">
-                  <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/BigEyeballDpTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="665">
-                  <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+                <state relative-caret-position="1248">
+                  <caret line="129" column="37" selection-start-line="129" selection-start-column="37" selection-end-line="129" selection-end-column="37" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -100,11 +73,13 @@
       <replace>}</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/jimo/algo/BigEyeballTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jimo/algo/BigEyeballViolent.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/jimo/algo/BigEyeballDpTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/jimo/algo/BigEyeballBfsTest.java" />
@@ -113,8 +88,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jimo/algo/BigEyeballDp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jimo/algo/Replace.java" />
         <option value="$PROJECT_DIR$/src/main/resources/sql.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/jimo/algo/BigEyeballTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" />
       </list>
     </option>
   </component>
@@ -126,9 +102,12 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1366" />
-    <option name="width" value="1920" />
-    <option name="height" value="2160" />
+    <option name="y" value="635" />
+    <option name="width" value="3840" />
+    <option name="height" value="1525" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -192,7 +171,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545612052708" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545701760751" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -224,7 +203,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SolutionTest.isPalindrome">
+  <component name="RunManager" selected="JUnit.SolutionTest.isPowerOfThree">
     <configuration name="Replace" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.jimo.algo.Replace" />
       <module name="algorithm" />
@@ -254,22 +233,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SolutionTest.intersect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="algorithm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.jimo.algo.week1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.jimo.algo" />
-      <option name="MAIN_CLASS_NAME" value="com.jimo.algo.SolutionTest" />
-      <option name="METHOD_NAME" value="intersect" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SolutionTest.isPalindrome" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="algorithm" />
       <extension name="coverage">
@@ -286,17 +249,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SolutionTest.plusOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SolutionTest.isPowerOfThree" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="algorithm" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.jimo.algo.week1.*" />
+          <option name="PATTERN" value="com.jimo.algo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.jimo.algo" />
       <option name="MAIN_CLASS_NAME" value="com.jimo.algo.SolutionTest" />
-      <option name="METHOD_NAME" value="plusOne" />
+      <option name="METHOD_NAME" value="isPowerOfThree" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolutionTest.rob" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="algorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jimo.algo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jimo.algo" />
+      <option name="MAIN_CLASS_NAME" value="com.jimo.algo.SolutionTest" />
+      <option name="METHOD_NAME" value="rob" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -304,11 +283,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SolutionTest.isPowerOfThree" />
+        <item itemvalue="JUnit.SolutionTest.rob" />
         <item itemvalue="JUnit.SolutionTest.isPalindrome" />
         <item itemvalue="JUnit.SolutionTest.firstUniqChar" />
         <item itemvalue="Application.Replace" />
-        <item itemvalue="JUnit.SolutionTest.plusOne" />
-        <item itemvalue="JUnit.SolutionTest.intersect" />
       </list>
     </recent_temporary>
   </component>
@@ -327,50 +306,50 @@
       <workItem from="1545179200535" duration="1839000" />
       <workItem from="1545217406501" duration="17389000" />
       <workItem from="1545294705646" duration="23859000" />
-      <workItem from="1545610044641" duration="1598000" />
+      <workItem from="1545610044641" duration="13426000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SolutionTest_firstUniqChar - 2018.12.21 at 13h 47m 13s.xml">
-      <configuration name="SolutionTest.firstUniqChar" configurationId="JUnit" />
+    <history-entry file="SolutionTest_rob - 2018.12.24 at 20h 07m 35s.xml">
+      <configuration name="SolutionTest.rob" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionTest_firstUniqChar - 2018.12.21 at 13h 52m 37s.xml">
-      <configuration name="SolutionTest.firstUniqChar" configurationId="JUnit" />
+    <history-entry file="SolutionTest_isPowerOfThree - 2018.12.25 at 09h 22m 29s.xml">
+      <configuration name="SolutionTest.isPowerOfThree" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionTest_firstUniqChar - 2018.12.21 at 14h 04m 11s.xml">
-      <configuration name="SolutionTest.firstUniqChar" configurationId="JUnit" />
+    <history-entry file="SolutionTest_isPowerOfThree - 2018.12.25 at 09h 23m 45s.xml">
+      <configuration name="SolutionTest.isPowerOfThree" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionTest_firstUniqChar - 2018.12.21 at 14h 05m 30s.xml">
-      <configuration name="SolutionTest.firstUniqChar" configurationId="JUnit" />
+    <history-entry file="SolutionTest_isPowerOfThree - 2018.12.25 at 09h 24m 41s.xml">
+      <configuration name="SolutionTest.isPowerOfThree" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionTest_firstUniqChar - 2018.12.21 at 14h 06m 15s.xml">
-      <configuration name="SolutionTest.firstUniqChar" configurationId="JUnit" />
+    <history-entry file="SolutionTest_isPowerOfThree - 2018.12.25 at 09h 26m 56s.xml">
+      <configuration name="SolutionTest.isPowerOfThree" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionTest_isPalindrome - 2018.12.24 at 08h 36m 35s.xml">
-      <configuration name="SolutionTest.isPalindrome" configurationId="JUnit" />
+    <history-entry file="SolutionTest_isPowerOfThree - 2018.12.25 at 09h 28m 14s.xml">
+      <configuration name="SolutionTest.isPowerOfThree" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionTest_isPalindrome - 2018.12.24 at 08h 37m 26s.xml">
-      <configuration name="SolutionTest.isPalindrome" configurationId="JUnit" />
+    <history-entry file="SolutionTest_isPowerOfThree - 2018.12.25 at 09h 32m 01s.xml">
+      <configuration name="SolutionTest.isPowerOfThree" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionTest_isPalindrome - 2018.12.24 at 08h 37m 35s.xml">
-      <configuration name="SolutionTest.isPalindrome" configurationId="JUnit" />
+    <history-entry file="SolutionTest_isPowerOfThree - 2018.12.25 at 09h 32m 30s.xml">
+      <configuration name="SolutionTest.isPowerOfThree" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionTest_isPalindrome - 2018.12.24 at 08h 38m 01s.xml">
-      <configuration name="SolutionTest.isPalindrome" configurationId="JUnit" />
+    <history-entry file="SolutionTest_isPowerOfThree - 2018.12.25 at 09h 33m 19s.xml">
+      <configuration name="SolutionTest.isPowerOfThree" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionTest_isPalindrome - 2018.12.24 at 08h 38m 18s.xml">
-      <configuration name="SolutionTest.isPalindrome" configurationId="JUnit" />
+    <history-entry file="SolutionTest_isPowerOfThree - 2018.12.25 at 09h 33m 30s.xml">
+      <configuration name="SolutionTest.isPowerOfThree" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81799000" />
+    <option name="totallyTimeSpent" value="93627000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="0" width="3840" height="2160" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.06803797" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.06803797" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -379,8 +358,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32987654" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2434568" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24332345" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39960435" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -389,7 +368,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32987654" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32987142" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -462,36 +441,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/BigEyeballTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/BigEyeballBfsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/BigEyeballDpTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/software/jdk1.8.0_181/src.zip!/java/lang/Character.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="676">
@@ -541,22 +490,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/BigEyeballTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="254" column="31" lean-forward="true" selection-start-line="254" selection-start-column="31" selection-end-line="254" selection-end-column="31" />
+        <state relative-caret-position="665">
+          <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/BigEyeballDpTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="59" column="39" lean-forward="true" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/BigEyeballBfsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="46" column="40" lean-forward="true" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/software/jdk1.8.0_181/src.zip!/java/util/Arrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="3022" column="5" lean-forward="true" selection-start-line="3022" selection-start-column="5" selection-end-line="3022" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1248">
+          <caret line="129" column="37" selection-start-line="129" selection-start-column="37" selection-end-line="129" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+        <state relative-caret-position="393">
+          <caret line="406" column="9" lean-forward="true" selection-start-line="406" selection-start-column="9" selection-end-line="406" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#6176#6177#0" expanded="true" />
+            <element signature="e#6192#6193#0" expanded="true" />
           </folding>
         </state>
       </provider>

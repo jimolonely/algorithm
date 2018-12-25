@@ -27,7 +27,7 @@ import java.util.Map;
  */
 public class BigEyeballBfs {
 
-	int bigEyeball(int[] eyes) {
+	public int bigEyeball(int[] eyes) {
 		int maxSize = 0;
 
 		for (int i = 0; i < Math.pow(3, eyes.length); i++) {
@@ -78,7 +78,7 @@ public class BigEyeballBfs {
 	}
 
 
-	int bigEyeBallHalf(int[] eyes) {
+	public int bigEyeBallHalf(int[] eyes) {
 		int maxSize = 0;
 
 		int n = eyes.length;

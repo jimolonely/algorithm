@@ -76,7 +76,7 @@ public class BigEyeball {
 		return 0;
 	}
 
-	int getMax2(int[] eyes) {
+	public int getMax2(int[] eyes) {
 		int max = 0;
 		///
 //		for (int j = 0; j < eyes.length; j++) {
@@ -96,7 +96,7 @@ public class BigEyeball {
 		return max;
 	}
 
-	int getMax1(int[] eyes) {
+	public int getMax1(int[] eyes) {
 		int max = 0;
 		for (int j = 0; j < eyes.length; j++) {
 			if (foundEqual(eyes[j], removeIndex(eyes, j))) {
@@ -117,7 +117,7 @@ public class BigEyeball {
 	 *                          ...
 	 *                          an-1 + arr1
 	 */
-	boolean foundEqual(int x, int[] arr) {
+	public boolean foundEqual(int x, int[] arr) {
 		if (x == 0) {
 			return true;
 		}

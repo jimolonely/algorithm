@@ -113,5 +113,23 @@ public class SolutionTest {
 		assertTrue(s.isPalindrome("A man, a plan, a canal: Panama"));
 		assertFalse(s.isPalindrome("race a car"));
 	}
+
+	@Test
+	public void rob() {
+		assertEquals(1, s.rob(new int[]{1}));
+		assertEquals(4, s.rob(new int[]{1, 2, 3, 1}));
+		assertEquals(12, s.rob(new int[]{2, 7, 9, 3, 1}));
+		assertEquals(4, s.rob(new int[]{2, 1, 1, 2}));
+	}
+
+	@Test
+	public void isPowerOfThree() {
+		assertTrue(s.isPowerOfThree(27));
+		assertTrue(s.isPowerOfThree(9));
+		assertTrue(s.isPowerOfThree(1));
+		assertFalse(s.isPowerOfThree(45));
+		assertFalse(s.isPowerOfThree(0));
+		assertFalse(s.isPowerOfThree(2147483647));
+	}
 }
 
