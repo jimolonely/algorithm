@@ -131,5 +131,11 @@ public class SolutionTest {
 		assertFalse(s.isPowerOfThree(0));
 		assertFalse(s.isPowerOfThree(2147483647));
 	}
+
+	@Test
+	public void reverseBits() {
+		assertEquals(964176192, s.reverseBits(43261596));
+		assertEquals(-1073741825, s.reverseBits(-3));
+	}
 }
 

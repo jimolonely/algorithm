@@ -454,4 +454,51 @@ public class Solution {
 		}
 		return old == tmp;
 	}
+
+	public int reverseBits(int n) {
+		String b1 = Integer.toUnsignedString(n, 2);
+		if (n > 0 && b1.length() < 32) {
+			b1 = setZero(32 - b1.length(), b1);
+		}
+		String b = new StringBuffer(b1).reverse().toString();
+		if (b.startsWith("1")) {
+			final char[] chars = b.toCharArray();
+			int i;
+			for (i = 0; i < chars.length; i++) {
+				if (chars[i] != '1') {
+					break;
+				}
+			}
+			b = b.substring(i);
+			return -1 * Integer.parseInt(b, 2);
+		}
+		return Integer.parseInt(b, 2);
+	}
+
+	private String setZero(int i, String s) {
+		final StringBuilder sb = new StringBuilder();
+		for (int j = 0; j < i; j++) {
+			sb.append("0");
+		}
+		return sb.toString() + s;
+	}
+
+	public List<List<Integer>> generate(int numRows) {
+		List<List<Integer>> re = new ArrayList<>();
+		if (numRows == 0) {
+			return re;
+		}
+		re.add(Collections.singletonList(1));
+		for (int i = 1; i < numRows; i++) {
+			List<Integer> up = re.get(i - 1);
+			List<Integer> now = new ArrayList<>();
+			now.add(1);
+			for (int j = 1; j < i; j++) {
+				now.add(up.get(j - 1) + up.get(j));
+			}
+			now.add(1);
+			re.add(now);
+		}
+		return re;
+	}
 }
