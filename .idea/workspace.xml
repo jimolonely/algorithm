@@ -3,12 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="9daf3a3c-c66b-4b11-8680-9d77600a14a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/algorithm.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/META-INF/algorithm.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jimo/algo/Solution.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/jimo/algo/SolutionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/jimo/algo/SolutionTest.class" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Replace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Replace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/Replace.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jimo/algo/Replace.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sql.txt" afterDir="false" />
+>>>>>>> 3538ad647fa64b54e4922b6306e688219191d25e
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -62,10 +70,14 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
                 <state relative-caret-position="318">
                   <caret line="486" selection-start-line="486" selection-end-line="489" selection-end-column="9" />
+=======
+                <state relative-caret-position="1607">
+                  <caret line="510" lean-forward="true" selection-start-line="510" selection-end-line="510" />
+>>>>>>> 3538ad647fa64b54e4922b6306e688219191d25e
                   <folding>
-                    <element signature="imports" expanded="true" />
                     <element signature="e#6176#6177#0" expanded="true" />
                     <element signature="e#6192#6193#0" expanded="true" />
                   </folding>
@@ -90,14 +102,40 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
                 <state relative-caret-position="470">
                   <caret line="138" column="5" lean-forward="true" selection-start-line="138" selection-start-column="5" selection-end-line="138" selection-end-column="5" />
+=======
+                <state relative-caret-position="412">
+                  <caret line="85" selection-start-line="85" selection-end-line="85" />
+>>>>>>> 3538ad647fa64b54e4922b6306e688219191d25e
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/jimo/algo/Replace.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="456">
+                  <caret line="24" column="115" lean-forward="true" selection-start-line="24" selection-start-column="115" selection-end-line="24" selection-end-column="115" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/sql.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="266">
+                  <caret line="14" column="75" selection-start-line="14" selection-start-column="75" selection-end-line="14" selection-end-column="75" />
                 </state>
               </provider>
             </entry>
@@ -137,10 +175,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jimo/algo/BigEyeballBfs.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jimo/algo/BigEyeball.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jimo/algo/BigEyeballDp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jimo/algo/Replace.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/sql.txt" />
         <option value="$PROJECT_DIR$/src/test/java/com/jimo/algo/BigEyeballTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/sql.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jimo/algo/Replace.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" />
       </list>
     </option>
@@ -158,11 +196,18 @@
       </MavenImportingSettings>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1066" />
+=======
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="2767" />
+    <option name="width" value="2439" />
+    <option name="height" value="2160" />
+>>>>>>> 3538ad647fa64b54e4922b6306e688219191d25e
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -229,7 +274,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545748067027" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545824313641" />
+>>>>>>> 3538ad647fa64b54e4922b6306e688219191d25e
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -262,8 +311,14 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="JUnit.SolutionTest.reverseBits">
     <configuration name="SolutionTest.firstUniqChar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+=======
+  <component name="RunManager" selected="Application.Replace">
+    <configuration name="Replace" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jimo.algo.Replace" />
+>>>>>>> 3538ad647fa64b54e4922b6306e688219191d25e
       <module name="algorithm" />
       <extension name="coverage">
         <pattern>
@@ -352,7 +407,11 @@
     </list>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="JUnit.SolutionTest.reverseBits" />
+=======
+        <item itemvalue="Application.Replace" />
+>>>>>>> 3538ad647fa64b54e4922b6306e688219191d25e
         <item itemvalue="JUnit.SolutionTest.isPowerOfThree" />
         <item itemvalue="JUnit.SolutionTest.rob" />
         <item itemvalue="JUnit.SolutionTest.isPalindrome" />
@@ -375,8 +434,12 @@
       <workItem from="1545179200535" duration="1839000" />
       <workItem from="1545217406501" duration="17389000" />
       <workItem from="1545294705646" duration="23859000" />
+<<<<<<< HEAD
       <workItem from="1545610044641" duration="13426000" />
       <workItem from="1545744676049" duration="3727000" />
+=======
+      <workItem from="1545610044641" duration="21538000" />
+>>>>>>> 3538ad647fa64b54e4922b6306e688219191d25e
     </task>
     <servers />
   </component>
@@ -413,7 +476,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="97354000" />
+=======
+    <option name="totallyTimeSpent" value="101739000" />
+>>>>>>> 3538ad647fa64b54e4922b6306e688219191d25e
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
@@ -429,8 +496,13 @@
       <window_info anchor="bottom" id="CheckStyle" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32987654" />
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24274974" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39957035" />
+=======
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24332345" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39960435" />
+>>>>>>> 3538ad647fa64b54e4922b6306e688219191d25e
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -471,6 +543,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="jar://$USER_HOME$/software/jdk1.8.0_181/src.zip!/java/math/BigInteger.java" />
     <entry file="jar://$USER_HOME$/software/jdk1.8.0_181/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/sql.txt">
@@ -485,6 +558,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
           <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+=======
+    <entry file="jar://$USER_HOME$/software/jdk1.8.0_181/src.zip!/java/math/BigInteger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="746">
+          <caret line="275" column="7" lean-forward="true" selection-start-line="275" selection-start-column="7" selection-end-line="275" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/software/jdk1.8.0_181/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/software/jdk1.8.0_181/src.zip!/java/lang/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="5847" column="53" lean-forward="true" selection-start-line="5847" selection-start-column="53" selection-end-line="5847" selection-end-column="53" />
+          <folding>
+            <element signature="e#204938#204939#0" expanded="true" />
+            <element signature="e#204985#204986#0" expanded="true" />
+          </folding>
+>>>>>>> 3538ad647fa64b54e4922b6306e688219191d25e
         </state>
       </provider>
     </entry>
@@ -548,8 +645,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="470">
           <caret line="138" column="5" lean-forward="true" selection-start-line="138" selection-start-column="5" selection-end-line="138" selection-end-column="5" />
+=======
+        <state relative-caret-position="412">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+>>>>>>> 3538ad647fa64b54e4922b6306e688219191d25e
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/sql.txt">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="318">
+          <caret line="486" selection-start-line="486" selection-end-line="489" selection-end-column="9" />
+=======
+        <state relative-caret-position="266">
+          <caret line="14" column="75" selection-start-line="14" selection-start-column="75" selection-end-line="14" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jimo/algo/Replace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="115" lean-forward="true" selection-start-line="24" selection-start-column="115" selection-end-line="24" selection-end-column="115" />
+>>>>>>> 3538ad647fa64b54e4922b6306e688219191d25e
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -558,10 +682,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="486" selection-start-line="486" selection-end-line="489" selection-end-column="9" />
+        <state relative-caret-position="1607">
+          <caret line="510" lean-forward="true" selection-start-line="510" selection-end-line="510" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="e#6176#6177#0" expanded="true" />
             <element signature="e#6192#6193#0" expanded="true" />
           </folding>

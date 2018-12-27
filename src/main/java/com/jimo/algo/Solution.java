@@ -1,6 +1,5 @@
 package com.jimo.algo;
 
-import java.math.BigInteger;
 import java.util.*;
 
 /**
@@ -483,21 +482,69 @@ public class Solution {
 		return sb.toString() + s;
 	}
 
-	public List<List<Integer>> generate(int numRows) {
-		List<List<Integer>> re = new ArrayList<>();
-		if (numRows == 0) {
-			return re;
+	public boolean isValid(String s) {
+		if (s.length() < 2 && s.length() > 0) {
+			return false;
 		}
-		re.add(Collections.singletonList(1));
-		for (int i = 1; i < numRows; i++) {
-			List<Integer> up = re.get(i - 1);
-			List<Integer> now = new ArrayList<>();
-			now.add(1);
-			for (int j = 1; j < i; j++) {
-				now.add(up.get(j - 1) + up.get(j));
+		Stack<Character> sk = new Stack<>();
+		char[] chars = s.toCharArray();
+		for (char c : chars) {
+			switch (c) {
+				case '(':
+				case '{':
+				case '[':
+					sk.push(c);
+					break;
+				case ')':
+					if (sk.isEmpty() || '(' != sk.pop()) {
+						return false;
+					}
+					break;
+				case '}':
+					if (sk.isEmpty() || '{' != sk.pop()) {
+						return false;
+					}
+					break;
+				case ']':
+					if (sk.isEmpty() || '[' != sk.pop()) {
+						return false;
+					}
+					break;
+				default:
+					return false;
 			}
-			now.add(1);
-			re.add(now);
+		}
+		return sk.isEmpty();
+	}
+
+	public int missingNumber(int[] nums) {
+		int n = nums.length;
+		int sum = n * (n + 1) / 2;
+		int sum1 = 0;
+		for (int num : nums) {
+			sum1 += num;
+		}
+		return sum - sum1;
+	}
+
+	public int romanToInt(String s) {
+		Map<Character, Integer> m = new HashMap<>(7);
+		m.put('I', 1);
+		m.put('V', 5);
+		m.put('X', 10);
+		m.put('L', 50);
+		m.put('C', 100);
+		m.put('D', 500);
+		m.put('M', 1000);
+
+		char[] chars = s.toCharArray();
+		int re = 0;
+		for (int i = 0; i < chars.length; i++) {
+			if (i == chars.length - 1 || m.get(chars[i + 1]) <= m.get(chars[i])) {
+				re += m.get(chars[i]);
+			} else {
+				re -= m.get(chars[i]);
+			}
 		}
 		return re;
 	}
