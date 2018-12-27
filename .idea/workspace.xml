@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9daf3a3c-c66b-4b11-8680-9d77600a14a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Replace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Replace.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/Replace.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jimo/algo/Replace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sql.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -24,11 +19,15 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1607">
-                  <caret line="510" lean-forward="true" selection-start-line="510" selection-end-line="510" />
+                <state relative-caret-position="923">
+                  <caret line="508" column="24" lean-forward="true" selection-start-line="508" selection-start-column="24" selection-end-line="508" selection-end-column="24" />
                   <folding>
                     <element signature="e#6176#6177#0" expanded="true" />
                     <element signature="e#6192#6193#0" expanded="true" />
+                    <element signature="e#10279#10280#0" expanded="true" />
+                    <element signature="e#10296#10297#0" expanded="true" />
+                    <element signature="e#10199#10200#0" expanded="true" />
+                    <element signature="e#10218#10219#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -191,7 +190,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545824313641" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545888210268" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -326,7 +325,7 @@
       <workItem from="1545179200535" duration="1839000" />
       <workItem from="1545217406501" duration="17389000" />
       <workItem from="1545294705646" duration="23859000" />
-      <workItem from="1545610044641" duration="21538000" />
+      <workItem from="1545610044641" duration="25467000" />
     </task>
     <servers />
   </component>
@@ -363,7 +362,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101739000" />
+    <option name="totallyTimeSpent" value="105668000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="0" width="3840" height="2160" extended-state="6" />
@@ -548,13 +547,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/software/jdk1.8.0_181/src.zip!/java/util/Vector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2355">
+          <caret line="318" column="5" lean-forward="true" selection-start-line="318" selection-start-column="5" selection-end-line="318" selection-end-column="5" />
+          <folding>
+            <element signature="e#11798#11799#0" expanded="true" />
+            <element signature="e#11833#11834#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/software/jdk1.8.0_181/src.zip!/java/util/Stack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="987">
+          <caret line="92" column="6" lean-forward="true" selection-start-line="92" selection-start-column="6" selection-end-line="92" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1607">
-          <caret line="510" lean-forward="true" selection-start-line="510" selection-end-line="510" />
+        <state relative-caret-position="923">
+          <caret line="508" column="24" lean-forward="true" selection-start-line="508" selection-start-column="24" selection-end-line="508" selection-end-column="24" />
           <folding>
             <element signature="e#6176#6177#0" expanded="true" />
             <element signature="e#6192#6193#0" expanded="true" />
+            <element signature="e#10279#10280#0" expanded="true" />
+            <element signature="e#10296#10297#0" expanded="true" />
+            <element signature="e#10199#10200#0" expanded="true" />
+            <element signature="e#10218#10219#0" expanded="true" />
           </folding>
         </state>
       </provider>

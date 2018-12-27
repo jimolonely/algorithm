@@ -520,4 +520,38 @@ public class Solution {
 		}
 		return re;
 	}
+
+	class MinStack {
+
+		private Stack<Integer> sk;
+		private int min;
+
+		/** initialize your data structure here. */
+		public MinStack() {
+			min = Integer.MAX_VALUE;
+			sk = new Stack<>();
+		}
+
+		public void push(int x) {
+			if (x <= min) {
+				sk.push(min);
+				min = x;
+			}
+			sk.push(x);
+		}
+
+		public void pop() {
+			if (sk.pop() == min) {
+				min = sk.pop();
+			}
+		}
+
+		public int top() {
+			return sk.peek();
+		}
+
+		public int getMin() {
+			return min;
+		}
+	}
 }
