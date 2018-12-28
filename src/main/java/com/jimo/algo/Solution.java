@@ -41,21 +41,6 @@ public class Solution {
 		}
 	}
 
-	public boolean isCompleteTree(TreeNode root) {
-		Queue<TreeNode> q = new LinkedList<>();
-		q.add(root);
-		while (!q.isEmpty()) {
-			TreeNode n = q.poll();
-			if (n == null && !q.isEmpty()) {
-				return false;
-			}
-			q.add(n.left);
-			q.add(n.right);
-		}
-		return true;
-	}
-
-
 	private void traverse(TreeNode root, List<Boolean> haveNode) {
 
 	}
@@ -581,5 +566,84 @@ public class Solution {
 		public int getMin() {
 			return min;
 		}
+	}
+
+	public boolean isCompleteTree(TreeNode root) {
+		LinkedList<TreeNode> q = new LinkedList<>();
+		q.add(root);
+		TreeNode n;
+		while ((n = q.removeFirst()) != null) {
+			q.addLast(n.left);
+			q.addLast(n.right);
+		}
+		while (!q.isEmpty()) {
+			if (q.removeFirst() != null) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public void moveZeroes(int[] nums) {
+		int j = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] != 0) {
+				nums[j] = nums[i];
+				j++;
+			}
+		}
+		for (int i = j; i < nums.length; i++) {
+			nums[i] = 0;
+		}
+	}
+
+	public int[] twoSum(int[] nums, int target) {
+		Map<Integer, Integer> m = new HashMap<>(nums.length);
+		for (int i = 0; i < nums.length; i++) {
+			if (m.containsKey(target - nums[i])) {
+				return new int[]{m.get(target - nums[i]), i};
+			}
+			m.put(nums[i], i);
+		}
+		return null;
+	}
+
+	public boolean isValidSudoku(char[][] board) {
+		Set<Character> set = new HashSet<>();
+		for (int i = 0; i < board.length; i++) {
+			// 9 lines
+			set.clear();
+			for (int j = 0; j < board.length; j++) {
+				if (board[i][j] != '.' && set.contains(board[i][j])) {
+					return false;
+				}
+				set.add(board[i][j]);
+			}
+			// 9 columns
+			set.clear();
+			for (int j = 0; j < board.length; j++) {
+				if (board[j][i] != '.' && set.contains(board[j][i])) {
+					return false;
+				}
+				set.add(board[j][i]);
+			}
+		}
+
+		// 9 box
+		for (int i = 0; i < 9; i += 3) {
+			// by row
+			for (int p = 0; p < 9; p += 3) {
+				set.clear();
+				for (int j = p; j < p + 3; j++) {
+					for (int k = i; k < i + 3; k++) {
+						if (board[k][j] != '.' && set.contains(board[k][j])) {
+							return false;
+						}
+						set.add(board[k][j]);
+					}
+				}
+			}
+		}
+		return true;
 	}
 }
