@@ -646,4 +646,109 @@ public class Solution {
 		}
 		return true;
 	}
+
+	public void rotate(int[][] matrix) {
+		int len = matrix.length;
+		int start = 0, end = len - 1;
+
+		// 这个方法有点像交换变量
+		while (start < end) {
+			// keep up row
+			int[] up = keepRow(matrix, start, start, end);
+
+			// left column to up row
+			for (int i = end; i >= start; i--) {
+				matrix[start][i] = matrix[end - i + start][start];
+			}
+
+			// down row to left column
+			for (int i = start; i <= end; i++) {
+				matrix[i][start] = matrix[end][i];
+			}
+
+			// right column to down row
+			for (int i = end; i >= start; i--) {
+				matrix[end][end - i + start] = matrix[i][end];
+			}
+
+			// up row to right column
+			int i = start;
+			for (int x : up) {
+				matrix[i++][end] = x;
+			}
+			// to inside
+			start++;
+			end--;
+		}
+	}
+
+	private int[] keepRow(int[][] matrix, int row, int start, int end) {
+		int[] re = new int[end - start + 1];
+		int i = 0;
+		for (int j = start; j <= end; j++) {
+			re[i++] = matrix[row][j];
+		}
+		return re;
+	}
+
+	public int myAtoi(String str) {
+		String s = str.trim();
+		if ("".equals(s)) {
+			return 0;
+		}
+		// find number
+		char[] chars = s.toCharArray();
+		int start = 0;
+		if (chars[0] == '+' || chars[0] == '-') {
+			start = 1;
+		}
+		int sign = 1;
+		if (chars[0] == '-') {
+			sign = -1;
+		}
+		// 无法转换
+		if (start >= chars.length || chars[start] < '0' || chars[start] > '9') {
+			return 0;
+		}
+		int end = start;
+		for (int i = start; i < chars.length; i++) {
+			if (chars[i] < '0' || chars[i] > '9') {
+				break;
+			} else {
+				end = i;
+			}
+		}
+		String numStr = s.substring(start, end + 1);
+		// remove begin zero
+		while (numStr.startsWith("0")) {
+			numStr = numStr.substring(1);
+		}
+		if ("".equals(numStr)) {
+			return 0;
+		}
+
+		// 通过判断长度来确定边界
+		int maxIntLen = 10;
+		if (numStr.length() < maxIntLen) {
+			return sign * Integer.parseInt(numStr);
+		} else if (numStr.length() > maxIntLen) {
+			return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+		}
+		// 剩下长度为10的
+		int pre9 = Integer.parseInt(numStr.substring(0, maxIntLen - 1));
+		int last1 = Integer.parseInt(numStr.substring(maxIntLen - 1));
+		if (sign == 1) {
+			if (Integer.MAX_VALUE / 10 - last1 + 7 > pre9) {
+				return Integer.parseInt(numStr);
+			} else {
+				return Integer.MAX_VALUE;
+			}
+		} else {
+			if (Integer.MAX_VALUE / 10 - last1 + 8 > pre9) {
+				return -1 * Integer.parseInt(numStr);
+			} else {
+				return Integer.MIN_VALUE;
+			}
+		}
+	}
 }

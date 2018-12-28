@@ -137,5 +137,29 @@ public class SolutionTest {
 		assertEquals(964176192, s.reverseBits(43261596));
 		assertEquals(-1073741825, s.reverseBits(-3));
 	}
+
+	@Test
+	public void rotate2() {
+		int[][] m = {
+				{5, 1, 9, 11}, {2, 4, 8, 10}, {13, 3, 6, 7}, {15, 14, 12, 16}
+		};
+		s.rotate(m);
+	}
+
+	@Test
+	public void myAtoi() {
+		assertEquals(43, s.myAtoi("43"));
+		assertEquals(-42, s.myAtoi("   -42"));
+		assertEquals(4193, s.myAtoi("4193 with words"));
+		assertEquals(0, s.myAtoi("words and 987"));
+		assertEquals(-2147483648, s.myAtoi("-91283472332"));
+		assertEquals(-2147483648, s.myAtoi("-2147483648"));
+		assertEquals(2147483647, s.myAtoi("2147483648"));
+		assertEquals(2147483647, s.myAtoi("2147483649"));
+		assertEquals(3, s.myAtoi("3.14"));
+		assertEquals(0, s.myAtoi("+"));
+		assertEquals(12345678, s.myAtoi("  0000000000012345678"));
+		assertEquals(0, s.myAtoi("  000000000"));
+	}
 }
 
