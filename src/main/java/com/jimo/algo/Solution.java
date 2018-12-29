@@ -751,4 +751,68 @@ public class Solution {
 			}
 		}
 	}
+
+	public int strStr(String haystack, String needle) {
+//		if ("".equals(needle)) {
+//			return 0;
+//		}
+//		if (haystack.length() < needle.length()) {
+//			return -1;
+//		}
+
+		return haystack.indexOf(needle);
+//		return -1;
+	}
+
+	public String countAndSay(int n) {
+		if (n == 1) {
+			return "1";
+		}
+		String s1 = "1";
+		while (n-- > 1) {
+			char[] chars = s1.toCharArray();
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < chars.length; ) {
+				int cnt = 0;
+				char c = chars[i];
+				while (i < chars.length && chars[i] == c) {
+					cnt++;
+					i++;
+				}
+				sb.append(cnt).append(c);
+			}
+			s1 = sb.toString();
+		}
+		return s1;
+	}
+
+	public String longestCommonPrefix(String[] strs) {
+		if (strs.length < 1) {
+			return "";
+		}
+		String str1 = strs[0];
+		if ("".equals(str1)) {
+			return "";
+		}
+		int minLen = Integer.MAX_VALUE;
+		for (String str : strs) {
+			minLen = Math.min(minLen, str.length());
+		}
+
+		int i;
+		for (i = 0; i < minLen; i++) {
+			char c = strs[0].charAt(i);
+			boolean ok = true;
+			for (String str : strs) {
+				if (str.charAt(i) != c) {
+					ok = false;
+					break;
+				}
+			}
+			if (!ok) {
+				break;
+			}
+		}
+		return str1.substring(0, i);
+	}
 }

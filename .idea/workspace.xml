@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9daf3a3c-c66b-4b11-8680-9d77600a14a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jimo/algo/Solution.class" afterDir="false" />
@@ -20,8 +19,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1153">
-                  <caret line="724" column="9" lean-forward="true" selection-start-line="724" selection-start-column="9" selection-end-line="724" selection-end-column="9" />
+                <state relative-caret-position="1195">
+                  <caret line="810" column="13" lean-forward="true" selection-start-line="810" selection-start-column="13" selection-end-line="810" selection-end-column="13" />
                   <folding>
                     <element signature="e#6176#6177#0" expanded="true" />
                     <element signature="e#6192#6193#0" expanded="true" />
@@ -34,6 +33,19 @@
               </provider>
             </entry>
           </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="jar://$USER_HOME$/software/jdk1.8.0_181/src.zip!/java/lang/String.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="777">
+                  <caret line="1767" lean-forward="true" selection-start-line="1767" selection-end-line="1767" />
+                  <folding>
+                    <element signature="e#66457#66458#0" expanded="true" />
+                    <element signature="e#66495#66496#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -41,8 +53,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1305">
-                  <caret line="159" column="39" lean-forward="true" selection-start-line="159" selection-start-column="39" selection-end-line="159" selection-end-column="39" />
+                <state relative-caret-position="885">
+                  <caret line="169" column="18" selection-start-line="169" selection-start-column="18" selection-end-line="169" selection-end-column="18" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -83,10 +95,15 @@
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" />
       </list>
     </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="635" />
+    <option name="width" value="3840" />
+    <option name="height" value="1525" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -156,7 +173,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546005399495" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546076380857" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -170,7 +187,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SolutionTest.myAtoi">
+  <component name="RunManager" selected="JUnit.SolutionTest.countAndSay">
+    <configuration name="SolutionTest.countAndSay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="algorithm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jimo.algo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jimo.algo" />
+      <option name="MAIN_CLASS_NAME" value="com.jimo.algo.SolutionTest" />
+      <option name="METHOD_NAME" value="countAndSay" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SolutionTest.myAtoi" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="algorithm" />
       <extension name="coverage">
@@ -205,6 +238,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SolutionTest.countAndSay" />
         <item itemvalue="JUnit.SolutionTest.myAtoi" />
         <item itemvalue="JUnit.SolutionTest.rotate2" />
       </list>
@@ -225,29 +259,44 @@
       <workItem from="1545179200535" duration="1839000" />
       <workItem from="1545217406501" duration="17389000" />
       <workItem from="1545294705646" duration="23859000" />
-      <workItem from="1545610044641" duration="41039000" />
+      <workItem from="1545610044641" duration="49805000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SolutionTest_rotate2 - 2018.12.28 at 20h 15m 52s.xml">
-      <configuration name="SolutionTest.rotate2" configurationId="JUnit" />
+    <history-entry file="SolutionTest_countAndSay - 2018.12.29 at 09h 43m 28s.xml">
+      <configuration name="SolutionTest.countAndSay" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionTest_rotate2 - 2018.12.28 at 20h 19m 56s.xml">
-      <configuration name="SolutionTest.rotate2" configurationId="JUnit" />
+    <history-entry file="SolutionTest_countAndSay - 2018.12.29 at 09h 46m 31s.xml">
+      <configuration name="SolutionTest.countAndSay" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionTest_myAtoi - 2018.12.28 at 21h 49m 14s.xml">
-      <configuration name="SolutionTest.myAtoi" configurationId="JUnit" />
+    <history-entry file="SolutionTest_countAndSay - 2018.12.29 at 09h 46m 55s.xml">
+      <configuration name="SolutionTest.countAndSay" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionTest_myAtoi - 2018.12.28 at 21h 49m 26s.xml">
-      <configuration name="SolutionTest.myAtoi" configurationId="JUnit" />
+    <history-entry file="SolutionTest_countAndSay - 2018.12.29 at 09h 48m 48s.xml">
+      <configuration name="SolutionTest.countAndSay" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SolutionTest_myAtoi - 2018.12.28 at 21h 50m 45s.xml">
-      <configuration name="SolutionTest.myAtoi" configurationId="JUnit" />
+    <history-entry file="SolutionTest_countAndSay - 2018.12.29 at 09h 53m 03s.xml">
+      <configuration name="SolutionTest.countAndSay" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SolutionTest_countAndSay - 2018.12.29 at 09h 55m 08s.xml">
+      <configuration name="SolutionTest.countAndSay" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SolutionTest_countAndSay - 2018.12.29 at 12h 27m 11s.xml">
+      <configuration name="SolutionTest.countAndSay" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SolutionTest_countAndSay - 2018.12.29 at 12h 27m 38s.xml">
+      <configuration name="SolutionTest.countAndSay" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SolutionTest_countAndSay - 2018.12.29 at 12h 28m 02s.xml">
+      <configuration name="SolutionTest.countAndSay" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SolutionTest_countAndSay - 2018.12.29 at 12h 30m 43s.xml">
+      <configuration name="SolutionTest.countAndSay" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15572000" />
+    <option name="totallyTimeSpent" value="24338000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="0" width="3840" height="2160" extended-state="6" />
@@ -262,7 +311,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32987654" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24332345" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25074184" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.46241346" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -457,15 +506,29 @@
     </entry>
     <entry file="jar://$USER_HOME$/software/jdk1.8.0_181/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="1954" column="52" lean-forward="true" selection-start-line="1954" selection-start-column="52" selection-end-line="1954" selection-end-column="52" />
+        <state relative-caret-position="777">
+          <caret line="1767" lean-forward="true" selection-start-line="1767" selection-end-line="1767" />
+          <folding>
+            <element signature="e#66457#66458#0" expanded="true" />
+            <element signature="e#66495#66496#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="169" column="18" selection-start-line="169" selection-start-column="18" selection-end-line="169" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1153">
-          <caret line="724" column="9" lean-forward="true" selection-start-line="724" selection-start-column="9" selection-end-line="724" selection-end-column="9" />
+        <state relative-caret-position="1195">
+          <caret line="810" column="13" lean-forward="true" selection-start-line="810" selection-start-column="13" selection-end-line="810" selection-end-column="13" />
           <folding>
             <element signature="e#6176#6177#0" expanded="true" />
             <element signature="e#6192#6193#0" expanded="true" />
@@ -473,16 +536,6 @@
             <element signature="e#10296#10297#0" expanded="true" />
             <element signature="e#10199#10200#0" expanded="true" />
             <element signature="e#10218#10219#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1305">
-          <caret line="159" column="39" lean-forward="true" selection-start-line="159" selection-start-column="39" selection-end-line="159" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
