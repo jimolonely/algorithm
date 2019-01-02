@@ -539,7 +539,9 @@ public class Solution {
 		private Stack<Integer> sk;
 		private int min;
 
-		/** initialize your data structure here. */
+		/**
+		 * initialize your data structure here.
+		 */
 		public MinStack() {
 			min = Integer.MAX_VALUE;
 			sk = new Stack<>();
@@ -815,4 +817,98 @@ public class Solution {
 		}
 		return str1.substring(0, i);
 	}
+
+	public int firstBadVersion(int n) {
+		if (isBadVersion(1)) {
+			return 1;
+		}
+		int i = 1, j = n;
+		while (i < j) {
+//			int mid = (j + i) / 2;
+			int mid = j / 2 + i / 2;
+			if (isBadVersion(mid)) {
+				j = mid;
+			} else {
+				i = mid + 1;
+			}
+		}
+		return i;
+	}
+
+	private boolean isBadVersion(int i) {
+		return false;
+	}
+
+	public List<List<Integer>> levelOrder(TreeNode root) {
+		List<List<Integer>> re = new ArrayList<>();
+		if (root == null) {
+			return re;
+		}
+		LinkedList<TreeNode> q = new LinkedList<>();
+		q.add(root);
+		while (!q.isEmpty()) {
+			List<Integer> level = new ArrayList<>();
+			int size = q.size();
+			while (size-- > 0) {
+				final TreeNode node = q.removeFirst();
+				level.add(node.val);
+				if (node.left != null) {
+					q.add(node.left);
+				}
+				if (node.right != null) {
+					q.add(node.right);
+				}
+			}
+			re.add(level);
+		}
+		return re;
+	}
+
+	public TreeNode sortedArrayToBST(int[] nums) {
+		if (nums.length == 0) {
+			return null;
+		}
+		if (nums.length == 1) {
+			return new TreeNode(nums[0]);
+		}
+		return build(nums, 0, nums.length - 1);
+	}
+
+	public TreeNode build(int[] nums, int start, int end) {
+		if (start > end) {
+			return null;
+		}
+		if (start == end) {
+			return new TreeNode(nums[start]);
+		}
+		int mid = (start + end) / 2;
+		final TreeNode root = new TreeNode(nums[mid]);
+		root.left = build(nums, start, mid - 1);
+		root.right = build(nums, mid + 1, end);
+		return root;
+	}
+
+	public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+		ListNode head = new ListNode(0);
+		ListNode pre = head;
+		while (l1 != null && l2 != null) {
+			if (l1.val <= l2.val) {
+				pre.next = l1;
+				l1 = l1.next;
+			} else {
+				pre.next = l2;
+				l2 = l2.next;
+			}
+			pre = pre.next;
+		}
+		if (l1 != null) {
+			pre.next = l1;
+		}
+		if (l2 != null) {
+			pre.next = l2;
+		}
+		return head.next;
+	}
+
+	
 }
