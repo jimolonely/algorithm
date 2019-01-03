@@ -216,5 +216,13 @@ public class SolutionTest {
 				"1311222113111221132221232221123113112221132211131221131211132221121321132132211331121321133112111312212" +
 				"2211211132213211231131122212322211331222113112211", s.countAndSay(30));
 	}
+
+	@Test
+	public void isPalindrome2() {
+		Solution.ListNode head = new Solution.ListNode(1);
+		Solution.ListNode node = new Solution.ListNode(2);
+		head.next = node;
+		assertFalse(s.isPalindrome(head));
+	}
 }
 

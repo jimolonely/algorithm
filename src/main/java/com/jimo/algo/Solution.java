@@ -299,7 +299,7 @@ public class Solution {
 		return true;
 	}
 
-	public class ListNode {
+	public static class ListNode {
 		int val;
 		ListNode next;
 
@@ -910,5 +910,60 @@ public class Solution {
 		return head.next;
 	}
 
-	
+	public boolean isPalindrome(ListNode head) {
+		if (head == null || head.next == null) {
+			return true;
+		}
+		ListNode slow = head, fast = head;
+		// 用来逆转
+		ListNode pre = null;
+		// 在slow后面一个
+		ListNode post = slow.next;
+		while (slow.next != null && fast.next != null && fast.next.next != null) {
+			fast = fast.next.next;
+
+			post = slow.next.next;
+			// 逆转
+			ListNode tmp = slow.next;
+			slow.next = pre;
+			pre = slow;
+			slow = tmp;
+		}
+		slow.next = pre;
+
+		ListNode left, right = post;
+		if (fast != head && fast.next == null) {
+			// 奇数
+			left = slow.next;
+		} else {
+			// 偶数
+			left = slow;
+		}
+		while (left != null && right != null) {
+			if (left.val != right.val) {
+				return false;
+			}
+			left = left.next;
+			right = right.next;
+		}
+		return true;
+	}
+
+	public boolean hasCycle(ListNode head) {
+		ListNode slow = head, fast = head;
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+			if (slow == fast) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void deleteNode(ListNode node) {
+		ListNode next = node.next;
+		node.val = next.val;
+		node.next = next.next;
+	}
 }
