@@ -1,5 +1,6 @@
 package com.jimo.algo;
 
+import java.math.BigInteger;
 import java.util.*;
 
 /**
@@ -965,5 +966,63 @@ public class Solution {
 		ListNode next = node.next;
 		node.val = next.val;
 		node.next = next.next;
+	}
+
+	public List<List<Integer>> threeSum(int[] nums) {
+		List<List<Integer>> re = new ArrayList<>();
+		// sort
+		Arrays.sort(nums);
+
+		for (int i = 0; i < nums.length - 2; i++) {
+			if (nums[i] > 0) {
+				break;
+			}
+			if (i > 0 && nums[i] == nums[i - 1]) {
+				continue;
+			}
+			int target = 0 - nums[i];
+			int left = i + 1, right = nums.length - 1;
+			while (left < right) {
+				if (target == nums[left] + nums[right]) {
+					re.add(Arrays.asList(nums[i], nums[left], nums[right]));
+					while (left < right && nums[left] == nums[left + 1]) {
+						++left;
+					}
+					while (left < right && nums[right] == nums[right - 1]) {
+						--right;
+					}
+					++left;
+					--right;
+				} else if (target < nums[left] + nums[right]) {
+					right--;
+				} else {
+					left++;
+				}
+			}
+		}
+		return re;
+	}
+
+	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+		String s = getNum(l1).add(getNum(l2)).toString();
+		System.out.println(s);
+		String sum = new StringBuilder(s + "").reverse().toString();
+		ListNode head = new ListNode(sum.charAt(0) - '0');
+		ListNode pre = head;
+		for (int i = 1; i < sum.length(); i++) {
+			ListNode next = new ListNode(sum.charAt(i) - '0');
+			pre.next = next;
+			pre = next;
+		}
+		return head;
+	}
+
+	public BigInteger getNum(ListNode head) {
+		StringBuilder sb = new StringBuilder();
+		while (head != null) {
+			sb.append(head.val);
+			head = head.next;
+		}
+		return new BigInteger(sb.reverse().toString());
 	}
 }
