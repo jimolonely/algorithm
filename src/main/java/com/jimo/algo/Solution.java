@@ -910,5 +910,17 @@ public class Solution {
 		return head.next;
 	}
 
-	
+	public boolean isPalindrome(ListNode head) {
+		if (head == null) {
+			return true;
+		}
+		ListNode slow = head, fast = head;
+		// find center
+		while (slow.next != null && fast.next.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+
+		return true;
+	}
 }
