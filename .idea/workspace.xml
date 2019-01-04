@@ -2,56 +2,105 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9daf3a3c-c66b-4b11-8680-9d77600a14a4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/Replace.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/Solution$Index.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/Solution$ListNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/Solution$MinStack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/Solution$TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/week1/BigEyeball$Comb.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/week1/BigEyeball.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/week1/BigEyeballBfs$Ball.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/week1/BigEyeballBfs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/week1/BigEyeballDp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jimo/algo/week2/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sql.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jimo/algo/BigEyeballBfsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jimo/algo/BigEyeballDpTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jimo/algo/BigEyeballTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jimo/algo/SolutionTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/jimo/algo/week2/SolutionTest.class" beforeDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CheckStyle-IDEA-workspace">
+    <option name="configuration">
+      <map>
+        <entry key="last-active-plugin-version" value="5.23.0" />
+      </map>
+    </option>
+  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="2086935025">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3368" />
+          <entry key="gitignore" value="8" />
+          <entry key="java" value="3370" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3368" />
+          <entry key="JAVA" value="3370" />
+          <entry key="PLAIN_TEXT" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="gitignore" value="1" />
+          <entry key="gitignore" value="2" />
           <entry key="java" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JAVA" value="6" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="1" />
+          <entry key="project.open.time.30" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="729">
-              <caret line="922" lean-forward="true" selection-start-line="922" selection-end-line="922" />
+              <caret line="1026" column="5" lean-forward="true" selection-start-line="1026" selection-start-column="5" selection-end-line="1026" selection-end-column="5" />
               <folding>
-                <element signature="e#809#810#0" expanded="true" />
-                <element signature="e#825#826#0" expanded="true" />
-                <element signature="e#5871#5872#0" expanded="true" />
-                <element signature="e#5887#5888#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#838#839#0" expanded="true" />
+                <element signature="e#854#855#0" expanded="true" />
+                <element signature="e#5907#5908#0" expanded="true" />
+                <element signature="e#5923#5924#0" expanded="true" />
+                <element signature="e#10712#10713#0" expanded="true" />
+                <element signature="e#10737#10738#0" expanded="true" />
+                <element signature="e#10762#10763#0" expanded="true" />
+                <element signature="e#10781#10782#0" expanded="true" />
+                <element signature="e#16330#16331#0" expanded="true" />
+                <element signature="e#16349#16350#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,7 +109,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/week2/SolutionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
+            <state relative-caret-position="228">
               <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -91,11 +140,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/jimo/algo/SolutionTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/jimo/algo/week2/SolutionTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jimo/algo/week2/Solution.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java" />
       </list>
     </option>
@@ -127,6 +176,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -173,8 +224,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -300,6 +349,7 @@
       <workItem from="1545217406501" duration="17389000" />
       <workItem from="1545294705646" duration="23859000" />
       <workItem from="1545610044641" duration="49805000" />
+      <workItem from="1546611239805" duration="252000" />
     </task>
     <servers />
   </component>
@@ -336,18 +386,20 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44617000" />
+    <option name="totallyTimeSpent" value="44869000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.120469086" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.117803834" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="CheckStyle" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32987654" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.24919441" />
@@ -356,11 +408,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32987142" />
+      <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -372,6 +425,9 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="PlantUML" order="9" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -504,7 +560,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/jimo/algo/week2/SolutionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
+        <state relative-caret-position="228">
           <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -514,20 +570,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
+        <state relative-caret-position="38">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jimo/algo/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="729">
-          <caret line="922" lean-forward="true" selection-start-line="922" selection-end-line="922" />
+          <caret line="1026" column="5" lean-forward="true" selection-start-line="1026" selection-start-column="5" selection-end-line="1026" selection-end-column="5" />
           <folding>
-            <element signature="e#809#810#0" expanded="true" />
-            <element signature="e#825#826#0" expanded="true" />
-            <element signature="e#5871#5872#0" expanded="true" />
-            <element signature="e#5887#5888#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#838#839#0" expanded="true" />
+            <element signature="e#854#855#0" expanded="true" />
+            <element signature="e#5907#5908#0" expanded="true" />
+            <element signature="e#5923#5924#0" expanded="true" />
+            <element signature="e#10712#10713#0" expanded="true" />
+            <element signature="e#10737#10738#0" expanded="true" />
+            <element signature="e#10762#10763#0" expanded="true" />
+            <element signature="e#10781#10782#0" expanded="true" />
+            <element signature="e#16330#16331#0" expanded="true" />
+            <element signature="e#16349#16350#0" expanded="true" />
           </folding>
         </state>
       </provider>
