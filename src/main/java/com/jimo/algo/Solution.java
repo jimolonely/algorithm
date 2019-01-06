@@ -1106,19 +1106,12 @@ public class Solution {
 	}
 
 	public boolean canJump(int[] nums) {
-		boolean[] b = new boolean[nums.length];
-		b[0] = nums[0] == 0;
+		// dp[i]: 到位置i能跳跃的最大长度
+		int[] dp = new int[nums.length];
+		dp[0] = nums[0];
 		for (int i = 1; i < nums.length; i++) {
-			for (int j = 0; j < i; j++) {
-				if (b[j] && nums[j] >= i - j) {
-					b[i] = true;
-					break;
-				}
-			}
-			if (b[i] && nums[i] >= nums.length - i - 1) {
-				return true;
-			}
+			dp[i] = dp[i - 1] >= i ? Math.max(nums[i] + i, dp[i - 1]) : 0;
 		}
-		return false;
+		return dp[nums.length - 1] >= nums.length - 1;
 	}
 }
