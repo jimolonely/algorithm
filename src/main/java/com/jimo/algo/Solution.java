@@ -1025,4 +1025,69 @@ public class Solution {
 		}
 		return new BigInteger(sb.reverse().toString());
 	}
+
+	public List<Integer> inorderTraversal1(TreeNode root) {
+		List<Integer> re = new ArrayList<>();
+		inorder(root, re);
+		return re;
+	}
+
+	private void inorder(TreeNode root, List<Integer> re) {
+		if (root == null) {
+			return;
+		}
+		inorder(root.left, re);
+		re.add(root.val);
+		inorder(root.right, re);
+	}
+
+	public List<Integer> inorderTraversal(TreeNode root) {
+		List<Integer> re = new ArrayList<>();
+		Stack<TreeNode> s = new Stack<>();
+		while (root != null || !s.isEmpty()) {
+			while (root != null) {
+				s.push(root);
+				root = root.left;
+			}
+			TreeNode top = s.pop();
+			re.add(top.val);
+			root = top.right;
+		}
+		return re;
+	}
+
+	public List<String> letterCombinations(String digits) {
+		List<String> re = new ArrayList<>();
+		if ("".equals(digits)) {
+			return re;
+		}
+		Map<Character, String[]> map = new HashMap<>(8);
+		map.put('2', new String[]{"a", "b", "c"});
+		map.put('3', new String[]{"d", "e", "f"});
+		map.put('4', new String[]{"g", "h", "i"});
+		map.put('5', new String[]{"j", "k", "l"});
+		map.put('6', new String[]{"m", "n", "o"});
+		map.put('7', new String[]{"p", "q", "r", "s"});
+		map.put('8', new String[]{"t", "u", "v"});
+		map.put('9', new String[]{"w", "x", "y", "z"});
+
+		StringBuilder sb = new StringBuilder();
+		concat(digits, sb, re, map, 0);
+
+		return re;
+	}
+
+	private void concat(String digits, StringBuilder sb, List<String> re, Map<Character, String[]> m, int index) {
+		if (index == digits.length()) {
+			re.add(sb.toString());
+			return;
+		}
+		char c = digits.charAt(index);
+		String[] aphs = m.get(c);
+		for (String aph : aphs) {
+			sb.append(aph);
+			concat(digits, sb, re, m, index + 1);
+			sb.deleteCharAt(sb.length() - 1);
+		}
+	}
 }
