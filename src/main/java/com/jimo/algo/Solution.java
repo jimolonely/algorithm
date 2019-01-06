@@ -1090,4 +1090,35 @@ public class Solution {
 			sb.deleteCharAt(sb.length() - 1);
 		}
 	}
+
+	public void sortColors(int[] nums) {
+		int[] cnt = new int[3];
+		for (int num : nums) {
+			cnt[num]++;
+		}
+		int i = 0;
+		for (int j = 0; j < cnt.length; j++) {
+			int k = 0;
+			while (k++ < cnt[j]) {
+				nums[i++] = j;
+			}
+		}
+	}
+
+	public boolean canJump(int[] nums) {
+		boolean[] b = new boolean[nums.length];
+		b[0] = nums[0] == 0;
+		for (int i = 1; i < nums.length; i++) {
+			for (int j = 0; j < i; j++) {
+				if (b[j] && nums[j] >= i - j) {
+					b[i] = true;
+					break;
+				}
+			}
+			if (b[i] && nums[i] >= nums.length - i - 1) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
