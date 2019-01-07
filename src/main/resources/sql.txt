@@ -1,17 +1,49 @@
-    select d.reportdate,d.max, d.avg, d.min, d.max_time, d.min_time,
-    v.power, v.vm_state, v.os_name, v.os_type, v.vcpu_num, v.memory, v.os_volume_type, v.os_volume_size, v.storage_num, v.volume_info,
-    v.net_num, v.parenthostip, v.parenthostname, COALESCE(v.uuid,d.uuid) as uuid, v.name, v.ip, v.az,
-    COALESCE(v.cluster,d.cluster) as cluster,
-    v.tenant, COALESCE(v.reportdate,d.reportdate) as reportdate, COALESCE(v.cloud_uuid,d.cloud_uuid) as cloud_uuid
-    from
-    (select * from oms_report_vm_cpu_${zq} where reportdate &gt;= '${starReportDate}' AND reportdate &lt;= '${endReportDate}'
-    AND cluster = '${cluster}' and cloud_uuid='${cloudUuid}'
-    )d
-    full join
-    (select * from (
-    select *,"row_number"() over(PARTITION by uuid order by "terminated" desc) as cnt from oms_vm_${zq}
-    ) v1 where v1.cnt=1 and (v1.reportdate = '${endReportDate}'  OR (v1.terminated &gt;= '${starReportDate}'
-    AND v1.terminated &lt;= '${endReportDate}'))
-    AND v1.cluster = '${cluster}' and v1.cloud_uuid='${cloudUuid}'
-    ) v
-    on  d.uuid=v.uuid and d.cluster=v.cluster and d.cloud_uuid=v.cloud_uuid
+        SELECT
+            s.ceph_list,
+            m.cluster,
+            avg(controller_num)::integer                               controller_num,
+            avg(compute_num)::integer                                  compute_num,
+            avg(ceph_mon_num)::integer                                 ceph_mon_num,
+            avg(ceph_osd_num)::integer                                 ceph_osd_num,
+            avg(osd_num)::integer                                      osd_num,
+            avg(cpu_total)                                              cpu_total,
+            avg(cpu_use)                                               cpu_use,
+            avg(mem_total)                                             mem_total,
+            avg(mem_use)                                                 mem_use,
+            avg(vm_total)::integer                                     vm_total,
+            SUM(vm_new_total)::integer                                 vm_new_total,
+            array_to_string(array_agg(vm_new_user_info), '|') vm_new_user_info,
+            SUM(vm_del_total)                                 vm_del_total,
+            sum(vm_win_total)                                 vm_win_total,
+            SUM(vm_win_new_total)                             vm_win_new_total,
+            SUM(vm_win_del_total)                             vm_win_del_total,
+            sum(vm_lin_total)                                 vm_lin_total,
+            SUM(vm_lin_new_total)                             vm_lin_new_total,
+            SUM(vm_lin_del_total)                             vm_lin_del_total,
+            sum(vm_image_total)                               vm_image_total,
+            SUM(vm_image_new_total)                           vm_image_new_total,
+            SUM(vm_image_del_total)                           vm_image_del_total,
+            sum(vm_volume_total)                              vm_volume_total,
+            SUM(vm_volume_new_total)                          vm_volume_new_total,
+            SUM(vm_volume_del_total)                          vm_volume_del_total,
+            avg(cpu_surplus)                                  cpu_surplus,
+            avg(mem_surplus)                                  mem_surplus
+        FROM
+            (SELECT *
+             FROM oms_report_resources_${zq}
+             WHERE reportdate &gt;= '${starReportDate}'
+               AND reportdate &lt;= '${endReportDate}'
+               AND cluster = '${cluster}'
+               AND cloud_uuid = '${cloudUuid}'
+            ) m
+                join (SELECT ceph_list,cluster
+                      FROM oms_report_resources_${zq}
+                      WHERE reportdate &gt;= '${starReportDate}'
+                        AND reportdate &lt;= '${endReportDate}'
+                        AND cluster = '${cluster}'
+                        AND cloud_uuid = '${cloudUuid}'
+                      order by reportdate desc limit 1
+            ) s
+                     on (s.cluster = m.cluster)
+        GROUP BY
+            m.cluster,s.ceph_list
