@@ -1,49 +1,50 @@
         SELECT
-            s.ceph_list,
-            m.cluster,
-            avg(controller_num)::integer                               controller_num,
-            avg(compute_num)::integer                                  compute_num,
-            avg(ceph_mon_num)::integer                                 ceph_mon_num,
-            avg(ceph_osd_num)::integer                                 ceph_osd_num,
-            avg(osd_num)::integer                                      osd_num,
-            avg(cpu_total)                                              cpu_total,
-            avg(cpu_use)                                               cpu_use,
-            avg(mem_total)                                             mem_total,
-            avg(mem_use)                                                 mem_use,
-            avg(vm_total)::integer                                     vm_total,
-            SUM(vm_new_total)::integer                                 vm_new_total,
-            array_to_string(array_agg(vm_new_user_info), '|') vm_new_user_info,
-            SUM(vm_del_total)                                 vm_del_total,
-            sum(vm_win_total)                                 vm_win_total,
-            SUM(vm_win_new_total)                             vm_win_new_total,
-            SUM(vm_win_del_total)                             vm_win_del_total,
-            sum(vm_lin_total)                                 vm_lin_total,
-            SUM(vm_lin_new_total)                             vm_lin_new_total,
-            SUM(vm_lin_del_total)                             vm_lin_del_total,
-            sum(vm_image_total)                               vm_image_total,
-            SUM(vm_image_new_total)                           vm_image_new_total,
-            SUM(vm_image_del_total)                           vm_image_del_total,
-            sum(vm_volume_total)                              vm_volume_total,
-            SUM(vm_volume_new_total)                          vm_volume_new_total,
-            SUM(vm_volume_del_total)                          vm_volume_del_total,
-            avg(cpu_surplus)                                  cpu_surplus,
-            avg(mem_surplus)                                  mem_surplus
-        FROM
-            (SELECT *
-             FROM oms_report_resources_${zq}
-             WHERE reportdate &gt;= '${starReportDate}'
-               AND reportdate &lt;= '${endReportDate}'
-               AND cluster = '${cluster}'
-               AND cloud_uuid = '${cloudUuid}'
-            ) m
-                join (SELECT ceph_list,cluster
-                      FROM oms_report_resources_${zq}
-                      WHERE reportdate &gt;= '${starReportDate}'
-                        AND reportdate &lt;= '${endReportDate}'
-                        AND cluster = '${cluster}'
-                        AND cloud_uuid = '${cloudUuid}'
-                      order by reportdate desc limit 1
-            ) s
-                     on (s.cluster = m.cluster)
-        GROUP BY
-            m.cluster,s.ceph_list
+        n.ip,
+        n.cluster,
+        n.hostname,
+        n.power,
+        n.cpu,
+        n.cpu_num,
+        n.cpu_slot_num,
+        n.mem,
+        n.system_type,
+        n.system_version,
+        n.net_num,
+        n.product_name,
+        n.product_serial,
+        n.bios_version,
+
+        COUNT(1) vmnum,
+        SUM(CASE v.os_type WHEN 'linux' THEN 1 ELSE 0 END) vmlinuxnum,
+        SUM(CASE v.os_type WHEN 'windows' THEN 1 ELSE 0 END) vmwindowsnum,
+        SUM(to_number(v.vcpu_num, '99G999D9S')) vcputotal,
+        SUM(to_number(v.memory, '99G999D9S')) memtotal,
+        array_to_string(array_agg(v.volume_info), ',|') volumesinfo,
+        SUM(to_number(v.net_num, '99G999D9S')) netnumtotal
+        FROM ( select *,row_number() over(partition by cluster,hostname order by reportdate desc)as cnt from
+        oms_node_${zq}
+        where reportdate &gt;= '${starReportDate}' and reportdate &lt;='${endReportDate}'
+        AND (power = '1' or (power = '-' and agent_alive = '1'))
+        AND cluster = '${cluster}'
+        and cloud_uuid = '${cloudUuid}'
+        AND is_delete = 'false'
+        ) n
+        inner JOIN (select *,row_number() over(partition by cluster,uuid order by reportdate desc)as cnt from oms_vm_${zq}
+        where reportdate &gt;= '${starReportDate}' and reportdate &lt;='${endReportDate}' AND power = 'RUNNING'
+        ) v
+        ON (n.cluster = v.cluster AND n.hostname = v.parenthostname)
+        WHERE n.cnt=1 and v.cnt=1
+        group by n.ip,
+        n.cluster,
+        n.hostname,
+        n.power,
+        n.cpu,
+        n.cpu_num,
+        n.cpu_slot_num,
+        n.mem,
+        n.system_type,
+        n.system_version,
+        n.net_num,
+        n.product_name,
+        n.product_serial,
+        n.bios_version

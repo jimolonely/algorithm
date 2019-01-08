@@ -224,5 +224,10 @@ public class SolutionTest {
 		head.next = node;
 		assertFalse(s.isPalindrome(head));
 	}
+
+	@Test
+	public void setZeroes() {
+
+	}
 }
 

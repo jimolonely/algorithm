@@ -12,8 +12,8 @@ public class Replace {
 
 	public String replace(String path) throws IOException {
 		String str = new String(Files.readAllBytes(Paths.get(path)));
-		return str.replaceAll("\\$\\{starReportDate}", "2019-01-06")
-				.replaceAll("\\$\\{endReportDate}", "2019-01-06")
+		return str.replaceAll("\\$\\{starReportDate}", "2019-01-07")
+				.replaceAll("\\$\\{endReportDate}", "2019-01-07")
 				.replaceAll("\\$\\{cloudUuid}", "86595a76-567b-4521-ab88-715c11f6738e")
 				.replaceAll("\\$\\{cluster}", "default_cluster")
 				.replaceAll("\\$\\{zq}", "day")

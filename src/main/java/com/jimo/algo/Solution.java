@@ -1172,4 +1172,92 @@ public class Solution {
 		}
 		return sum;
 	}
+
+	public int evalRPN(String[] tokens) {
+		Stack<Integer> s = new Stack<>();
+		int x;
+		for (String token : tokens) {
+			switch (token) {
+				case "+":
+					x = s.pop() + s.pop();
+					s.add(x);
+					break;
+				case "-":
+					x = 0 - s.pop() + s.pop();
+					s.add(x);
+					break;
+				case "*":
+					x = s.pop() * s.pop();
+					s.add(x);
+					break;
+				case "/":
+					int a = s.pop();
+					int b = s.pop();
+					s.add(b / a);
+					break;
+				default:
+					s.add(Integer.parseInt(token));
+			}
+		}
+		return s.pop();
+	}
+
+	public int majorityElement(int[] nums) {
+		int re = nums[0];
+		int cnt = 0;
+		for (int num : nums) {
+			if (cnt == 0) {
+				re = num;
+				cnt++;
+			} else if (re == num) {
+				cnt++;
+			} else {
+				cnt--;
+			}
+		}
+		return re;
+	}
+
+	public void setZeroes(int[][] matrix) {
+		int row = matrix.length;
+		int col = matrix[0].length;
+		Set<Integer> rows = new HashSet<>();
+		Set<Integer> cols = new HashSet<>();
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col; j++) {
+				if (matrix[i][j] == 0) {
+					rows.add(i);
+					cols.add(j);
+				}
+			}
+		}
+		// row
+		for (Integer r : rows) {
+			for (int j = 0; j < col; j++) {
+				matrix[r][j] = 0;
+			}
+		}
+		// col
+		for (Integer c : cols) {
+			for (int i = 0; i < row; i++) {
+				matrix[i][c] = 0;
+			}
+		}
+	}
+
+	public List<List<String>> groupAnagrams(String[] strs) {
+		Map<String, List<String>> m = new HashMap<>(strs.length);
+		for (String s : strs) {
+			char[] sa = s.toCharArray();
+			Arrays.sort(sa);
+			String key = new String(sa);
+			List<String> list = m.get(key);
+			if (list == null) {
+				list = new ArrayList<>();
+			}
+			list.add(s);
+			m.put(key, list);
+		}
+		return new ArrayList<>(m.values());
+	}
 }
