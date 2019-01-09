@@ -1260,4 +1260,23 @@ public class Solution {
 		}
 		return new ArrayList<>(m.values());
 	}
+
+	public List<String> generateParenthesis(int n) {
+		List<String> re = new ArrayList<>();
+		paths(n, n, "", re);
+		return re;
+	}
+
+	private void paths(int left, int right, String path, List<String> re) {
+		if (left == 0 && right == 0) {
+			re.add(path);
+			return;
+		}
+		if (left > 0) {
+			paths(left - 1, right, path + "(", re);
+		}
+		if (right > 0 && right > left) {
+			paths(left, right - 1, path + ")", re);
+		}
+	}
 }
