@@ -24,7 +24,7 @@
         FROM ( select *,row_number() over(partition by cluster,hostname order by reportdate desc)as cnt from
         oms_node_${zq}
         where reportdate &gt;= '${starReportDate}' and reportdate &lt;='${endReportDate}'
-        AND (power = '1' or (power = '-' and agent_alive = '1'))
+        AND (power = '1' or agent_alive = '1')
         AND cluster = '${cluster}'
         and cloud_uuid = '${cloudUuid}'
         AND is_delete = 'false'

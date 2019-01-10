@@ -1279,4 +1279,33 @@ public class Solution {
 			paths(left, right - 1, path + ")", re);
 		}
 	}
+
+	public List<List<Integer>> permute(int[] nums) {
+		List<List<Integer>> re = new ArrayList<>();
+		List<Integer> list = new ArrayList<>();
+		permute(re, list, nums);
+		return re;
+	}
+
+	private int[] removeItem(int[] nums, int num) {
+		int[] sub = new int[nums.length - 1];
+		int i = 0;
+		for (int n : nums) {
+			if (n != num) {
+				sub[i++] = n;
+			}
+		}
+		return sub;
+	}
+
+	public void permute(List<List<Integer>> re, List<Integer> list, int[] nums) {
+		if (nums.length == 0) {
+			re.add(new ArrayList<>(list));
+		}
+		for (int num : nums) {
+			list.add(num);
+			permute(re, list, removeItem(nums, num));
+			list.remove(list.size() - 1);
+		}
+	}
 }
