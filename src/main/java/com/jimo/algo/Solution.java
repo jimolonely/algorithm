@@ -1308,4 +1308,23 @@ public class Solution {
 			list.remove(list.size() - 1);
 		}
 	}
+
+	public List<List<Integer>> subsets(int[] nums) {
+		List<List<Integer>> re = new ArrayList<>();
+		List<Integer> list = new ArrayList<>();
+		// empty set
+		re.add(new ArrayList<>());
+		sub(re, list, nums);
+		return re;
+	}
+
+	private void sub(List<List<Integer>> re, List<Integer> list, int[] nums) {
+		for (int i = 0; i < nums.length; i++) {
+			int num = nums[i];
+			list.add(num);
+			re.add(new ArrayList<>(list));
+			sub(re, list, Arrays.copyOfRange(nums, i + 1, nums.length));
+			list.remove(list.size() - 1);
+		}
+	}
 }
