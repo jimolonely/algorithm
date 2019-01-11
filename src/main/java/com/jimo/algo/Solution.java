@@ -1327,4 +1327,36 @@ public class Solution {
 			list.remove(list.size() - 1);
 		}
 	}
+
+	public List<Integer> topKFrequent(int[] nums, int k) {
+		Map<Integer, Integer> m = new HashMap<>(nums.length);
+		for (int num : nums) {
+			m.put(num, m.getOrDefault(num, 0) + 1);
+		}
+//		return sortByValue(m, k);
+		return maxHeap(m, k);
+	}
+
+	public List<Integer> sortByValue(Map<Integer, Integer> map, int k) {
+		List<Map.Entry<Integer, Integer>> list = new ArrayList<>(map.entrySet());
+		list.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+
+		List<Integer> re = new ArrayList<>();
+		for (int i = 0; i < k; i++) {
+			re.add(list.get(i).getKey());
+		}
+		return re;
+	}
+
+	public List<Integer> maxHeap(Map<Integer, Integer> m, int k) {
+//		PriorityQueue<Map.Entry<Integer, Integer>> heap = new PriorityQueue<>((e1, e2) -> e2.getValue() - e1.getValue());
+		PriorityQueue<Map.Entry<Integer, Integer>> heap = new PriorityQueue<>(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+		heap.addAll(m.entrySet());
+
+		List<Integer> re = new ArrayList<>();
+		for (int i = 0; i < k; i++) {
+			re.add(heap.poll().getKey());
+		}
+		return re;
+	}
 }
