@@ -1065,6 +1065,153 @@ public class Solution {
 			sum += d * radix;
 			radix *= 26;
 		}
+		return 0;
+	}
+
+	public List<Integer> inorderTraversal1(TreeNode root) {
+		List<Integer> re = new ArrayList<>();
+		inorder(root, re);
+		return re;
+	}
+
+	private void inorder(TreeNode root, List<Integer> re) {
+		if (root == null) {
+			return;
+		}
+		inorder(root.left, re);
+		re.add(root.val);
+		inorder(root.right, re);
+	}
+
+	public List<Integer> inorderTraversal(TreeNode root) {
+		List<Integer> re = new ArrayList<>();
+		Stack<TreeNode> s = new Stack<>();
+		while (root != null || !s.isEmpty()) {
+			while (root != null) {
+				s.push(root);
+				root = root.left;
+			}
+			TreeNode top = s.pop();
+			re.add(top.val);
+			root = top.right;
+		}
+		return re;
+	}
+
+	public List<String> letterCombinations(String digits) {
+		List<String> re = new ArrayList<>();
+		if ("".equals(digits)) {
+			return re;
+		}
+		Map<Character, String[]> map = new HashMap<>(8);
+		map.put('2', new String[]{"a", "b", "c"});
+		map.put('3', new String[]{"d", "e", "f"});
+		map.put('4', new String[]{"g", "h", "i"});
+		map.put('5', new String[]{"j", "k", "l"});
+		map.put('6', new String[]{"m", "n", "o"});
+		map.put('7', new String[]{"p", "q", "r", "s"});
+		map.put('8', new String[]{"t", "u", "v"});
+		map.put('9', new String[]{"w", "x", "y", "z"});
+
+		StringBuilder sb = new StringBuilder();
+		concat(digits, sb, re, map, 0);
+
+		return re;
+	}
+
+	private void concat(String digits, StringBuilder sb, List<String> re, Map<Character, String[]> m, int index) {
+		if (index == digits.length()) {
+			re.add(sb.toString());
+			return;
+		}
+		char c = digits.charAt(index);
+		String[] aphs = m.get(c);
+		for (String aph : aphs) {
+			sb.append(aph);
+			concat(digits, sb, re, m, index + 1);
+			sb.deleteCharAt(sb.length() - 1);
+		}
+	}
+
+	public void sortColors(int[] nums) {
+		int[] cnt = new int[3];
+		for (int num : nums) {
+			cnt[num]++;
+		}
+		int i = 0;
+		for (int j = 0; j < cnt.length; j++) {
+			int k = 0;
+			while (k++ < cnt[j]) {
+				nums[i++] = j;
+			}
+		}
+	}
+
+	public boolean canJump(int[] nums) {
+		// dp[i]: 到位置i能跳跃的最大长度
+		int[] dp = new int[nums.length];
+		dp[0] = nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			dp[i] = dp[i - 1] >= i ? Math.max(nums[i] + i, dp[i - 1]) : 0;
+		}
+		return dp[nums.length - 1] >= nums.length - 1;
+	}
+
+	public int uniquePaths(int m, int n) {
+		int[] dp = new int[n + 1];
+		Arrays.fill(dp, 1);
+		for (int i = 2; i <= m; i++) {
+			for (int j = 2; j <= n; j++) {
+				dp[j] += dp[j - 1];
+			}
+		}
+		return dp[n];
+	}
+
+	public int coinChange(int[] coins, int amount) {
+		if (amount == 0 || coins == null || coins.length == 0) {
+			return 0;
+		}
+		int[] dp = new int[amount + 1];
+		Arrays.fill(dp, amount + 1);
+		dp[0] = 0;
+
+		for (int coin : coins) {
+			for (int i = coin; i <= amount; i++) {
+				dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+			}
+		}
+		return dp[amount] > amount ? -1 : dp[amount];
+	}
+
+	public int lengthOfLIS(int[] nums) {
+		if (nums.length == 0) {
+			return 0;
+		}
+		int maxLen = 1;
+		// 到第i个数时的最大上升长度
+		int[] dp = new int[nums.length];
+		Arrays.fill(dp, 1);
+		for (int i = 0; i < nums.length; i++) {
+			for (int j = 0; j < i; j++) {
+				if (nums[i] > nums[j]) {
+					dp[i] = Math.max(dp[i], dp[j] + 1);
+				}
+			}
+			maxLen = Math.max(maxLen, dp[i]);
+		}
+		return maxLen;
+	}
+
+	public int getSum(int a, int b) {
+		int carry = 1;
+		int sum = 0;
+		while (carry != 0) {
+			carry = (a & b) << 1;
+			sum = a ^ b;
+			a = carry;
+			b = sum;
+		}
 		return sum;
 	}
 
@@ -1101,4 +1248,193 @@ public class Solution {
 		}
 		return j - 1;
 	}
+
+	public int evalRPN(String[] tokens) {
+		Stack<Integer> s = new Stack<>();
+		int x;
+		for (String token : tokens) {
+			switch (token) {
+				case "+":
+					x = s.pop() + s.pop();
+					s.add(x);
+					break;
+				case "-":
+					x = 0 - s.pop() + s.pop();
+					s.add(x);
+					break;
+				case "*":
+					x = s.pop() * s.pop();
+					s.add(x);
+					break;
+				case "/":
+					int a = s.pop();
+					int b = s.pop();
+					s.add(b / a);
+					break;
+				default:
+					s.add(Integer.parseInt(token));
+			}
+		}
+		return s.pop();
+	}
+
+	public int majorityElement(int[] nums) {
+		int re = nums[0];
+		int cnt = 0;
+		for (int num : nums) {
+			if (cnt == 0) {
+				re = num;
+				cnt++;
+			} else if (re == num) {
+				cnt++;
+			} else {
+				cnt--;
+			}
+		}
+		return re;
+	}
+
+	public void setZeroes(int[][] matrix) {
+		int row = matrix.length;
+		int col = matrix[0].length;
+		Set<Integer> rows = new HashSet<>();
+		Set<Integer> cols = new HashSet<>();
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col; j++) {
+				if (matrix[i][j] == 0) {
+					rows.add(i);
+					cols.add(j);
+				}
+			}
+		}
+		// row
+		for (Integer r : rows) {
+			for (int j = 0; j < col; j++) {
+				matrix[r][j] = 0;
+			}
+		}
+		// col
+		for (Integer c : cols) {
+			for (int i = 0; i < row; i++) {
+				matrix[i][c] = 0;
+			}
+		}
+	}
+
+	public List<List<String>> groupAnagrams(String[] strs) {
+		Map<String, List<String>> m = new HashMap<>(strs.length);
+		for (String s : strs) {
+			char[] sa = s.toCharArray();
+			Arrays.sort(sa);
+			String key = new String(sa);
+			List<String> list = m.get(key);
+			if (list == null) {
+				list = new ArrayList<>();
+			}
+			list.add(s);
+			m.put(key, list);
+		}
+		return new ArrayList<>(m.values());
+	}
+
+	public List<String> generateParenthesis(int n) {
+		List<String> re = new ArrayList<>();
+		paths(n, n, "", re);
+		return re;
+	}
+
+	private void paths(int left, int right, String path, List<String> re) {
+		if (left == 0 && right == 0) {
+			re.add(path);
+			return;
+		}
+		if (left > 0) {
+			paths(left - 1, right, path + "(", re);
+		}
+		if (right > 0 && right > left) {
+			paths(left, right - 1, path + ")", re);
+		}
+	}
+
+	public List<List<Integer>> permute(int[] nums) {
+		List<List<Integer>> re = new ArrayList<>();
+		List<Integer> list = new ArrayList<>();
+		permute(re, list, nums);
+		return re;
+	}
+
+	private int[] removeItem(int[] nums, int num) {
+		int[] sub = new int[nums.length - 1];
+		int i = 0;
+		for (int n : nums) {
+			if (n != num) {
+				sub[i++] = n;
+			}
+		}
+		return sub;
+	}
+
+	public void permute(List<List<Integer>> re, List<Integer> list, int[] nums) {
+		if (nums.length == 0) {
+			re.add(new ArrayList<>(list));
+		}
+		for (int num : nums) {
+			list.add(num);
+			permute(re, list, removeItem(nums, num));
+			list.remove(list.size() - 1);
+		}
+	}
+
+	public List<List<Integer>> subsets(int[] nums) {
+		List<List<Integer>> re = new ArrayList<>();
+		List<Integer> list = new ArrayList<>();
+		// empty set
+		re.add(new ArrayList<>());
+		sub(re, list, nums);
+		return re;
+	}
+
+	private void sub(List<List<Integer>> re, List<Integer> list, int[] nums) {
+		for (int i = 0; i < nums.length; i++) {
+			int num = nums[i];
+			list.add(num);
+			re.add(new ArrayList<>(list));
+			sub(re, list, Arrays.copyOfRange(nums, i + 1, nums.length));
+			list.remove(list.size() - 1);
+		}
+	}
+
+	public List<Integer> topKFrequent(int[] nums, int k) {
+		Map<Integer, Integer> m = new HashMap<>(nums.length);
+		for (int num : nums) {
+			m.put(num, m.getOrDefault(num, 0) + 1);
+		}
+//		return sortByValue(m, k);
+		return maxHeap(m, k);
+	}
+
+	public List<Integer> sortByValue(Map<Integer, Integer> map, int k) {
+		List<Map.Entry<Integer, Integer>> list = new ArrayList<>(map.entrySet());
+		list.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+
+		List<Integer> re = new ArrayList<>();
+		for (int i = 0; i < k; i++) {
+			re.add(list.get(i).getKey());
+		}
+		return re;
+	}
+
+	public List<Integer> maxHeap(Map<Integer, Integer> m, int k) {
+//		PriorityQueue<Map.Entry<Integer, Integer>> heap = new PriorityQueue<>((e1, e2) -> e2.getValue() - e1.getValue());
+		PriorityQueue<Map.Entry<Integer, Integer>> heap = new PriorityQueue<>(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+		heap.addAll(m.entrySet());
+
+		List<Integer> re = new ArrayList<>();
+		for (int i = 0; i < k; i++) {
+			re.add(heap.poll().getKey());
+		}
+		return re;
+	}
+
+
 }
