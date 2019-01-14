@@ -1026,6 +1026,48 @@ public class Solution {
 		return new BigInteger(sb.reverse().toString());
 	}
 
+	public boolean isHappy(int n) {
+		Set<Integer> set = new HashSet<>();
+		int sum = 0;
+		while (true) {
+			int t = n % 10;
+			sum += t * t;
+			n /= 10;
+			if (n == 0) {
+				if (sum == 1) {
+					break;
+				}
+				if (set.contains(sum)) {
+					return false;
+				}
+				set.add(sum);
+				n = sum;
+				sum = 0;
+			}
+		}
+		return true;
+	}
+
+	public int trailingZeroes(int n) {
+		int cnt = 0;
+		while (n > 1) {
+			cnt += (n /= 5);
+		}
+		return cnt;
+	}
+
+	public int titleToNumber(String s) {
+		char[] chars = new StringBuilder(s).reverse().toString().toCharArray();
+		int sum = 0;
+		int radix = 1;
+		for (int i = 0; i < chars.length; i++) {
+			final int d = chars[i] - 'A' + 1;
+			sum += d * radix;
+			radix *= 26;
+		}
+		return 0;
+	}
+
 	public List<Integer> inorderTraversal1(TreeNode root) {
 		List<Integer> re = new ArrayList<>();
 		inorder(root, re);
@@ -1171,6 +1213,40 @@ public class Solution {
 			b = sum;
 		}
 		return sum;
+	}
+
+	public double myPow(double x, int n) {
+		if (n < 0) {
+			return 1 / x * myPow(1 / x, -(n + 1));
+		} else if (n == 0) {
+			return 1;
+		} else if (n == 1) {
+			return x;
+		}
+
+		double half = myPow(x, n >> 1);
+		half *= half;
+
+		if ((n & 1) == 1) {
+			half *= x;
+		}
+		return half;
+	}
+
+	public int mySqrt(int x) {
+		if (x == 1 || x == 0) {
+			return x;
+		}
+		int i = 0, j = x;
+		while (i < j) {
+			int mid = i / 2 + j / 2;
+			if (x / mid >= mid) {
+				i = mid + 1;
+			} else {
+				j = mid;
+			}
+		}
+		return j - 1;
 	}
 
 	public int evalRPN(String[] tokens) {

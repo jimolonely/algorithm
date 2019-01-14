@@ -226,8 +226,21 @@ public class SolutionTest {
 	}
 
 	@Test
-	public void setZeroes() {
+	public void isHappy() {
+		assertTrue(s.isHappy(19));
+	}
 
+	@Test
+	public void myPow() {
+		assertEquals(0.0, s.myPow(2.0, Integer.MIN_VALUE), 0.001);
+	}
+
+	@Test
+	public void mySqrt() {
+		assertEquals(2, s.mySqrt(4));
+		assertEquals(2, s.mySqrt(8));
+		assertEquals(3, s.mySqrt(9));
+		assertEquals(1, s.mySqrt(1));
 	}
 }
 
