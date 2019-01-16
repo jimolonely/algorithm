@@ -1486,4 +1486,71 @@ public class Solution {
 		}
 		return new int[]{i1, i2};
 	}
+
+	public class Interval {
+		int start;
+		int end;
+
+		Interval() {
+			start = 0;
+			end = 0;
+		}
+
+		Interval(int s, int e) {
+			start = s;
+			end = e;
+		}
+	}
+
+	public List<Interval> merge(List<Interval> intervals) {
+		return null;
+	}
+
+	public int search(int[] nums, int target) {
+		// find the rotate index
+		int left = 0, right = nums.length - 1;
+		int pivot = -1;
+		while (left <= right) {
+			int mid = left + (right - left) / 2;
+			if (mid < nums.length - 1 && nums[mid] > nums[mid + 1]) {
+				pivot = mid;
+				break;
+			}
+			left = mid + 1;
+		}
+		if (pivot == -1) {
+			left = 0;
+			right = nums.length - 1;
+			while (left <= right) {
+				int mid = left + (right - left) / 2;
+				if (mid > 0 && nums[mid] < nums[mid - 1]) {
+					pivot = mid - 1;
+					break;
+				}
+				right = mid - 1;
+			}
+		}
+		if (pivot == -1) {
+			return binarySearch(nums, target, 0, nums.length - 1);
+		}
+		if (nums[0] > target) {
+			return binarySearch(nums, target, pivot + 1, nums.length - 1);
+		} else {
+			return binarySearch(nums, target, 0, pivot);
+		}
+	}
+
+	public int binarySearch(int[] nums, int t, int left, int right) {
+		while (left <= right) {
+			int mid = left + (right - left) / 2;
+			if (nums[mid] == t) {
+				return mid;
+			} else if (nums[mid] < t) {
+				left = mid + 1;
+			} else {
+				right = mid - 1;
+			}
+		}
+		return -1;
+	}
 }
