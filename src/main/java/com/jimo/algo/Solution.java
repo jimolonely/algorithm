@@ -1553,4 +1553,19 @@ public class Solution {
 		}
 		return max;
 	}
+
+	public String longestPalindrome(String s) {
+		char[] chars = s.toCharArray();
+		StringBuilder sb = new StringBuilder();
+		int left = 0, right = 0;
+		for (int i = 0; i < chars.length; i++) {
+			// 偶对称
+
+			// 奇对称
+
+		}
+		return s.substring(left, right);
+	}
+
+
 }
