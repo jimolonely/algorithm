@@ -1567,5 +1567,4 @@ public class Solution {
 		return s.substring(left, right);
 	}
 
-
 }
