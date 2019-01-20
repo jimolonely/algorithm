@@ -1,6 +1,7 @@
 package com.jimo.algo;
 
 import com.jimo.algo.low.Solution;
+import com.jimo.algo.low.Solution.ListNode;
 import org.junit.Test;
 
 import java.util.List;
@@ -219,8 +220,8 @@ public class SolutionTest {
 
 	@Test
 	public void isPalindrome2() {
-		Solution.ListNode head = new Solution.ListNode(1);
-		Solution.ListNode node = new Solution.ListNode(2);
+		ListNode head = new ListNode(1);
+		ListNode node = new ListNode(2);
 		head.next = node;
 		assertFalse(s.isPalindrome(head));
 	}

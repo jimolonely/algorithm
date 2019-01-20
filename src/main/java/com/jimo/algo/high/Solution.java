@@ -1,7 +1,9 @@
 package com.jimo.algo.high;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author jimo
@@ -114,5 +116,33 @@ public class Solution {
 			right--;
 		}
 		return re;
+	}
+
+	public int longestConsecutive(int[] nums) {
+		int max = 0;
+
+		Set<Integer> set = new HashSet<>();
+		for (int num : nums) {
+			set.add(num);
+		}
+
+		for (int num : nums) {
+			set.remove(num);
+			int cnt = 1;
+			int low = num - 1;
+			while (set.contains(low)) {
+				set.remove(low);
+				cnt++;
+				low--;
+			}
+			int high = num + 1;
+			while (set.contains(high)) {
+				set.remove(high);
+				cnt++;
+				high++;
+			}
+			max = Math.max(max, cnt);
+		}
+		return max;
 	}
 }
