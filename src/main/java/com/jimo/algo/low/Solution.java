@@ -1,4 +1,4 @@
-package com.jimo.algo;
+package com.jimo.algo.low;
 
 import java.math.BigInteger;
 import java.util.*;

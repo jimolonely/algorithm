@@ -1,50 +1,16 @@
-        SELECT
-        n.ip,
-        n.cluster,
-        n.hostname,
-        n.power,
-        n.cpu,
-        n.cpu_num,
-        n.cpu_slot_num,
-        n.mem,
-        n.system_type,
-        n.system_version,
-        n.net_num,
-        n.product_name,
-        n.product_serial,
-        n.bios_version,
-
-        COUNT(1) vmnum,
-        SUM(CASE v.os_type WHEN 'linux' THEN 1 ELSE 0 END) vmlinuxnum,
-        SUM(CASE v.os_type WHEN 'windows' THEN 1 ELSE 0 END) vmwindowsnum,
-        SUM(to_number(v.vcpu_num, '99G999D9S')) vcputotal,
-        SUM(to_number(v.memory, '99G999D9S')) memtotal,
-        array_to_string(array_agg(v.volume_info), ',|') volumesinfo,
-        SUM(to_number(v.net_num, '99G999D9S')) netnumtotal
-        FROM ( select *,row_number() over(partition by cluster,hostname order by reportdate desc)as cnt from
-        oms_node_${zq}
-        where reportdate &gt;= '${starReportDate}' and reportdate &lt;='${endReportDate}'
-        AND (power = '1' or agent_alive = '1')
-        AND cluster = '${cluster}'
-        and cloud_uuid = '${cloudUuid}'
-        AND is_delete = 'false'
+        SELECT d.max, d.avg, d.min, d.max_time, d.min_time,
+        n.ip, COALESCE(n.cluster,d.cluster) as cluster, COALESCE(n.hostname,d.hostname) as hostname, n.power, n.cpu,
+        n.cpu_num, n.cpu_slot_num, n.mem, n.net_num, n.product_name,
+        n.product_serial, n.bios_version, n.system_type, n.system_version, n.is_delete, n.deleted, n.created,
+        n.updated, COALESCE(n.reportdate,d.reportdate) as reportdate, n.createTime, n.updateTime, d.cloud_uuid
+        from
+        (	select * from oms_report_node_cpu_${zq} where reportdate &gt;= '${starReportDate}' AND reportdate &lt;= '${endReportDate}'
+        AND cluster = '${cluster}' and cloud_uuid='${cloudUuid}'
+        ) d
+        full join
+        (select * from (
+        select *, row_number() over(PARTITION by cluster,hostname order by updated desc) as cnt from oms_node_${zq}
+        ) v1 where v1.cnt=1 and v1.reportdate &gt;= '${starReportDate}' AND v1.reportdate &lt;= '${endReportDate}' and v1.is_delete='false'
+          AND v1.cluster = '${cluster}' and v1.cloud_uuid='${cloudUuid}'
         ) n
-        inner JOIN (select *,row_number() over(partition by cluster,uuid order by reportdate desc)as cnt from oms_vm_${zq}
-        where reportdate &gt;= '${starReportDate}' and reportdate &lt;='${endReportDate}' AND power = 'RUNNING'
-        ) v
-        ON (n.cluster = v.cluster AND n.hostname = v.parenthostname)
-        WHERE n.cnt=1 and v.cnt=1
-        group by n.ip,
-        n.cluster,
-        n.hostname,
-        n.power,
-        n.cpu,
-        n.cpu_num,
-        n.cpu_slot_num,
-        n.mem,
-        n.system_type,
-        n.system_version,
-        n.net_num,
-        n.product_name,
-        n.product_serial,
-        n.bios_version
+        on  d.hostname=n.hostname and d.cluster=n.cluster and d.cloud_uuid=n.cloud_uuid
