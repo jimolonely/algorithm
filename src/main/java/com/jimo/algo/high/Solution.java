@@ -1,9 +1,6 @@
 package com.jimo.algo.high;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author jimo
@@ -144,5 +141,47 @@ public class Solution {
 			max = Math.max(max, cnt);
 		}
 		return max;
+	}
+
+	public int calculate(String s) {
+		char[] chars = s.toCharArray();
+		Stack<String> op = new Stack<>();
+		Stack<Integer> nums = new Stack<>();
+
+		for (char c : chars) {
+			if (c >= '0' && c <= '9') {
+				nums.push(c - 48);
+			} else if (c == '+' || c == '-' || c == '*' || c == '/') {
+				op.push(c + "");
+			}
+		}
+		int re = 0;
+		while (!op.isEmpty()) {
+			String ope = op.pop();
+			switch (ope) {
+				case "+":
+					re = nums.pop() + nums.pop();
+					nums.push(re);
+					break;
+				case "-":
+					int a = nums.pop();
+					int b = nums.pop();
+					re = b - a;
+					nums.push(re);
+					break;
+				case "*":
+					re = nums.pop() * nums.pop();
+					nums.push(re);
+					break;
+				case "/":
+					a = nums.pop();
+					b = nums.pop();
+					re = b / a;
+					nums.push(re);
+					break;
+				default:
+			}
+		}
+		return re;
 	}
 }

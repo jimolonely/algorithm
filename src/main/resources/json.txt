@@ -1,0 +1,62 @@
+"{\n" +
+				"  \"images\": [\n" +
+				"    {\n" +
+				"      \"status\": \"saving\",\n" +
+				"      \"deleted_at\": null,\n" +
+				"      \"name\": \"rest-kvm_ceph6-admin_image-3968-1-031114\",\n" +
+				"      \"deleted\": false,\n" +
+				"      \"container_format\": \"bare\",\n" +
+				"      \"created_at\": \"2018-11-14T19:11:14.000000\",\n" +
+				"      \"disk_format\": \"raw\",\n" +
+				"      \"updated_at\": \"2018-11-14T19:11:14.000000\",\n" +
+				"      \"min_disk\": 1,\n" +
+				"      \"protected\": false,\n" +
+				"      \"id\": \"913d44c5-7b82-498c-96e0-4fc15af971b3\",\n" +
+				"      \"min_ram\": 0,\n" +
+				"      \"checksum\": null,\n" +
+				"      \"owner\": \"0f5c468e57744028af1c575289bd34cb\",\n" +
+				"      \"is_public\": " + isPublic + ",\n" +
+				"      \"virtual_size\": null,\n" +
+				"      \"properties\": {\n" +
+				"        \"description\": \"\",\n" +
+				"        \"hw_qemu_guest_agent\": \"yes\",\n" +
+				"        \"hw_vif_model\": \"virtio\",\n" +
+				"        \"img_config_drive\": \"mandatory\",\n" +
+				"        \"hw_boot_menu\": \"False\",\n" +
+				"        \"os_type\": \"linux\",\n" +
+				"        \"pass_word\": \"\",\n" +
+				"        \"user_name\": \"\"\n" +
+				"      },\n" +
+				"      \"size\": null\n" +
+				"    },\n" +
+				"    {\n" +
+				"      \"status\": \"saving\",\n" +
+				"      \"deleted_at\": null,\n" +
+				"      \"name\": \"rest-kvm_ceph6-admin_image-3978-1-025434\",\n" +
+				"      \"deleted\": false,\n" +
+				"      \"container_format\": \"bare\",\n" +
+				"      \"created_at\": \"2018-11-14T18:54:35.000000\",\n" +
+				"      \"disk_format\": \"raw\",\n" +
+				"      \"updated_at\": \"2018-11-14T18:54:35.000000\",\n" +
+				"      \"min_disk\": 1,\n" +
+				"      \"protected\": false,\n" +
+				"      \"id\": \"c6096339-70fc-436c-a319-0ce7a5defaa5\",\n" +
+				"      \"min_ram\": 0,\n" +
+				"      \"checksum\": null,\n" +
+				"      \"owner\": \"0f5c468e57744028af1c575289bd34cb\",\n" +
+				"      \"is_public\": " + isPublic + ",\n" +
+				"      \"virtual_size\": null,\n" +
+				"      \"properties\": {\n" +
+				"        \"description\": \"\",\n" +
+				"        \"hw_qemu_guest_agent\": \"yes\",\n" +
+				"        \"hw_vif_model\": \"virtio\",\n" +
+				"        \"img_config_drive\": \"mandatory\",\n" +
+				"        \"hw_boot_menu\": \"False\",\n" +
+				"        \"os_type\": \"linux\",\n" +
+				"        \"pass_word\": \"\",\n" +
+				"        \"user_name\": \"\"\n" +
+				"      },\n" +
+				"      \"size\": null\n" +
+				"    }\n" +
+				"  ]\n" +
+				"}"

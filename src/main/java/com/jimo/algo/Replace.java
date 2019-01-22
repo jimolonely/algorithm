@@ -1,5 +1,8 @@
 package com.jimo.algo;
 
+
+import org.junit.Test;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -23,5 +26,13 @@ public class Replace {
 
 	public static void main(String[] args) throws IOException {
 		System.out.println(new Replace().replace("/home/jack/workspace/Git/algorithm/src/main/resources/sql.txt"));
+	}
+
+	@Test
+	public void jsonReplace() throws IOException {
+		String path = "/home/jack/workspace/Git/algorithm/src/main/resources/json.txt";
+		String str = new String(Files.readAllBytes(Paths.get(path)));
+		System.out.println(str.replaceAll("\\\\n\" \\+", "")
+				.replaceAll("\"", "").replaceAll("\\\\", "\""));
 	}
 }
