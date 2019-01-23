@@ -15,10 +15,10 @@ public class Replace {
 
 	public String replace(String path) throws IOException {
 		String str = new String(Files.readAllBytes(Paths.get(path)));
-		return str.replaceAll("\\$\\{starReportDate}", "2019-01-17")
-				.replaceAll("\\$\\{endReportDate}", "2019-01-17")
-				.replaceAll("\\$\\{cloudUuid}", "86595a76-567b-4521-ab88-715c11f6738e")
-				.replaceAll("\\$\\{cluster}", "default_cluster")
+		return str.replaceAll("\\$\\{starReportDate}", "2019-01-21")
+				.replaceAll("\\$\\{endReportDate}", "2019-01-21")
+				.replaceAll("\\$\\{cloudUuid}", "24a31fbd-b2bd-4f2a-9b5c-9624e376ded1")
+				.replaceAll("\\$\\{cluster}", "RegionFCsan")
 				.replaceAll("\\$\\{zq}", "day")
 				.replaceAll("&gt;", ">")
 				.replaceAll("&lt;", "<");
