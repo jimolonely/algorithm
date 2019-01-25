@@ -184,4 +184,26 @@ public class Solution {
 		}
 		return re;
 	}
+
+	public int findDuplicate(int[] nums) {
+		if (nums.length == 0) {
+			return -1;
+		}
+		if (nums.length <= 2) {
+			return nums[0];
+		}
+		int slow = 0, fast = 0;
+		while (true) {
+			slow = (slow + 1) % nums.length;
+			fast = (fast + 2) % nums.length;
+			if (slow != fast) {
+				if (nums[slow] == nums[fast]) {
+					break;
+				}
+			} else {
+				fast = (fast + 1) % nums.length;
+			}
+		}
+		return nums[slow];
+	}
 }
