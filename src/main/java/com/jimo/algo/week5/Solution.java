@@ -8,35 +8,22 @@ public class Solution {
 
 	public String strWithout3a3b(int A, int B) {
 		StringBuilder sb = new StringBuilder();
-		char tA = 'a';
-		char tB = 'b';
-		if (A < B) {
-			tA = 'b';
-			tB = 'a';
-			int t = B;
-			B = A;
-			A = t;
-		}
-		if (A <= B + 1) {
-			for (int i = 0; i < A + B; i++) {
-				if (i % 2 == 0) {
-					sb.append(tA);
-				} else {
-					sb.append(tB);
+		while (A > 0 || B > 0) {
+			boolean writeA = false;
+			int len = sb.length();
+			if (len >= 2 && sb.charAt(len - 1) == sb.charAt(len - 2)) {
+				if (sb.charAt(len - 1) == 'b') {
+					writeA = true;
 				}
+			} else if (A >= B) {
+				writeA = true;
 			}
-		} else {
-			int cnt = 0;
-			int cntA = 0;
-			for (int i = 0; i < A + B; i++) {
-				if (cnt < 2 && cntA < A) {
-					sb.append(tA);
-					cnt++;
-					cntA++;
-				} else {
-					sb.append(tB);
-					cnt = 0;
-				}
+			if (writeA) {
+				A--;
+				sb.append('a');
+			} else {
+				B--;
+				sb.append('b');
 			}
 		}
 		return sb.toString();
