@@ -24,8 +24,23 @@ public class Replace {
 				.replaceAll("&lt;", "<");
 	}
 
+	public String replaceIadTag(String path) throws IOException {
+		String str = new String(Files.readAllBytes(Paths.get(path)));
+		return str.replaceAll("\\$\\{starReportDate}", "2019-01-21")
+				.replaceAll("\\$\\{endReportDate}", "2019-01-27")
+				.replaceAll("\\$\\{iadTag}", "Hadoop")
+				.replaceAll("\\$\\{zq}", "day")
+				.replaceAll("&gt;", ">")
+				.replaceAll("&lt;", "<");
+	}
+
 	public static void main(String[] args) throws IOException {
 		System.out.println(new Replace().replace("/home/jack/workspace/Git/algorithm/src/main/resources/sql.txt"));
+	}
+
+	@Test
+	public void iadTag() throws IOException {
+		System.out.println(new Replace().replaceIadTag("/home/jack/workspace/Git/algorithm/src/main/resources/sql.txt"));
 	}
 
 	@Test
