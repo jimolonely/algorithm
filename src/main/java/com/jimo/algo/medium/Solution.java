@@ -58,4 +58,50 @@ public class Solution {
 		}
 		return minArea < Double.MAX_VALUE ? minArea : 0;
 	}
+
+	public class ListNode {
+		int val;
+		ListNode next;
+
+		ListNode(int x) {
+			val = x;
+		}
+	}
+
+	public ListNode mergeKLists(ListNode[] lists) {
+		if (lists.length == 0) {
+			return null;
+		}
+		int len = lists.length;
+		while (len > 1) {
+			int m = (len + 1) / 2;
+			for (int i = 0; i < len / 2; i++) {
+				lists[i] = mergeTwoList(lists[i], lists[i + m]);
+			}
+			len = m;
+		}
+		return lists[0];
+	}
+
+	private ListNode mergeTwoList(ListNode l1, ListNode l2) {
+		ListNode headBefore = new ListNode(-1);
+		ListNode cur = headBefore;
+		while (l1 != null && l2 != null) {
+			if (l1.val < l2.val) {
+				cur.next = l1;
+				l1 = l1.next;
+			} else {
+				cur.next = l2;
+				l2 = l2.next;
+			}
+			cur = cur.next;
+		}
+		if (l1 != null) {
+			cur.next = l1;
+		}
+		if (l2 != null) {
+			cur.next = l2;
+		}
+		return headBefore.next;
+	}
 }
