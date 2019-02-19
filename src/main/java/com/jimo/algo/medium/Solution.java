@@ -1,7 +1,9 @@
 package com.jimo.algo.medium;
 
-import java.awt.*;
+import java.awt.Point;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -103,5 +105,58 @@ public class Solution {
 			cur.next = l2;
 		}
 		return headBefore.next;
+	}
+
+	public List<String> fullJustify(String[] words, int maxWidth) {
+		List<String> re = new ArrayList<>();
+		int i = 0;
+		while (i < words.length) {
+			// handle one line
+			int lineLen = 0;
+			int strLen = 0;
+			List<String> line = new ArrayList<>();
+			while (i < words.length) {
+				if (lineLen == 0) {
+					lineLen += words[i].length();
+					// ensure at least one space between two words
+				} else if (lineLen + 1 + words[i].length() <= maxWidth) {
+					lineLen += words[i].length() + 1;
+				} else {
+					break;
+				}
+				line.add(words[i]);
+				strLen += words[i].length();
+				i++;
+			}
+			// to this line, append space from left to right
+
+			// the last line
+			int j = 0;
+			int restLen = maxWidth - strLen;
+			if (i == words.length) {
+				restLen -= line.size() - 1;
+				while (restLen-- > 0) {
+					line.set(line.size() - 1, line.get(line.size() - 1) + " ");
+				}
+				re.add(String.join(" ", line));
+			} else {
+				while (restLen > 0) {
+					if (j != line.size() - 1 || line.size() == 1) {
+						line.set(j, line.get(j) + " ");
+						restLen--;
+					}
+					j = (j + 1) % line.size();
+				}
+				re.add(String.join("", line));
+			}
+			// the last word need to handle alone if it's last line or only one word
+//			if (i == words.length || line.size() == 1) {
+//				StringBuilder sb = new StringBuilder();
+//
+//				line.set(line.size()-1,line.get(line.size()-1)+);
+//			}
+
+		}
+		return re;
 	}
 }
