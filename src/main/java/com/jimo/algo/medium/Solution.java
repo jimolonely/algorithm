@@ -1,10 +1,7 @@
 package com.jimo.algo.medium;
 
 import java.awt.Point;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author jimo
@@ -156,6 +153,49 @@ public class Solution {
 //				line.set(line.size()-1,line.get(line.size()-1)+);
 //			}
 
+		}
+		return re;
+	}
+
+	public class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
+
+		TreeNode(int x) {
+			val = x;
+		}
+	}
+
+	public List<Integer> postorderTraversal(TreeNode root) {
+		List<Integer> re = new ArrayList<>();
+
+		if (root == null) {
+			return re;
+		}
+
+		TreeNode pre = null;
+		TreeNode cur;
+		Stack<TreeNode> s = new Stack<>();
+
+		s.push(root);
+
+		while (!s.isEmpty()) {
+			cur = s.peek();
+
+			boolean canAccess = (cur.left == null && cur.right == null)
+					|| (pre != null && (pre == cur.left || pre == cur.right));
+			if (canAccess) {
+				re.add(cur.val);
+				pre = s.pop();
+			} else {
+				if (cur.right != null) {
+					s.push(cur.right);
+				}
+				if (cur.left != null) {
+					s.push(cur.left);
+				}
+			}
 		}
 		return re;
 	}
