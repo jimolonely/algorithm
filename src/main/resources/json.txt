@@ -1,62 +1,190 @@
 "{\n" +
-				"  \"images\": [\n" +
+				"  \"servers\": [\n" +
 				"    {\n" +
-				"      \"status\": \"saving\",\n" +
-				"      \"deleted_at\": null,\n" +
-				"      \"name\": \"rest-kvm_ceph6-admin_image-3968-1-031114\",\n" +
-				"      \"deleted\": false,\n" +
-				"      \"container_format\": \"bare\",\n" +
-				"      \"created_at\": \"2018-11-14T19:11:14.000000\",\n" +
-				"      \"disk_format\": \"raw\",\n" +
-				"      \"updated_at\": \"2018-11-14T19:11:14.000000\",\n" +
-				"      \"min_disk\": 1,\n" +
-				"      \"protected\": false,\n" +
-				"      \"id\": \"913d44c5-7b82-498c-96e0-4fc15af971b3\",\n" +
-				"      \"min_ram\": 0,\n" +
-				"      \"checksum\": null,\n" +
-				"      \"owner\": \"0f5c468e57744028af1c575289bd34cb\",\n" +
-				"      \"is_public\": " + isPublic + ",\n" +
-				"      \"virtual_size\": null,\n" +
-				"      \"properties\": {\n" +
-				"        \"description\": \"\",\n" +
-				"        \"hw_qemu_guest_agent\": \"yes\",\n" +
-				"        \"hw_vif_model\": \"virtio\",\n" +
-				"        \"img_config_drive\": \"mandatory\",\n" +
-				"        \"hw_boot_menu\": \"False\",\n" +
-				"        \"os_type\": \"linux\",\n" +
-				"        \"pass_word\": \"\",\n" +
-				"        \"user_name\": \"\"\n" +
+				"      \"status\": \"ACTIVE\",\n" +
+				"      \"updated\": \"2018-12-18T08:05:53Z\",\n" +
+				"      \"hostId\": \"32a2d19c88095e85ebb700fc14e86809b7018cedbbf2671b04f9195f\",\n" +
+				"      \"OS-EXT-SRV-ATTR:host\": \"compute8\",\n" +
+				"      \"addresses\": {\n" +
+				"        \"public-64\": [\n" +
+				"          {\n" +
+				"            \"OS-EXT-IPS-MAC:mac_addr\": \"fa:16:3e:6d:8e:4e\",\n" +
+				"            \"version\": 4,\n" +
+				"            \"addr\": \"192.168.64.187\",\n" +
+				"            \"OS-EXT-IPS:type\": \"fixed\"\n" +
+				"          }\n" +
+				"        ]\n" +
 				"      },\n" +
-				"      \"size\": null\n" +
+				"      \"links\": [\n" +
+				"        {\n" +
+				"          \"href\": \"http://192.168.17.102:8774/v2/c5f293f20d804a9091215e72dd77afad/servers/eba41837-95d6-41c8-92af-373f852b2e7d\",\n" +
+				"          \"rel\": \"self\"\n" +
+				"        },\n" +
+				"        {\n" +
+				"          \"href\": \"http://192.168.17.102:8774/c5f293f20d804a9091215e72dd77afad/servers/eba41837-95d6-41c8-92af-373f852b2e7d\",\n" +
+				"          \"rel\": \"bookmark\"\n" +
+				"        }\n" +
+				"      ],\n" +
+				"      \"key_name\": null,\n" +
+				"      \"image\": {\n" +
+				"        \"id\": \"72cb0498-0706-4485-85fe-ce7cc4703ce3\",\n" +
+				"        \"links\": [\n" +
+				"          {\n" +
+				"            \"href\": \"http://192.168.17.102:8774/c5f293f20d804a9091215e72dd77afad/images/72cb0498-0706-4485-85fe-ce7cc4703ce3\",\n" +
+				"            \"rel\": \"bookmark\"\n" +
+				"          }\n" +
+				"        ]\n" +
+				"      },\n" +
+				"      \"OS-EXT-STS:power_state\": 1,\n" +
+				"      \"OS-EXT-STS:task_state\": null,\n" +
+				"      \"OS-EXT-STS:vm_state\": \"active\",\n" +
+				"      \"OS-EXT-SRV-ATTR:instance_name\": \"instance-00000afc\",\n" +
+				"      \"OS-SRV-USG:launched_at\": \"2018-12-18T08:05:53.000000\",\n" +
+				"      \"OS-EXT-SRV-ATTR:hypervisor_hostname\": \"compute8\",\n" +
+				"      \"flavor\": {\n" +
+				"        \"id\": \"705730c0-218a-469f-a72f-7b6d0103838e\",\n" +
+				"        \"links\": [\n" +
+				"          {\n" +
+				"            \"href\": \"http://192.168.17.102:8774/c5f293f20d804a9091215e72dd77afad/flavors/705730c0-218a-469f-a72f-7b6d0103838e\",\n" +
+				"            \"rel\": \"bookmark\"\n" +
+				"          }\n" +
+				"        ]\n" +
+				"      },\n" +
+				"      \"id\": \"eba41837-95d6-41c8-92af-373f852b2e7d\",\n" +
+				"      \"security_groups\": [\n" +
+				"        {\n" +
+				"          \"name\": \"default\"\n" +
+				"        }\n" +
+				"      ],\n" +
+				"      \"OS-SRV-USG:terminated_at\": null,\n" +
+				"      \"OS-EXT-AZ:availability_zone\": \"default_cluster\",\n" +
+				"      \"user_id\": \"64fb0a3035844f45bd442c5a5fba91ad\",\n" +
+				"      \"name\": \"test_vm\",\n" +
+				"      \"created\": \"2018-12-18T08:05:46Z\",\n" +
+				"      \"tenant_id\": \"7cad753a3b144e588f0603d3acdebbf3\",\n" +
+				"      \"OS-DCF:diskConfig\": \"AUTO\",\n" +
+				"      \"os-extended-volumes:volumes_attached\": [],\n" +
+				"      \"accessIPv4\": \"\",\n" +
+				"      \"accessIPv6\": \"\",\n" +
+				"      \"progress\": 0,\n" +
+				"      \"os_type\": \"linux\",\n" +
+				"      \"config_drive\": \"\",\n" +
+				"      \"metadata\": {\n" +
+				"        \"hypervisor_type\": \"qemu\",\n" +
+				"        \"image_min_ram\": \"0\",\n" +
+				"        \"admin_user\": \"root\",\n" +
+				"        \"image_min_disk\": \"50\",\n" +
+				"        \"admin_pass\": \"rootroot\"\n" +
+				"      }\n" +
 				"    },\n" +
 				"    {\n" +
-				"      \"status\": \"saving\",\n" +
-				"      \"deleted_at\": null,\n" +
-				"      \"name\": \"rest-kvm_ceph6-admin_image-3978-1-025434\",\n" +
-				"      \"deleted\": false,\n" +
-				"      \"container_format\": \"bare\",\n" +
-				"      \"created_at\": \"2018-11-14T18:54:35.000000\",\n" +
-				"      \"disk_format\": \"raw\",\n" +
-				"      \"updated_at\": \"2018-11-14T18:54:35.000000\",\n" +
-				"      \"min_disk\": 1,\n" +
-				"      \"protected\": false,\n" +
-				"      \"id\": \"c6096339-70fc-436c-a319-0ce7a5defaa5\",\n" +
-				"      \"min_ram\": 0,\n" +
-				"      \"checksum\": null,\n" +
-				"      \"owner\": \"0f5c468e57744028af1c575289bd34cb\",\n" +
-				"      \"is_public\": " + isPublic + ",\n" +
-				"      \"virtual_size\": null,\n" +
-				"      \"properties\": {\n" +
-				"        \"description\": \"\",\n" +
-				"        \"hw_qemu_guest_agent\": \"yes\",\n" +
-				"        \"hw_vif_model\": \"virtio\",\n" +
-				"        \"img_config_drive\": \"mandatory\",\n" +
-				"        \"hw_boot_menu\": \"False\",\n" +
-				"        \"os_type\": \"linux\",\n" +
-				"        \"pass_word\": \"\",\n" +
-				"        \"user_name\": \"\"\n" +
+				"      \"status\": \"SHUTOFF\",\n" +
+				"      \"updated\": \"2018-12-03T17:22:50Z\",\n" +
+				"      \"hostId\": \"b5bf7406ed00a184906bf16168a47d64d6444f707d5c8b1a3692c02d\",\n" +
+				"      \"OS-EXT-SRV-ATTR:host\": \"compute11\",\n" +
+				"      \"addresses\": {\n" +
+				"        \"public-64\": [\n" +
+				"          {\n" +
+				"            \"OS-EXT-IPS-MAC:mac_addr\": \"fa:16:3e:a7:fc:45\",\n" +
+				"            \"version\": 4,\n" +
+				"            \"addr\": \"192.168.64.186\",\n" +
+				"            \"OS-EXT-IPS:type\": \"fixed\"\n" +
+				"          }\n" +
+				"        ],\n" +
+				"        \"test1\": [\n" +
+				"          {\n" +
+				"            \"OS-EXT-IPS-MAC:mac_addr\": \"fa:16:3e:3b:4b:96\",\n" +
+				"            \"version\": 4,\n" +
+				"            \"addr\": \"192.168.1.27\",\n" +
+				"            \"OS-EXT-IPS:type\": \"fixed\"\n" +
+				"          }\n" +
+				"        ],\n" +
+				"        \"test2\": [\n" +
+				"          {\n" +
+				"            \"OS-EXT-IPS-MAC:mac_addr\": \"fa:16:3e:d0:63:c7\",\n" +
+				"            \"version\": 4,\n" +
+				"            \"addr\": \"192.168.2.21\",\n" +
+				"            \"OS-EXT-IPS:type\": \"fixed\"\n" +
+				"          }\n" +
+				"        ],\n" +
+				"        \"test3\": [\n" +
+				"          {\n" +
+				"            \"OS-EXT-IPS-MAC:mac_addr\": \"fa:16:3e:c0:ad:3b\",\n" +
+				"            \"version\": 4,\n" +
+				"            \"addr\": \"192.168.3.25\",\n" +
+				"            \"OS-EXT-IPS:type\": \"fixed\"\n" +
+				"          }\n" +
+				"        ]\n" +
 				"      },\n" +
-				"      \"size\": null\n" +
+				"      \"links\": [\n" +
+				"        {\n" +
+				"          \"href\": \"http://192.168.17.102:8774/v2/c5f293f20d804a9091215e72dd77afad/servers/24a9660b-dc9e-4cff-962a-0887876b38fe\",\n" +
+				"          \"rel\": \"self\"\n" +
+				"        },\n" +
+				"        {\n" +
+				"          \"href\": \"http://192.168.17.102:8774/c5f293f20d804a9091215e72dd77afad/servers/24a9660b-dc9e-4cff-962a-0887876b38fe\",\n" +
+				"          \"rel\": \"bookmark\"\n" +
+				"        }\n" +
+				"      ],\n" +
+				"      \"key_name\": null,\n" +
+				"      \"image\": {\n" +
+				"        \"id\": \"491fc20d-8e1a-41c7-9994-7aee8c91c9bd\",\n" +
+				"        \"links\": [\n" +
+				"          {\n" +
+				"            \"href\": \"http://192.168.17.102:8774/c5f293f20d804a9091215e72dd77afad/images/491fc20d-8e1a-41c7-9994-7aee8c91c9bd\",\n" +
+				"            \"rel\": \"bookmark\"\n" +
+				"          }\n" +
+				"        ]\n" +
+				"      },\n" +
+				"      \"OS-EXT-STS:power_state\": 4,\n" +
+				"      \"OS-EXT-STS:task_state\": null,\n" +
+				"      \"OS-EXT-STS:vm_state\": \"stopped\",\n" +
+				"      \"OS-EXT-SRV-ATTR:instance_name\": \"instance-00000af9\",\n" +
+				"      \"OS-SRV-USG:launched_at\": \"2018-12-03T14:00:47.000000\",\n" +
+				"      \"OS-EXT-SRV-ATTR:hypervisor_hostname\": \"compute11\",\n" +
+				"      \"flavor\": {\n" +
+				"        \"id\": \"1bbc2840-043c-4a06-ab9a-25dd0619baeb\",\n" +
+				"        \"links\": [\n" +
+				"          {\n" +
+				"            \"href\": \"http://192.168.17.102:8774/c5f293f20d804a9091215e72dd77afad/flavors/1bbc2840-043c-4a06-ab9a-25dd0619baeb\",\n" +
+				"            \"rel\": \"bookmark\"\n" +
+				"          }\n" +
+				"        ]\n" +
+				"      },\n" +
+				"      \"id\": \"24a9660b-dc9e-4cff-962a-0887876b38fe\",\n" +
+				"      \"security_groups\": [\n" +
+				"        {\n" +
+				"          \"name\": \"default\"\n" +
+				"        },\n" +
+				"        {\n" +
+				"          \"name\": \"default\"\n" +
+				"        },\n" +
+				"        {\n" +
+				"          \"name\": \"default\"\n" +
+				"        },\n" +
+				"        {\n" +
+				"          \"name\": \"default\"\n" +
+				"        }\n" +
+				"      ],\n" +
+				"      \"OS-SRV-USG:terminated_at\": null,\n" +
+				"      \"OS-EXT-AZ:availability_zone\": \"default_cluster\",\n" +
+				"      \"user_id\": \"3bf9d5e813a8496f86b047b7c43d4ccb\",\n" +
+				"      \"name\": \"test-for-deploy-wbt-5\",\n" +
+				"      \"created\": \"2018-12-03T14:00:36Z\",\n" +
+				"      \"tenant_id\": \"b41a353640b5416a899fd705cfe854e3\",\n" +
+				"      \"OS-DCF:diskConfig\": \"AUTO\",\n" +
+				"      \"os-extended-volumes:volumes_attached\": [],\n" +
+				"      \"accessIPv4\": \"\",\n" +
+				"      \"accessIPv6\": \"\",\n" +
+				"      \"os_type\": \"linux\",\n" +
+				"      \"config_drive\": \"True\",\n" +
+				"      \"metadata\": {\n" +
+				"        \"hypervisor_type\": \"qemu\",\n" +
+				"        \"image_min_ram\": \"0\",\n" +
+				"        \"admin_user\": \"root\",\n" +
+				"        \"image_min_disk\": \"50\",\n" +
+				"        \"admin_pass\": \"!QAZ2wsx\"\n" +
+				"      }\n" +
 				"    }\n" +
 				"  ]\n" +
 				"}"
