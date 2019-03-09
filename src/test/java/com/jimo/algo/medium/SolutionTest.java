@@ -36,4 +36,9 @@ public class SolutionTest {
             System.out.println("[" + x[0] + "," + x[1] + "]");
         }
     }
+
+    @Test
+    public void judgePoint24() {
+        assertTrue(s.judgePoint24(new int[]{4, 1, 8, 7}));
+    }
 }

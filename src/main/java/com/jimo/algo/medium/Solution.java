@@ -295,4 +295,66 @@ public class Solution {
         }
         return new ArrayList<>(candidate.values());
     }
+
+    public boolean judgePoint24(int[] nums) {
+        List<Double> a = new ArrayList<>();
+        for (int num : nums) {
+            a.add((double) num);
+        }
+        return solve(a);
+    }
+
+    private boolean solve(List<Double> nums) {
+        if (nums.size() == 0) {
+            return false;
+        }
+        if (nums.size() == 1) {
+            return Math.abs(nums.get(0) - 24) < 1e-6;
+        }
+        // A(4,2) * 4 * A(3,2) * 4 * 4 = 9216
+        for (int i = 0; i < nums.size(); i++) {
+            for (int j = 0; j < nums.size(); j++) {
+                if (i == j) {
+                    continue;
+                }
+                List<Double> nextNums = new ArrayList<>();
+                for (int k = 0; k < nums.size(); k++) {
+                    if (k != i && k != j) {
+                        nextNums.add(nums.get(k));
+                    }
+                }
+                // 4种运算
+                for (int k = 0; k < 4; k++) {
+                    // 因为加法和乘法没有顺序，不必重复计算
+                    if (k < 2 && j > i) {
+                        continue;
+                    }
+                    switch (k) {
+                        case 0:
+                            nextNums.add(nums.get(i) + nums.get(j));
+                            break;
+                        case 1:
+                            nextNums.add(nums.get(i) * nums.get(j));
+                            break;
+                        case 2:
+                            nextNums.add(nums.get(i) - nums.get(j));
+                            break;
+                        case 3:
+                            if (nums.get(j) != 0) {
+                                nextNums.add(nums.get(i) / nums.get(j));
+                            } else {
+                                continue;
+                            }
+                            break;
+                        default:
+                    }
+                    if (solve(nextNums)) {
+                        return true;
+                    }
+                    nextNums.remove(nextNums.size() - 1);
+                }
+            }
+        }
+        return false;
+    }
 }
