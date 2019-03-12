@@ -357,4 +357,32 @@ public class Solution {
         }
         return false;
     }
+
+    private int max = 0;
+
+    public int longestUnivaluePath(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        // 左边或右边的最大长度
+        maxSideLen(root);
+        return max;
+    }
+
+    private int maxSideLen(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int left = maxSideLen(root.left);
+        int right = maxSideLen(root.right);
+        int leftAll = 0, rightAll = 0;
+        if (root.left != null && root.left.val == root.val) {
+            leftAll += left + 1;
+        }
+        if (root.right != null && root.right.val == root.val) {
+            rightAll += right + 1;
+        }
+        max = Math.max(max, leftAll + rightAll);
+        return Math.max(leftAll, rightAll);
+    }
 }
