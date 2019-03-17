@@ -1,6 +1,8 @@
 package com.jimo.algo.low;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author jimo
@@ -68,5 +70,52 @@ public class Solution2 {
         BigInteger ai = new BigInteger(a, 2);
         BigInteger bi = new BigInteger(b, 2);
         return ai.add(bi).toString(2);
+    }
+
+    public List<Integer> getRow(int rowIndex) {
+        List<Integer> re = new ArrayList<>();
+        re.add(1);
+        if (rowIndex == 0) {
+            return re;
+        }
+        int len = rowIndex + 1;
+        long x = 1;
+        for (int i = 1; i < len; i++) {
+            x = x * (len - i) / i;
+            re.add((int) x);
+        }
+        return re;
+    }
+
+    public String convertToTitle(int n) {
+        StringBuilder sb = new StringBuilder();
+        while (n > 0) {
+            n--;
+            sb.append((char) (n % 26 + 'A'));
+            n = n / 26;
+        }
+        return sb.reverse().toString();
+    }
+
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        public ListNode(int val) {
+            this.val = val;
+            this.next = null;
+        }
+    }
+
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+        ListNode pa = headA, pb = headB;
+        while (pa != pb) {
+            pa = pa == null ? headB : pa.next;
+            pb = pb == null ? headA : pb.next;
+        }
+        return pa;
     }
 }
