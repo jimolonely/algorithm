@@ -118,4 +118,15 @@ public class Solution2 {
         }
         return pa;
     }
+
+    public int reverseBits(int n) {
+        // return Integer.reverse(n);
+        int i = 0;
+        int re = 0;
+        while (i < 32) {
+            re += ((1 & (n >> i)) << (31 - i));
+            i++;
+        }
+        return re;
+    }
 }
