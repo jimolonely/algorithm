@@ -1,8 +1,7 @@
 package com.jimo.algo.low;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author jimo
@@ -144,5 +143,50 @@ public class Solution2 {
             }
         }
         return dump.next;
+    }
+
+    public boolean isIsomorphic(String s, String t) {
+        Map<Character, Character> map = new HashMap<>(s.length() / 2);
+        for (int i = 0; i < s.length(); i++) {
+            if (map.containsKey(s.charAt(i))) {
+                if (map.get(s.charAt(i)) != t.charAt(i)) {
+                    return false;
+                }
+            } else {
+                if (map.containsValue(t.charAt(i))) {
+                    return false;
+                }
+                map.put(s.charAt(i), t.charAt(i));
+            }
+        }
+        return true;
+    }
+
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            int len = i + k > nums.length - 1 ? nums.length - 1 : i + k;
+            for (int j = i + 1; j <= len; j++) {
+                if (nums[i] == nums[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean containsNearbyDuplicate2(int[] nums, int k) {
+        if (nums == null) {
+            return false;
+        }
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (i > k) {
+                set.remove(nums[i - k - 1]);
+            }
+            if (!set.add(nums[i])) {
+                return true;
+            }
+        }
+        return false;
     }
 }
