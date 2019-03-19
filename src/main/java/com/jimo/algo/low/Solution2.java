@@ -129,4 +129,20 @@ public class Solution2 {
         }
         return re;
     }
+
+    public ListNode removeElements(ListNode head, int val) {
+        ListNode dump = new ListNode(-1);
+        dump.next = head;
+        ListNode pre = dump, cur = dump.next;
+        while (cur != null) {
+            if (cur.val == val) {
+                pre.next = cur.next;
+                cur = cur.next;
+            } else {
+                pre = cur;
+                cur = cur.next;
+            }
+        }
+        return dump.next;
+    }
 }

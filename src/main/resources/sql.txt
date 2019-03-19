@@ -1,39 +1,18 @@
-        SELECT d.device,
-               d.disk_percent,
-               n.ip,
-               COALESCE(n.cluster, d.cluster)   as cluster,
-               COALESCE(n.hostname, d.hostname) as hostname,
-               (case n.power when '1' then n.power else n.agent_alive end) as power,
-               n.cpu,
-               n.cpu_num,
-               n.cpu_slot_num,
-               n.mem,
-               n.net_num,
-               n.product_name,
-               n.product_serial,
-               n.bios_version,
-               n.system_type,
-               n.system_version,
-               n.is_delete,
-               n.deleted,
-               n.created,
-               n.updated,
-               COALESCE(n.reportdate,d.reportdate) as reportdate,
-               n.createTime,
-               n.updateTime, d.iad_tag
+        SELECT d.max, d.avg, d.min, d.max_time, d.min_time,
+        n.ip, COALESCE(n.cluster,d.cluster) as cluster, COALESCE(n.hostname,d.hostname) as hostname,
+        (case n.power when '1' then n.power else n.agent_alive end) as power,
+        n.cpu, n.cpu_num, n.cpu_slot_num, n.mem, n.net_num, n.product_name,
+        n.product_serial, n.bios_version, n.system_type, n.system_version, n.is_delete, n.deleted, n.created,
+        n.updated, COALESCE(n.reportdate,d.reportdate) as reportdate, n.createTime, n.updateTime, d.iad_tag
         from
-            (select *
-             from oms_report_node_disk_${zq}
-             where reportdate &gt;= '${starReportDate}'
-               AND reportdate &lt;= '${endReportDate}'
-               and iad_tag = '${iadTag}'
-            ) d
-                full join
-                (select *
-                 from (
-                    select *, row_number() over(PARTITION by cluster,hostname order by reportdate desc) as cnt from oms_node_${zq} as v1
-                        where  v1.reportdate &gt;= '${starReportDate}' AND v1.reportdate &lt;= '${endReportDate}'
-                        and v1.is_delete='false' and v1.iad_tag='${iadTag}'
-                    ) v1 where v1.cnt=1
-                    ) n
-                on d.hostname = n.hostname and d.cluster = n.cluster
+        (	select * from oms_report_node_cpu_${zq} where reportdate &gt;= '${starReportDate}' AND reportdate &lt;= '${endReportDate}'
+         and iad_tag='${iadTag}'
+        ) d
+        full join
+        (select * from (
+        select *, row_number() over(PARTITION by cluster,hostname order by reportdate desc) as cnt from oms_node_${zq} as v1
+            where  v1.reportdate &gt;= '${starReportDate}' AND v1.reportdate &lt;= '${endReportDate}'
+            and v1.is_delete='false' and v1.iad_tag='${iadTag}'
+        ) v1 where v1.cnt=1
+        ) n
+        on  d.hostname=n.hostname

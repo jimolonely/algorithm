@@ -26,9 +26,9 @@ public class Replace {
 
 	public String replaceIadTag(String path) throws IOException {
 		String str = new String(Files.readAllBytes(Paths.get(path)));
-		return str.replaceAll("\\$\\{starReportDate}", "2019-01-21")
-				.replaceAll("\\$\\{endReportDate}", "2019-01-27")
-				.replaceAll("\\$\\{iadTag}", "Hadoop")
+		return str.replaceAll("\\$\\{starReportDate}", "2018-01-01")
+				.replaceAll("\\$\\{endReportDate}", "2018-12-31")
+				.replaceAll("\\$\\{iadTag}", "unknown")
 				.replaceAll("\\$\\{zq}", "day")
 				.replaceAll("&gt;", ">")
 				.replaceAll("&lt;", "<");
