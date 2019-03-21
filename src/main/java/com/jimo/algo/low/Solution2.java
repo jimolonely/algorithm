@@ -325,4 +325,50 @@ public class Solution2 {
         }
         return root;
     }
+
+    List<String> re = new ArrayList<>();
+
+    public List<String> binaryTreePaths(TreeNode root) {
+        if (root == null) {
+            return re;
+        }
+        searchPath(root, "");
+        return re;
+    }
+
+    private void searchPath(TreeNode root, String s) {
+        if (root.left == null && root.right == null) {
+            re.add(s + root.val);
+            return;
+        }
+        if (root.left != null) {
+            searchPath(root.left, s + root.val + "->");
+        }
+        if (root.right != null) {
+            searchPath(root.right, s + root.val + "->");
+        }
+    }
+
+    public int addDigits2(int num) {
+        while (num > 9) {
+            int sum = 0;
+            int n = num;
+            while (n > 0) {
+                sum += n % 10;
+                n /= 10;
+            }
+            num = sum;
+        }
+        return num;
+    }
+
+    public int addDigits(int num) {
+        if (num == 0) {
+            return 0;
+        }
+        if (num % 9 == 0) {
+            return 9;
+        }
+        return num % 9;
+    }
 }
