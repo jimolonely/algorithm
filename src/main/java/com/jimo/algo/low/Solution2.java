@@ -2,6 +2,7 @@ package com.jimo.algo.low;
 
 import java.math.BigInteger;
 import java.util.*;
+import java.util.stream.IntStream;
 
 /**
  * @author jimo
@@ -488,5 +489,128 @@ public class Solution2 {
             }
         }
         return new String(chars);
+    }
+
+    public int[] intersection(int[] nums1, int[] nums2) {
+        Set<Integer> set = new HashSet<>();
+        if (nums1.length < nums2.length) {
+            return getResult(nums1, nums2, set);
+        } else {
+            return getResult(nums2, nums1, set);
+        }
+    }
+
+    private int[] getResult(int[] nums1, int[] nums2, Set<Integer> set) {
+        Set<Integer> re = new HashSet<>();
+        for (int n : nums1) {
+            set.add(n);
+        }
+        for (int n : nums2) {
+            if (set.contains(n)) {
+                re.add(n);
+            }
+        }
+        int[] a = new int[re.size()];
+        int i = 0;
+        for (Integer integer : re) {
+            a[i++] = integer;
+        }
+        return a;
+    }
+
+    public boolean isPerfectSquare(int num) {
+        int left = 1, right = num;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            int m = num % mid;
+            int d = num / mid;
+            if (d == mid && m == 0) {
+                return true;
+            } else if (mid < d) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return false;
+    }
+
+    int guess(int num) {
+        return num;
+    }
+
+    public int guessNumber(int n) {
+        int low = 1, high = n;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            int guess = guess(mid);
+            if (guess == 0) {
+                return mid;
+            } else if (guess == -1) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return low;
+    }
+
+    public boolean canConstruct(String ransomNote, String magazine) {
+        Map<Character, Integer> m1 = new HashMap<>(26);
+        Map<Character, Integer> m2 = new HashMap<>(26);
+        for (int i = 0; i < ransomNote.length(); i++) {
+            m1.put(ransomNote.charAt(i), m1.getOrDefault(ransomNote.charAt(i), 0) + 1);
+        }
+        for (int i = 0; i < magazine.length(); i++) {
+            m2.put(magazine.charAt(i), m2.getOrDefault(magazine.charAt(i), 0) + 1);
+        }
+        for (Map.Entry<Character, Integer> entry : m1.entrySet()) {
+            if (entry.getValue() > m2.getOrDefault(entry.getKey(), 0)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public char findTheDifference(String s, String t) {
+        Map<Character, Integer> m1 = new HashMap<>(26);
+        Map<Character, Integer> m2 = new HashMap<>(26);
+        char[] chars = s.toCharArray();
+        for (char c : chars) {
+            m1.put(c, m1.getOrDefault(c, 0) + 1);
+        }
+        char[] chart = t.toCharArray();
+        for (char c : chart) {
+            m2.put(c, m2.getOrDefault(c, 0) + 1);
+        }
+        for (Map.Entry<Character, Integer> e : m2.entrySet()) {
+            if (m1.get(e.getKey()) == null || e.getValue() - 1 == m1.get(e.getKey())) {
+                return e.getKey();
+            }
+        }
+        return 'a';
+    }
+
+    public char findTheDifference2(String s, String t) {
+        char[] chars = s.toCharArray();
+        char[] chart = t.toCharArray();
+        int x = chart[chart.length - 1];
+        for (int i = 0; i < chars.length; i++) {
+            x ^= chars[i];
+            x ^= chart[i];
+        }
+        return (char) x;
+    }
+
+    public char findTheDifference3(String s, String t) {
+        char[] chars = s.toCharArray();
+        char[] chart = t.toCharArray();
+        int sums = 0;
+        int sumt = chart[chart.length - 1];
+        for (int i = 0; i < chars.length; i++) {
+            sums += chars[i];
+            sumt += chart[i];
+        }
+        return (char) (sumt - sums);
     }
 }
