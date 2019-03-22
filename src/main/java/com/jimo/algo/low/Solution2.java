@@ -404,4 +404,89 @@ public class Solution2 {
             return deep % 2 == 0;
         }
     }
+
+    public boolean wordPattern(String pattern, String str) {
+        String[] sa = str.split(" ");
+        if (pattern.length() != sa.length) {
+            return false;
+        }
+        String[] pa = pattern.split("");
+        Map<String, String> map = new HashMap<>(pattern.length());
+        Map<String, String> map2 = new HashMap<>(pattern.length());
+        for (int i = 0; i < pa.length; i++) {
+            if (notEqual(pa[i], sa[i], map)) {
+                return false;
+            }
+            if (notEqual(sa[i], pa[i], map2)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean notEqual(String p, String s, Map<String, String> map) {
+        if (map.containsKey(p)) {
+            return !map.get(p).equals(s);
+        } else {
+            map.put(p, s);
+        }
+        return false;
+    }
+
+    class NumArray {
+
+        private int[] sum;
+
+        public NumArray(int[] nums) {
+            if (nums.length == 0) {
+                return;
+            }
+            sum = new int[nums.length + 1];
+            sum[0] = nums[0];
+            for (int i = 1; i < nums.length; i++) {
+                sum[i] = sum[i - 1] + nums[i];
+            }
+        }
+
+        public int sumRange(int i, int j) {
+            if (i == 0) {
+                return sum[j];
+            } else {
+                return sum[j] - sum[i - 1];
+            }
+        }
+    }
+
+    public boolean isPowerOfFour(int num) {
+        if (num <= 0 || (num & (num - 1)) != 0) {
+            return false;
+        }
+        return (num & 0x55555555) != 0;
+    }
+
+    public String reverseVowels(String s) {
+        if (s == null || s.length() <= 1) {
+            return s;
+        }
+        char[] chars = s.toCharArray();
+        Set<Character> vowel = new HashSet<>(
+                Arrays.asList('a', 'e', 'i', 'o', 'u', 'A', 'E', 'O', 'U', 'I'));
+        int left = 0, right = chars.length - 1;
+        while (left < right) {
+            while (left < right && !vowel.contains(chars[left])) {
+                left++;
+            }
+            while (left < right && !vowel.contains(chars[right])) {
+                right--;
+            }
+            if (left < right) {
+                char t = chars[left];
+                chars[left] = chars[right];
+                chars[right] = t;
+                left++;
+                right--;
+            }
+        }
+        return new String(chars);
+    }
 }
