@@ -389,4 +389,19 @@ public class Solution2 {
         }
         return num == 1;
     }
+
+    public boolean canWinNim(int n) {
+        return canWinNim(n, 0);
+    }
+
+    public boolean canWinNim(int n, int deep) {
+        if (n > 3) {
+            boolean ok3 = canWinNim(n - 3, deep + 1);
+            boolean ok2 = canWinNim(n - 2, deep + 1);
+            boolean ok1 = canWinNim(n - 1, deep + 1);
+            return ok3 || ok2 || ok1;
+        } else {
+            return deep % 2 == 0;
+        }
+    }
 }
