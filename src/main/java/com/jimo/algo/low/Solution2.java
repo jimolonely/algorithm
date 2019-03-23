@@ -613,4 +613,13 @@ public class Solution2 {
         }
         return (char) (sumt - sums);
     }
+
+    public int findNthDigit(int n) {
+        // Sk = 10+20+30+...=k(a1+ak)/2 = n
+        return 0;
+    }
+
+    public List<String> readBinaryWatch(int num) {
+        return null;
+    }
 }
