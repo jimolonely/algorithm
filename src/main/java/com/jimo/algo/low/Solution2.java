@@ -766,4 +766,50 @@ public class Solution2 {
         }
         return c;
     }
+
+    // Definition for a QuadTree node.
+    class Node {
+        public boolean val;
+        public boolean isLeaf;
+        public Node topLeft;
+        public Node topRight;
+        public Node bottomLeft;
+        public Node bottomRight;
+
+        public Node() {
+        }
+
+        public Node(boolean _val, boolean _isLeaf, Node _topLeft,
+                    Node _topRight, Node _bottomLeft, Node _bottomRight) {
+            val = _val;
+            isLeaf = _isLeaf;
+            topLeft = _topLeft;
+            topRight = _topRight;
+            bottomLeft = _bottomLeft;
+            bottomRight = _bottomRight;
+        }
+    }
+
+    public Node construct(int[][] grid) {
+        return doConstruct(grid, 0, 0, grid.length);
+    }
+
+    public Node doConstruct(int[][] grid, int x, int y, int offset) {
+        if (offset == 0) {
+            return null;
+        }
+        for (int i = x; i < x + offset; i++) {
+            for (int j = y; j < y + offset; j++) {
+                if (grid[i][j] != grid[x][j]) {
+                    return new Node(true, false,
+                            doConstruct(grid, x, y, offset / 2),
+                            doConstruct(grid, x, y + offset / 2, offset / 2),
+                            doConstruct(grid, x + offset / 2, y, offset / 2),
+                            doConstruct(grid, x + offset / 2, y + offset / 2, offset / 2)
+                    );
+                }
+            }
+        }
+        return new Node(grid[x][y] == 1, true, null, null, null, null);
+    }
 }
