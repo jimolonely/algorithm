@@ -622,4 +622,30 @@ public class Solution2 {
     public List<String> readBinaryWatch(int num) {
         return null;
     }
+
+
+    public int sumOfLeftLeaves(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int sum = 0;
+        if (root.left != null && root.left.left == null && root.left.right == null) {
+            sum = root.left.val;
+        }
+        return sum + sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
+    }
+
+    public String toHex(int num) {
+        if (num == 0) {
+            return "0";
+        }
+        char[] c = {'0', '1', '2', '3', '4', '5', '6',
+                '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        StringBuilder sb = new StringBuilder();
+        for (; num != 0; num >>>= 4) {
+            int i = num & 0b1111;
+            sb.append(c[i]);
+        }
+        return sb.reverse().toString();
+    }
 }
