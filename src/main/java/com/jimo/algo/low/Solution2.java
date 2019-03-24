@@ -648,4 +648,38 @@ public class Solution2 {
         }
         return sb.reverse().toString();
     }
+
+    public int longestPalindrome(String s) {
+        Map<Character, Integer> map = new HashMap<>(s.length() > 26 ? 26 : s.length());
+        char[] chars = s.toCharArray();
+        for (char c : chars) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+        int re = 0;
+        boolean hasSingle = false;
+        for (Integer cnt : map.values()) {
+            if (cnt % 2 == 0) {
+                re += cnt;
+            } else {
+                hasSingle = true;
+                re += cnt - 1;
+            }
+        }
+        return hasSingle ? re + 1 : re;
+    }
+
+    public int longestPalindrome2(String s) {
+        Set<Character> set = new HashSet<>();
+        int cnt = 0;
+        char[] chars = s.toCharArray();
+        for (char c : chars) {
+            if (set.contains(c)) {
+                cnt += 2;
+                set.remove(c);
+            } else {
+                set.add(c);
+            }
+        }
+        return set.isEmpty() ? cnt : cnt + 1;
+    }
 }
