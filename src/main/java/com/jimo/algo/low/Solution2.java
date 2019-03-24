@@ -726,4 +726,44 @@ public class Solution2 {
             return tree.last();
         }
     }
+
+    public String addStrings(String num1, String num2) {
+        char[] n1, n2;
+        if (num1.length() > num2.length()) {
+            n1 = num1.toCharArray();
+            n2 = paddingZero(num2, n1.length);
+        } else {
+            n1 = num2.toCharArray();
+            n2 = paddingZero(num1, n1.length);
+        }
+        int carry = 0;
+        StringBuilder sb = new StringBuilder();
+        for (int i = n1.length - 1; i >= 0; i--) {
+            int a = n1[i] - '0';
+            int b = n2[i] - '0';
+            int c = a + b + carry;
+            int d = c / 10;
+            if (d > 0) {
+                sb.append(c - 10 * d);
+                carry = d;
+            } else {
+                sb.append(c);
+                carry = 0;
+            }
+        }
+        if (carry > 0) {
+            sb.append(carry);
+        }
+        return sb.reverse().toString();
+    }
+
+    private char[] paddingZero(String num2, int length) {
+        char[] c = new char[length];
+        Arrays.fill(c, '0');
+        int j = length - 1;
+        for (int i = num2.length() - 1; i >= 0; i--) {
+            c[j--] = num2.charAt(i);
+        }
+        return c;
+    }
 }
