@@ -682,4 +682,48 @@ public class Solution2 {
         }
         return set.isEmpty() ? cnt : cnt + 1;
     }
+
+    public int thirdMax(int[] nums) {
+        int m1 = Integer.MIN_VALUE;
+        int m2 = Integer.MIN_VALUE;
+        int m3 = Integer.MIN_VALUE;
+
+        boolean b = true;
+        int cnt = 0;
+        for (int num : nums) {
+            if (num == Integer.MIN_VALUE && b) {
+                cnt++;
+                b = false;
+                continue;
+            }
+            if (num > m1) {
+                m3 = m2;
+                m2 = m1;
+                m1 = num;
+                cnt++;
+            } else if (num > m2 && num < m1) {
+                m3 = m2;
+                m2 = num;
+                cnt++;
+            } else if (num > m3 && num < m2) {
+                m3 = num;
+                cnt++;
+            }
+        }
+        return cnt >= 3 ? m3 : m1;
+    }
+
+    public int thirdMax2(int[] nums) {
+        TreeSet<Integer> tree = new TreeSet<>();
+        for (int num : nums) {
+            tree.add(num);
+        }
+        if (tree.size() < 3) {
+            return tree.last();
+        } else {
+            tree.pollLast();
+            tree.pollLast();
+            return tree.last();
+        }
+    }
 }
