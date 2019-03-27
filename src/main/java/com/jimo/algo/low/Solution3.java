@@ -1,9 +1,6 @@
 package com.jimo.algo.low;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * @author jimo
@@ -101,5 +98,41 @@ public class Solution3 {
         }
         return cnt + pathSumSearch(root.left, sum - root.val)
                 + pathSumSearch(root.right, sum - root.val);
+    }
+
+    public int numberOfBoomerangs(int[][] points) {
+        int cnt = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        // 每个点为顶点时
+        for (int i = 0; i < points.length; i++) {
+            map.clear();
+            for (int j = 0; j < points.length; j++) {
+                if (i != j) {
+                    int dist = (int) (Math.pow(points[i][0] - points[j][0], 2)
+                            + Math.pow(points[i][1] - points[j][1], 2));
+                    map.put(dist, map.getOrDefault(dist, 0) + 1);
+                }
+            }
+            for (Integer n : map.values()) {
+                if (n >= 2) {
+                    // 有序，排列问题，从n个里选2个点
+                    cnt += n * (n - 1);
+                }
+            }
+        }
+        return cnt;
+    }
+
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        for (int num : nums) {
+            nums[Math.abs(num) - 1] = -Math.abs(nums[Math.abs(num) - 1]);
+        }
+        List<Integer> re = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0) {
+                re.add(i + 1);
+            }
+        }
+        return re;
     }
 }
