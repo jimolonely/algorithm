@@ -165,4 +165,54 @@ public class Solution3 {
     public boolean repeatedSubstringPattern(String s) {
         return (s + s).substring(1, s.length() * 2 - 1).contains(s);
     }
+
+    public int islandPerimeter(int[][] grid) {
+        int cnt = 0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if (grid[i][j] == 1) {
+                    cnt += 4;
+                    // left
+                    if (j > 0 && grid[i][j - 1] == 1) {
+                        cnt -= 2;
+                    }
+                    // up
+                    if (i > 0 && grid[i - 1][j] == 1) {
+                        cnt -= 2;
+                    }
+                }
+            }
+        }
+        return cnt;
+    }
+
+    public int findComplement(int num) {
+        int bit = 31;
+        // find fist bit equals 1
+        while ((0x80000000 & num) == 0) {
+            bit--;
+            num <<= 1;
+        }
+        int sum = 0;
+        while (bit >= 0) {
+            int x = num & 0x80000000;
+            if (x == 0) {
+                sum += Math.pow(2, bit);
+            }
+            num <<= 1;
+            bit--;
+        }
+        return sum;
+    }
+
+    public int findComplement2(int num) {
+        int t = num;
+        int c = 1;
+        while (t > 0) {
+            t >>= 1;
+            c = (c << 1) + 1;
+        }
+        c >>= 1;
+        return t ^ c;
+    }
 }
