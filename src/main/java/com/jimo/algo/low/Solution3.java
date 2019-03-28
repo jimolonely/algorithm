@@ -135,4 +135,30 @@ public class Solution3 {
         }
         return re;
     }
+
+    public int minMoves(int[] nums) {
+        int sum = 0;
+        int min = Integer.MAX_VALUE;
+        for (int num : nums) {
+            sum += num;
+            if (min > num) {
+                min = num;
+            }
+        }
+        return sum - min * nums.length;
+    }
+
+    public int findContentChildren(int[] g, int[] s) {
+        Arrays.sort(g);
+        Arrays.sort(s);
+        int cd = 0;
+        int ck = 0;
+        while (ck < s.length && cd < g.length) {
+            if (g[cd] <= s[ck]) {
+                cd++;
+            }
+            ck++;
+        }
+        return cd;
+    }
 }
