@@ -215,4 +215,43 @@ public class Solution3 {
         c >>= 1;
         return t ^ c;
     }
+
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int max = 0;
+        int cnt = 0;
+        for (int num : nums) {
+            if (num == 0) {
+                cnt = 0;
+            } else {
+                cnt++;
+            }
+            if (cnt > max) {
+                max = cnt;
+            }
+        }
+        return max;
+    }
+
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        int[] re = new int[nums1.length];
+        boolean find;
+        Map<Integer, Integer> map = new HashMap<>(nums2.length);
+        for (int k = 0; k < nums2.length; k++) {
+            map.put(nums2[k], k);
+        }
+        for (int i = 0; i < nums1.length; i++) {
+            find = false;
+            for (int j = map.get(nums1[i]) + 1; j < nums2.length; j++) {
+                if (nums1[i] < nums2[j]) {
+                    find = true;
+                    re[i] = nums2[j];
+                    break;
+                }
+            }
+            if (!find) {
+                re[i] = -1;
+            }
+        }
+        return re;
+    }
 }
