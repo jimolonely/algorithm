@@ -254,4 +254,31 @@ public class Solution3 {
         }
         return re;
     }
+
+    public String[] findWords(String[] words) {
+        List<String> re = new ArrayList<>();
+        Set<Character> one = new HashSet<>(Arrays.asList('q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'));
+        Set<Character> two = new HashSet<>(Arrays.asList('a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'));
+        Set<Character> three = new HashSet<>(Arrays.asList('z', 'x', 'c', 'v', 'b', 'n', 'm'));
+        for (String word : words) {
+            boolean[] ok = new boolean[3];
+            Arrays.fill(ok, true);
+            char[] chars = word.toLowerCase().toCharArray();
+            for (char c : chars) {
+                if (!one.contains(c)) {
+                    ok[0] = false;
+                }
+                if (!two.contains(c)) {
+                    ok[1] = false;
+                }
+                if (!three.contains(c)) {
+                    ok[2] = false;
+                }
+            }
+            if (ok[0] || ok[1] || ok[2]) {
+                re.add(word);
+            }
+        }
+        return re.toArray(new String[0]);
+    }
 }
