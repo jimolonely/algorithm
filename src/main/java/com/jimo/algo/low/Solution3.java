@@ -350,4 +350,27 @@ public class Solution3 {
         }
         return re;
     }
+
+    public boolean checkPerfectNumber(int num) {
+        int sum = 1;
+        for (int i = 2; i < num / i; i++) {
+            if (num % i == 0) {
+                sum += i + num / i;
+            }
+        }
+        return (sum != 1) && sum == num;
+    }
+
+    public int fib(int N) {
+        if (N == 0) {
+            return 0;
+        }
+        int a = 0, b = 1;
+        for (int i = 2; i <= N; i++) {
+            int fi = a + b;
+            a = b;
+            b = fi;
+        }
+        return b;
+    }
 }
