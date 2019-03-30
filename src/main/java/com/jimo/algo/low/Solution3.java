@@ -373,4 +373,14 @@ public class Solution3 {
         }
         return b;
     }
+
+    public boolean detectCapitalUse(String word) {
+        return word.equals(word.toLowerCase())
+                || word.equals(word.toUpperCase())
+                || word.equals(word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase());
+    }
+
+    public int findLUSlength(String a, String b) {
+        return a.equals(b) ? -1 : (Math.max(a.length(), b.length()));
+    }
 }
