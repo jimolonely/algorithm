@@ -325,4 +325,29 @@ public class Solution3 {
         }
         return sb.reverse().toString();
     }
+
+    public String[] findRelativeRanks(int[] nums) {
+        TreeSet<Integer> s = new TreeSet<>((o1, o2) -> o2 - o1);
+        Map<Integer, Integer> map = new HashMap<>();
+        int j = 0;
+        for (int num : nums) {
+            s.add(num);
+            map.put(num, j++);
+        }
+        String[] re = new String[s.size()];
+        int i = 0;
+        for (Integer num : s) {
+            if (i == 0) {
+                re[map.get(num)] = "Gold Medal";
+            } else if (i == 1) {
+                re[map.get(num)] = "Silver Medal";
+            } else if (i == 2) {
+                re[map.get(num)] = "Bronze Medal";
+            } else {
+                re[map.get(num)] = (i + 1) + "";
+            }
+            i++;
+        }
+        return re;
+    }
 }
