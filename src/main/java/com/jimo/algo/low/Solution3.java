@@ -281,4 +281,48 @@ public class Solution3 {
         }
         return re.toArray(new String[0]);
     }
+
+    int nowCnt = 0;
+    int preCnt = 0;
+    int maxCnt = 0;
+
+    public int[] findMode(TreeNode root) {
+        List<Integer> re = new ArrayList<>();
+        inorder(root, re);
+        return re.stream().mapToInt(x -> x).toArray();
+    }
+
+    private void inorder(TreeNode root, List<Integer> re) {
+        if (root == null) {
+            return;
+        }
+        inorder(root.left, re);
+        nowCnt = preCnt == root.val ? nowCnt + 1 : 1;
+        if (nowCnt > maxCnt) {
+            re.clear();
+            re.add(root.val);
+            maxCnt = nowCnt;
+        } else if (nowCnt == maxCnt) {
+            re.add(root.val);
+        }
+        preCnt = root.val;
+        inorder(root.right, re);
+    }
+
+    public String convertToBase7(int num) {
+        if (num == 0) {
+            return "0";
+        }
+        StringBuffer sb = new StringBuffer();
+        int tmp = Math.abs(num);
+        while (tmp > 0) {
+            int b = tmp % 7;
+            sb.append(b);
+            tmp /= 7;
+        }
+        if (num < 0) {
+            sb.append("-");
+        }
+        return sb.reverse().toString();
+    }
 }
