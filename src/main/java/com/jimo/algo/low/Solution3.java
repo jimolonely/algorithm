@@ -383,4 +383,37 @@ public class Solution3 {
     public int findLUSlength(String a, String b) {
         return a.equals(b) ? -1 : (Math.max(a.length(), b.length()));
     }
+
+    public int getMinimumDifference(TreeNode root) {
+        if (root == null) {
+            return Integer.MAX_VALUE;
+        }
+        long maxL = getMaxOfLeft(root.left);
+        long minR = getMinOfRight(root.right);
+        long min = Math.min(root.val - maxL, minR - root.val);
+        return (int) Math.min(min, Math.min(getMinimumDifference(root.left),
+                getMinimumDifference(root.right)));
+    }
+
+    private long getMinOfRight(TreeNode root) {
+        if (root == null) {
+            return Integer.MAX_VALUE;
+        }
+        TreeNode t = root;
+        while (t.left != null) {
+            t = t.left;
+        }
+        return t.val;
+    }
+
+    private long getMaxOfLeft(TreeNode root) {
+        if (root == null) {
+            return Integer.MIN_VALUE;
+        }
+        TreeNode t = root;
+        while (t.right != null) {
+            t = t.right;
+        }
+        return t.val;
+    }
 }
