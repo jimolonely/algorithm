@@ -458,4 +458,33 @@ public class Solution3 {
         }
         return sb.toString();
     }
+
+    int maxDiameter = 0;
+
+    public int diameterOfBinaryTree(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int leftDepth = getMaxDepth(root.left);
+        int rightDepth = getMaxDepth(root.right);
+        int leftM = diameterOfBinaryTree(root.left);
+        int rightM = diameterOfBinaryTree(root.right);
+        maxDiameter = Math.max(leftDepth + rightDepth, Math.max(leftM, rightM));
+        return maxDiameter;
+    }
+
+    private int getMaxDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int leftDepth = 1;
+        int rightDepth = 1;
+        if (root.left != null) {
+            leftDepth += getMaxDepth(root.left);
+        }
+        if (root.right != null) {
+            rightDepth += getMaxDepth(root.right);
+        }
+        return Math.max(leftDepth, rightDepth);
+    }
 }
