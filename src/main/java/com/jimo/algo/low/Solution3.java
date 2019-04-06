@@ -429,4 +429,33 @@ public class Solution3 {
         convertBST(root.left);
         return root;
     }
+
+    public String reverseStr(String s, int k) {
+        char[] chars = s.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        for (i = 0; i + k <= chars.length; i += k) {
+            if (i / k % 2 == 0) {
+                for (int j = i + k - 1; j >= i; j--) {
+                    sb.append(chars[j]);
+                }
+            } else {
+                for (int j = i; j < i + k; j++) {
+                    sb.append(chars[j]);
+                }
+            }
+        }
+        if (i < chars.length) {
+            if (i / k % 2 == 0) {
+                for (int j = chars.length - 1; j >= i; j--) {
+                    sb.append(chars[j]);
+                }
+            } else {
+                for (int j = i; j < chars.length; j++) {
+                    sb.append(chars[j]);
+                }
+            }
+        }
+        return sb.toString();
+    }
 }
