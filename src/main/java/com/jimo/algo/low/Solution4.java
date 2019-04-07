@@ -42,4 +42,49 @@ public class Solution4 {
     }
 
 
+    class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        public TreeNode(int val) {
+            this.val = val;
+        }
+    }
+
+    public int findTilt(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int tiltLeft = findTilt(root.left);
+        int tiltRight = findTilt(root.right);
+        int leftSum = sumTree(root.left);
+        int rightSum = sumTree(root.right);
+        return tiltLeft + tiltRight + Math.abs(leftSum - rightSum);
+    }
+
+    private int sumTree(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int sumLeft = sumTree(root.left);
+        int sumRight = sumTree(root.right);
+        return sumLeft + sumRight + root.val;
+    }
+
+    public int findTilt2(TreeNode root) {
+        int[] sum = new int[1];
+        postOrderSum(root, sum);
+        return sum[0];
+    }
+
+    private int postOrderSum(TreeNode root, int[] sum) {
+        if (root == null) {
+            return 0;
+        }
+        int leftSum = postOrderSum(root.left, sum);
+        int rightSum = postOrderSum(root.right, sum);
+        sum[0] += Math.abs(leftSum - rightSum);
+        return leftSum + rightSum + root.val;
+    }
 }
