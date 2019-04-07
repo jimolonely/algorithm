@@ -487,4 +487,43 @@ public class Solution3 {
         }
         return Math.max(leftDepth, rightDepth);
     }
+
+    public boolean checkRecord(String s) {
+        char[] chars = s.toCharArray();
+        int cntA = 0;
+        for (int i = 0; i < chars.length; ) {
+            if (chars[i] == 'A') {
+                cntA++;
+                if (cntA > 1) {
+                    return false;
+                }
+            } else if (chars[i] == 'L') {
+                if (i + 3 <= chars.length) {
+                    if (chars[i + 1] == 'L' && chars[i + 2] == 'L') {
+                        return false;
+                    }
+                }
+            }
+            i++;
+        }
+        return true;
+    }
+
+    public String reverseWords(String s) {
+        String[] words = s.split(" ");
+        StringBuilder sb = new StringBuilder();
+        for (String word : words) {
+            char[] chars = word.toCharArray();
+            int l = 0, r = chars.length - 1;
+            while (l < r) {
+                char t = chars[l];
+                chars[l] = chars[r];
+                chars[r] = t;
+                l++;
+                r--;
+            }
+            sb.append(chars).append(" ");
+        }
+        return sb.substring(0, sb.length() - 1);
+    }
 }
