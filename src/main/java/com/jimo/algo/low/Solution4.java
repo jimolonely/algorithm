@@ -87,4 +87,25 @@ public class Solution4 {
         sum[0] += Math.abs(leftSum - rightSum);
         return leftSum + rightSum + root.val;
     }
+
+    public int[][] matrixReshape(int[][] nums, int r, int c) {
+        if (nums == null || nums.length == 0 || nums[0].length == 0) {
+            return nums;
+        }
+        int rn = nums.length;
+        int cn = nums[0].length;
+        int n = rn * cn;
+        if (n != r * c) {
+            return nums;
+        }
+        int[][] re = new int[r][c];
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                int row = (i * c + j) / cn;
+                int col = (i * c + j) % cn;
+                re[i][j] = nums[row][col];
+            }
+        }
+        return re;
+    }
 }
