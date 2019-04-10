@@ -167,4 +167,15 @@ public class Solution4 {
         }
         return re;
     }
+
+    public int maxCount(int m, int n, int[][] ops) {
+        int r = m, c = n;
+        for (int[] op : ops) {
+            int a = op[0];
+            int b = op[1];
+            r = Math.min(r, a);
+            c = Math.min(c, b);
+        }
+        return r * c;
+    }
 }
