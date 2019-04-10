@@ -146,4 +146,25 @@ public class Solution4 {
         }
         return re;
     }
+
+    public List<Integer> postorder(Node root) {
+        List<Integer> re = new ArrayList<>();
+        if (root == null) {
+            return re;
+        }
+        Stack<Node> s = new Stack<>();
+        Stack<Integer> sl = new Stack<>();
+        s.push(root);
+        while (!s.isEmpty()) {
+            Node n = s.pop();
+            for (Node child : n.children) {
+                s.push(child);
+            }
+            sl.push(n.val);
+        }
+        while (!sl.isEmpty()) {
+            re.add(sl.pop());
+        }
+        return re;
+    }
 }
