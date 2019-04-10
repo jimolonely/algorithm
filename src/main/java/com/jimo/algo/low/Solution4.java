@@ -208,4 +208,30 @@ public class Solution4 {
             }
         }
     }
+
+    public String tree2str(TreeNode t) {
+        if (t == null) {
+            return "()";
+        }
+        StringBuilder sb = new StringBuilder();
+        preOrderT(t, sb);
+        return sb.toString();
+    }
+
+    private void preOrderT(TreeNode t, StringBuilder sb) {
+        sb.append(t.val);
+        if (t.left != null || t.right != null) {
+
+            sb.append("(");
+            if (t.left != null) {
+                preOrderT(t.left, sb);
+            }
+            sb.append(")");
+            if (t.right != null) {
+                sb.append("(");
+                preOrderT(t.right, sb);
+                sb.append(")");
+            }
+        }
+    }
 }
