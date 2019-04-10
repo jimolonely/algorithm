@@ -1,7 +1,9 @@
 package com.jimo.algo.low;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author jimo
@@ -107,5 +109,14 @@ public class Solution4 {
             }
         }
         return re;
+    }
+
+    public int distributeCandies(int[] candies) {
+        Set<Integer> set = new HashSet<>();
+        for (int candy : candies) {
+            set.add(candy);
+        }
+        int half = candies.length / 2;
+        return set.size() > half ? half : set.size();
     }
 }
