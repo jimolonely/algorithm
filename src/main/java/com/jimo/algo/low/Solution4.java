@@ -178,4 +178,34 @@ public class Solution4 {
         }
         return r * c;
     }
+
+    public String[] findRestaurant(String[] list1, String[] list2) {
+        Map<String, Integer> map = new HashMap<>(Math.min(list1.length, list2.length));
+        List<String> re = new ArrayList<>();
+        if (list1.length > list2.length) {
+            doFind(list2, list1, map, re);
+        } else {
+            doFind(list1, list2, map, re);
+        }
+        return re.toArray(new String[0]);
+    }
+
+    private void doFind(String[] list1, String[] list2, Map<String, Integer> map, List<String> re) {
+        for (int i = 0; i < list1.length; i++) {
+            map.put(list1[i], i);
+        }
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < list2.length; i++) {
+            if (map.containsKey(list2[i])) {
+                int sum = i + map.get(list2[i]);
+                if (sum == min) {
+                    re.add(list2[i]);
+                } else if (sum < min) {
+                    re.clear();
+                    re.add(list2[i]);
+                    min = sum;
+                }
+            }
+        }
+    }
 }
