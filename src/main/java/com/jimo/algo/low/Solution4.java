@@ -1,9 +1,6 @@
 package com.jimo.algo.low;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author jimo
@@ -118,5 +115,35 @@ public class Solution4 {
         }
         int half = candies.length / 2;
         return set.size() > half ? half : set.size();
+    }
+
+    public List<Integer> preorder(Node root) {
+        List<Integer> re = new ArrayList<>();
+        doPreOrder(root, re);
+        return re;
+    }
+
+    private void doPreOrder(Node root, List<Integer> re) {
+        if (root != null) {
+            re.add(root.val);
+            for (Node child : root.children) {
+                doPreOrder(child, re);
+            }
+        }
+    }
+
+    public List<Integer> preorder2(Node root) {
+        List<Integer> re = new ArrayList<>();
+        if (root == null) {
+            return re;
+        }
+        LinkedList<Node> q = new LinkedList<>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            Node n = q.poll();
+            re.add(n.val);
+            q.addAll(0, n.children);
+        }
+        return re;
     }
 }
