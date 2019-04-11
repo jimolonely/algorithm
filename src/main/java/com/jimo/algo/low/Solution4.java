@@ -244,4 +244,12 @@ public class Solution4 {
         t.right = mergeTrees(t1 == null ? null : t1.right, t2 == null ? null : t2.right);
         return t;
     }
+
+    public int maximumProduct(int[] nums) {
+        Arrays.sort(nums);
+        int len = nums.length;
+        int a = nums[0] * nums[1] * nums[len - 1];
+        int b = nums[len - 3] * nums[len - 2] * nums[len - 1];
+        return Math.max(a, b);
+    }
 }
