@@ -252,4 +252,29 @@ public class Solution4 {
         int b = nums[len - 3] * nums[len - 2] * nums[len - 1];
         return Math.max(a, b);
     }
+
+    public List<Double> averageOfLevels(TreeNode root) {
+        List<Double> re = new ArrayList<>();
+        if (root == null) {
+            return re;
+        }
+        LinkedList<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            int size = q.size();
+            double avg = 0d;
+            for (int i = 0; i < size; i++) {
+                TreeNode n = q.removeFirst();
+                avg += n.val;
+                if (n.left != null) {
+                    q.add(n.left);
+                }
+                if (n.right != null) {
+                    q.add(n.right);
+                }
+            }
+            re.add(avg / size);
+        }
+        return re;
+    }
 }
