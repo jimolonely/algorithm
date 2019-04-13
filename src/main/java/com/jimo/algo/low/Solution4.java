@@ -307,4 +307,33 @@ public class Solution4 {
         re[1] = trueSum - sum + re[0];
         return re;
     }
+
+    public boolean findTarget(TreeNode root, int k) {
+        if (root == null) {
+            return false;
+        }
+        List<Integer> list = new ArrayList<>();
+        inorder(root, list);
+        int left = 0, right = list.size() - 1;
+        while (left < right) {
+            int t = list.get(left) + list.get(right);
+            if (t == k) {
+                return true;
+            } else if (t < k) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return false;
+    }
+
+    private void inorder(TreeNode root, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        inorder(root.left, list);
+        list.add(root.val);
+        inorder(root.right, list);
+    }
 }
