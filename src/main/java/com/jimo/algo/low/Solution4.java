@@ -290,4 +290,21 @@ public class Solution4 {
         }
         return avg;
     }
+
+    public int[] findErrorNums(int[] nums) {
+        int[] re = new int[2];
+        int sum = 0;
+        int[] bucket = new int[nums.length + 1];
+        for (int num : nums) {
+            if (bucket[num] == 0) {
+                bucket[num] = 1;
+            } else {
+                re[0] = num;
+            }
+            sum += num;
+        }
+        int trueSum = (nums.length * (nums.length + 1)) / 2;
+        re[1] = trueSum - sum + re[0];
+        return re;
+    }
 }
