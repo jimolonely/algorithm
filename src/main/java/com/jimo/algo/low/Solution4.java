@@ -369,4 +369,24 @@ public class Solution4 {
         }
         return udCnt == 0 && lrCnt == 0;
     }
+
+    public int[][] imageSmoother(int[][] M) {
+        int row = M.length;
+        int col = M[0].length;
+        int[][] re = new int[row][col];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                int sum = 0;
+                int cnt = 0;
+                for (int k = Math.max(0, i - 1); k <= Math.min(i + 1, row - 1); k++) {
+                    for (int p = Math.max(0, j - 1); p <= Math.min(j + 1, col - 1); p++) {
+                        sum += M[k][p];
+                        cnt++;
+                    }
+                }
+                re[i][j] = sum / cnt;
+            }
+        }
+        return re;
+    }
 }
