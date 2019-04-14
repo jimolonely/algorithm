@@ -336,4 +336,37 @@ public class Solution4 {
         list.add(root.val);
         inorder(root.right, list);
     }
+
+    public boolean judgeCircle(String moves) {
+        Map<Character, Integer> map = new HashMap<>(4);
+        for (char c : moves.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+        return map.getOrDefault('L', 0).equals(map.getOrDefault('R', 0))
+                && map.getOrDefault('U', 0).equals(map.getOrDefault('D', 0));
+    }
+
+    public boolean judgeCircle2(String moves) {
+        char[] chars = moves.toCharArray();
+        int udCnt = 0;
+        int lrCnt = 0;
+        for (char c : chars) {
+            switch (c) {
+                case 'L':
+                    lrCnt--;
+                    break;
+                case 'R':
+                    lrCnt++;
+                    break;
+                case 'U':
+                    udCnt--;
+                    break;
+                case 'D':
+                    udCnt++;
+                    break;
+                default:
+            }
+        }
+        return udCnt == 0 && lrCnt == 0;
+    }
 }
