@@ -501,4 +501,29 @@ public class Solution4 {
         }
         return score;
     }
+
+    public boolean validPalindrome(String s) {
+        char[] chars = s.toCharArray();
+        int i = 0, j = chars.length - 1;
+        while (i < j) {
+            if (chars[i] != chars[j]) {
+                return isValidPalindrome(chars, i + 1, j) || isValidPalindrome(chars, i, j - 1);
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+
+    private boolean isValidPalindrome(char[] chars, int i, int j) {
+        while (i < j) {
+            if (chars[i] != chars[j]) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+
 }
