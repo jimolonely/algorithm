@@ -404,4 +404,54 @@ public class Solution4 {
         root.right = trimBST(root.right, L, R);
         return root;
     }
+
+    public int findSecondMinimumValue2(TreeNode root) {
+        if (root.left == null) {
+            return -1;
+        }
+        if (root.left.val == root.right.val) {
+            int sl = findSecondMinimumValue2(root.left);
+            int sr = findSecondMinimumValue2(root.right);
+            if (root.val == root.left.val) {
+                if (sr == -1 && sl == -1) {
+                    return -1;
+                } else if (sl == -1) {
+                    return sr;
+                } else {
+                    return sl;
+                }
+            } else {
+                return root.val;
+            }
+        } else if (root.left.val < root.right.val) {
+            int sl = findSecondMinimumValue2(root.left);
+            if (sl == -1) {
+                return root.left.val;
+            } else {
+                return sl;
+            }
+        } else {
+            int sr = findSecondMinimumValue2(root.right);
+            if (sr == -1) {
+                return root.right.val;
+            } else {
+                return sr;
+            }
+        }
+    }
+
+    public int findSecondMinimumValue(TreeNode root) {
+        int re = traverse(root, root.val);
+        return re == Integer.MAX_VALUE ? -1 : re;
+    }
+
+    private int traverse(TreeNode root, int val) {
+        if (root != null) {
+            if (root.val > val) {
+                return root.val;
+            }
+            return Math.min(traverse(root.left, val), traverse(root.right, val));
+        }
+        return Integer.MAX_VALUE;
+    }
 }
