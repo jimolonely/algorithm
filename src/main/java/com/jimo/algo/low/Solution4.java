@@ -472,4 +472,33 @@ public class Solution4 {
         maxCnt = Math.max(cnt, maxCnt);
         return maxCnt;
     }
+
+    public int calPoints(String[] ops) {
+        Stack<Integer> s = new Stack<>();
+        int score = 0;
+        for (String op : ops) {
+            switch (op) {
+                case "+":
+                    Integer a = s.pop();
+                    int score1 = a + s.peek();
+                    score += score1;
+                    s.push(a);
+                    s.push(score1);
+                    break;
+                case "D":
+                    int stt = 2 * s.peek();
+                    score += stt;
+                    s.push(stt);
+                    break;
+                case "C":
+                    score -= s.pop();
+                    break;
+                default:
+                    int st = Integer.parseInt(op);
+                    score += st;
+                    s.push(st);
+            }
+        }
+        return score;
+    }
 }
