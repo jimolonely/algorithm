@@ -454,4 +454,22 @@ public class Solution4 {
         }
         return Integer.MAX_VALUE;
     }
+
+    public int findLengthOfLCIS(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+        int cnt = 1;
+        int maxCnt = 0;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] <= nums[i - 1]) {
+                maxCnt = Math.max(cnt, maxCnt);
+                cnt = 1;
+            } else {
+                cnt++;
+            }
+        }
+        maxCnt = Math.max(cnt, maxCnt);
+        return maxCnt;
+    }
 }
