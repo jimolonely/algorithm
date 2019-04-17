@@ -548,4 +548,18 @@ public class Solution4 {
         }
         return sum;
     }
+
+    public boolean hasAlternatingBits(int n) {
+        if (n == 0) {
+            return true;
+        }
+        int sum = 1;
+        int tmp = n;
+        while (tmp != 0) {
+            tmp >>>= 1;
+            sum = (sum << 1) + 1;
+        }
+        sum >>>= 1;
+        return (n ^ (n >>> 1)) == sum;
+    }
 }
