@@ -526,4 +526,26 @@ public class Solution4 {
         return true;
     }
 
+    class Employee {
+        // It's the unique id of each node;
+        // unique id of this employee
+        public int id;
+        // the importance value of this employee
+        public int importance;
+        // the id of direct subordinates
+        public List<Integer> subordinates;
+    }
+
+    public int getImportance(List<Employee> employees, int id) {
+        int sum = 0;
+        for (Employee e : employees) {
+            if (e.id == id) {
+                sum += e.importance;
+                for (Integer subId : e.subordinates) {
+                    sum += getImportance(employees, subId);
+                }
+            }
+        }
+        return sum;
+    }
 }
