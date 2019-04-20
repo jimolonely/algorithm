@@ -642,4 +642,28 @@ public class Solution4 {
         }
         return searchBST(root.left, val);
     }
+
+    class KthLargest {
+
+        private int k;
+        private PriorityQueue<Integer> q;
+
+        public KthLargest(int k, int[] nums) {
+            this.k = k;
+            q = new PriorityQueue<>(k);
+            for (int num : nums) {
+                add(num);
+            }
+        }
+
+        public int add(int val) {
+            if (q.size() < k) {
+                q.offer(val);
+            } else if (q.peek() < val) {
+                q.poll();
+                q.offer(val);
+            }
+            return q.peek();
+        }
+    }
 }
