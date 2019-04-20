@@ -605,4 +605,41 @@ public class Solution4 {
         res += Math.min(pre, cur);
         return res;
     }
+
+    public int findShortestSubArray(int[] nums) {
+        Map<Integer, int[]> map = new HashMap<>(nums.length > 16 ? nums.length / 4 : nums.length);
+        int maxCnt = 1;
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(nums[i])) {
+                int[] record = map.get(nums[i]);
+                record[0]++;
+                record[2] = i;
+                if (record[0] > maxCnt) {
+                    maxCnt = record[0];
+                }
+            } else {
+                // cnt:[0],startIndex:[1],endIndex:[2]
+                map.put(nums[i], new int[]{1, i, i});
+            }
+        }
+        int minLen = Integer.MAX_VALUE;
+        for (int[] r : map.values()) {
+            if (r[0] == maxCnt) {
+                minLen = Math.min(minLen, r[2] - r[1] + 1);
+            }
+        }
+        return minLen;
+    }
+
+    public TreeNode searchBST(TreeNode root, int val) {
+        if (root == null) {
+            return null;
+        }
+        if (root.val == val) {
+            return root;
+        } else if (root.val < val) {
+            return searchBST(root.right, val);
+        }
+        return searchBST(root.left, val);
+    }
 }
