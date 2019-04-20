@@ -562,4 +562,47 @@ public class Solution4 {
         sum >>>= 1;
         return (n ^ (n >>> 1)) == sum;
     }
+
+    public int countBinarySubstrings(String s) {
+        char[] chars = s.toCharArray();
+        int cnt = 0;
+        for (int i = 0; i < chars.length - 1; i++) {
+            char c = chars[i];
+            int cnt1 = 0, cnt0 = 0;
+            for (int j = i; j < chars.length; j++) {
+                if (c == chars[j]) {
+                    cnt0++;
+                } else {
+                    break;
+                }
+            }
+            for (int j = i + cnt0; j < chars.length; j++) {
+                if (c != chars[j]) {
+                    cnt1++;
+                } else {
+                    break;
+                }
+            }
+            cnt += cnt0 == cnt1 ? 1 : 0;
+        }
+        return cnt;
+    }
+
+    public int countBinarySubstrings2(String s) {
+        int pre = 0;
+        int cur = 1;
+        int res = 0;
+        char[] chars = s.toCharArray();
+        for (int i = 1; i < chars.length; i++) {
+            if (chars[i] == chars[i - 1]) {
+                cur++;
+            } else {
+                res += Math.min(pre, cur);
+                pre = cur;
+                cur = 1;
+            }
+        }
+        res += Math.min(pre, cur);
+        return res;
+    }
 }
