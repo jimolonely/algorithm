@@ -714,5 +714,16 @@ public class Solution4 {
         }
     }
 
+    public String toLowerCase(String str) {
+        return str.toLowerCase();
+    }
 
+    public boolean isOneBitCharacter(int[] bits) {
+        int i = 0, step = 0;
+        while (i < bits.length) {
+            step = bits[i] == 1 ? 2 : 1;
+            i += step;
+        }
+        return step == 1 && i == bits.length;
+    }
 }
