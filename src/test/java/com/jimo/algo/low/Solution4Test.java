@@ -2,6 +2,8 @@ package com.jimo.algo.low;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 public class Solution4Test {
@@ -25,5 +27,14 @@ public class Solution4Test {
         System.out.println(h == (e + f));
         System.out.println(h.equals(e + f));
         System.out.println(g.equals(a + b));
+    }
+
+    @Test
+    public void compareStr() {
+        String[] s = {"a", "ab", "c", "123"};
+        Arrays.sort(s);
+        for (String s1 : s) {
+            System.out.println(s1);
+        }
     }
 }

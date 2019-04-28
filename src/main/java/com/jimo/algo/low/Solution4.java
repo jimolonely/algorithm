@@ -726,4 +726,17 @@ public class Solution4 {
         }
         return step == 1 && i == bits.length;
     }
+
+    public String longestWord(String[] words) {
+        Arrays.sort(words);
+        Set<String> set = new HashSet<>();
+        String re = "";
+        for (String word : words) {
+            if (word.length() == 1 || set.contains(word.substring(0, word.length() - 1))) {
+                re = re.length() < word.length() ? word : re;
+                set.add(word);
+            }
+        }
+        return re;
+    }
 }
