@@ -739,4 +739,23 @@ public class Solution4 {
         }
         return re;
     }
+
+    public int pivotIndex(int[] nums) {
+        int sum = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+        int preSum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if ((sum - nums[i]) % 2 != 0) {
+                preSum += nums[i];
+                continue;
+            }
+            if (preSum == (sum - nums[i]) / 2) {
+                return i;
+            }
+            preSum += nums[i];
+        }
+        return -1;
+    }
 }
