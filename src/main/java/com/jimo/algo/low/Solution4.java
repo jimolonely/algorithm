@@ -780,4 +780,43 @@ public class Solution4 {
 		}
 		return true;
 	}
+
+	public String shortestCompletingWord(String licensePlate, String[] words) {
+		int minLen = Integer.MAX_VALUE;
+		String re = null;
+		Map<Character, Integer> mL = new HashMap<>(7);
+		Map<Character, Integer> mW = new HashMap<>(15);
+		for (char c : licensePlate.toCharArray()) {
+			char x;
+			if (c >= 'A' && c <= 'Z') {
+				x = (char) (c + 32);
+			} else if (c >= 'a' && c <= 'z') {
+				x = c;
+			} else {
+				continue;
+			}
+			mL.put(x, mL.getOrDefault(x, 0) + 1);
+		}
+		for (String word : words) {
+			mW.clear();
+			for (char c : word.toCharArray()) {
+				mW.put(c, mW.getOrDefault(c, 0) + 1);
+			}
+			if (minLen > word.length()) {
+				boolean ok = true;
+				for (Map.Entry<Character, Integer> e : mL.entrySet()) {
+					final Integer cnt = mW.getOrDefault(e.getKey(), 0);
+					if (e.getValue() > cnt) {
+						ok = false;
+						break;
+					}
+				}
+				if (ok) {
+					re = word;
+					minLen = word.length();
+				}
+			}
+		}
+		return re;
+	}
 }
