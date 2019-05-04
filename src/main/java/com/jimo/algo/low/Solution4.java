@@ -819,4 +819,21 @@ public class Solution4 {
 		}
 		return re;
 	}
+
+	public int countPrimeSetBits(int L, int R) {
+		int[] prime = {0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0};
+		int res = 0, bits, i, j;
+		for (i = L; i <= R; ++i) {
+			j = i;
+			bits = 0;
+			//统计有多少1最快的方法
+			while (j != 0) {
+				j = j & (j - 1);
+				bits++;
+			}
+			//通过映射，直接判断是否素数
+			res += prime[bits];
+		}
+		return res;
+	}
 }
