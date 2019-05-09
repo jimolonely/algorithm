@@ -873,4 +873,19 @@ public class Solution4 {
             getLetters(re, chars, start + 1, end, s + c);
         }
     }
+
+    public int rotatedDigits(int N) {
+        int cnt = 0;
+        for (int i = 1; i <= N; i++) {
+            String s = String.valueOf(i);
+            s = s.replaceAll("[0,1,8]", "");
+            if (!"".equals(s)) {
+                s = s.replaceAll("[2,5,6,9]", "");
+                if ("".equals(s)) {
+                    cnt++;
+                }
+            }
+        }
+        return cnt;
+    }
 }
