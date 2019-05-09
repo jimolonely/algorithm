@@ -852,4 +852,25 @@ public class Solution4 {
         }
         return cnt;
     }
+
+    public List<String> letterCasePermutation(String S) {
+        List<String> re = new ArrayList<>();
+        char[] chars = S.toCharArray();
+        getLetters(re, chars, 0, chars.length, "");
+        return re;
+    }
+
+    private void getLetters(List<String> re, char[] chars, int start, int end, String s) {
+        if (start == end) {
+            re.add(s);
+            return;
+        }
+        char c = chars[start];
+        if (Character.isLetter(chars[start])) {
+            getLetters(re, chars, start + 1, end, s + Character.toLowerCase(c));
+            getLetters(re, chars, start + 1, end, s + Character.toUpperCase(c));
+        } else {
+            getLetters(re, chars, start + 1, end, s + c);
+        }
+    }
 }
