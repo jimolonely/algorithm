@@ -908,4 +908,20 @@ public class Solution4 {
         int min = Math.min(root.val - leftMax, rightMax - root.val);
         return Math.min(min, Math.min(minDiffInBST(root.left), minDiffInBST(root.right)));
     }
+
+    public boolean isToeplitzMatrix(int[][] matrix) {
+        int col = matrix[0].length;
+        int[] a = Arrays.copyOf(matrix[0], col);
+
+        for (int i = 1; i < matrix.length; i++) {
+            for (int j = 0; j < col - 1; j++) {
+                if (matrix[i][j + 1] != a[j]) {
+                    return false;
+                }
+                a[j] = matrix[i][j];
+            }
+            a[col - 1] = matrix[i][col - 1];
+        }
+        return true;
+    }
 }
