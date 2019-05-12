@@ -962,4 +962,26 @@ public class Solution4 {
         }
         return new int[]{line, rowLen};
     }
+
+    public List<String> subdomainVisits(String[] cpdomains) {
+        Map<String, Integer> map = new HashMap<>(cpdomains.length);
+        for (String d : cpdomains) {
+            String[] s = d.split(" ");
+            int cnt = Integer.parseInt(s[0]);
+            int i1 = s[1].indexOf(".");
+            map.put(s[1], map.getOrDefault(s[1], 0) + cnt);
+            String subDomain = s[1].substring(i1 + 1);
+            map.put(subDomain, map.getOrDefault(subDomain, 0) + cnt);
+            int i2 = s[1].lastIndexOf(".");
+            if (i1 != i2) {
+                String lastDomain = s[1].substring(i2 + 1);
+                map.put(lastDomain, map.getOrDefault(lastDomain, 0) + cnt);
+            }
+        }
+        List<String> re = new ArrayList<>();
+        for (Map.Entry<String, Integer> e : map.entrySet()) {
+            re.add(e.getValue() + " " + e.getKey());
+        }
+        return re;
+    }
 }
