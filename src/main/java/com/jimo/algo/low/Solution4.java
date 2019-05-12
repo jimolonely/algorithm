@@ -888,4 +888,24 @@ public class Solution4 {
         }
         return cnt;
     }
+
+    public int minDiffInBST(TreeNode root) {
+        if (root == null) {
+            return Integer.MAX_VALUE;
+        }
+        int leftMax = -101;
+        TreeNode tmp = root.left;
+        while (tmp != null) {
+            leftMax = tmp.val;
+            tmp = tmp.right;
+        }
+        int rightMax = Integer.MAX_VALUE;
+        tmp = root.right;
+        while (tmp != null) {
+            rightMax = tmp.val;
+            tmp = tmp.left;
+        }
+        int min = Math.min(root.val - leftMax, rightMax - root.val);
+        return Math.min(min, Math.min(minDiffInBST(root.left), minDiffInBST(root.right)));
+    }
 }
