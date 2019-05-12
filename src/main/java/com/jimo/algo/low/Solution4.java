@@ -946,4 +946,20 @@ public class Solution4 {
         }
         return set.size();
     }
+
+    public int[] numberOfLines(int[] widths, String S) {
+        char[] chars = S.toCharArray();
+        int rowLen = 0;
+        int line = 1;
+        for (char c : chars) {
+            int width = widths[c - 'a'];
+            if (rowLen + width > 100) {
+                line++;
+                rowLen = width;
+            } else {
+                rowLen += width;
+            }
+        }
+        return new int[]{line, rowLen};
+    }
 }
