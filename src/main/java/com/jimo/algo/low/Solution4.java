@@ -928,4 +928,22 @@ public class Solution4 {
     public boolean rotateString(String A, String B) {
         return A.length() == B.length() && (A + A).contains(B);
     }
+
+    public int uniqueMorseRepresentations(String[] words) {
+        String[] map = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.",
+                "....", "..", ".---", "-.-", ".-..", "--", "-.", "---",
+                ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--",
+                "-..-", "-.--", "--.."};
+        Set<String> set = new HashSet<>();
+        StringBuilder sb = new StringBuilder();
+        for (String word : words) {
+            char[] chars = word.toCharArray();
+            sb.delete(0, sb.length());
+            for (char c : chars) {
+                sb.append(map[c - 'a']);
+            }
+            set.add(sb.toString());
+        }
+        return set.size();
+    }
 }
