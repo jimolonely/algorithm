@@ -1000,4 +1000,35 @@ public class Solution4 {
         }
         return max;
     }
+
+    public int[] shortestToChar(String S, char C) {
+        List<Integer> index = new ArrayList<>();
+        int[] map = new int[S.length()];
+        int[] re = new int[S.length()];
+        char[] chars = S.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            if (C == chars[i]) {
+                index.add(i);
+            }
+            map[i] = index.size();
+        }
+
+        for (int i = 0; i < chars.length; i++) {
+            if (C == chars[i]) {
+                re[i] = 0;
+            } else {
+                int k = map[i];
+                if (k == 0) {
+                    re[i] = index.get(k) - i;
+                } else if (k < index.size()) {
+                    int left = i - index.get(k - 1);
+                    int right = index.get(k) - i;
+                    re[i] = Math.min(left, right);
+                } else {
+                    re[i] = i - index.get(k - 1);
+                }
+            }
+        }
+        return re;
+    }
 }
