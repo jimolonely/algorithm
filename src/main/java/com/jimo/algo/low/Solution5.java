@@ -45,4 +45,20 @@ public class Solution5 {
         }
         return re;
     }
+
+    public int[][] flipAndInvertImage(int[][] A) {
+        int left = 0, right = 0;
+        for (int[] row : A) {
+            left = 0;
+            right = row.length - 1;
+            while (left <= right) {
+                int t = row[left];
+                row[left] = row[right] ^ 1;
+                row[right] = t ^ 1;
+                left++;
+                right--;
+            }
+        }
+        return A;
+    }
 }
