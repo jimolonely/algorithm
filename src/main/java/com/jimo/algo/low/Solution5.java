@@ -72,4 +72,20 @@ public class Solution5 {
         }
         return Math.min(dp[len - 1], dp[len - 2]);
     }
+
+    public char nextGreatestLetter(char[] letters, char target) {
+        int len = letters.length;
+        int left = 0, right = len - 1;
+        char c = letters[0];
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (letters[mid] > target) {
+                c = letters[mid];
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return c;
+    }
 }
