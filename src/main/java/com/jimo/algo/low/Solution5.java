@@ -88,4 +88,18 @@ public class Solution5 {
         }
         return c;
     }
+
+    public int dominantIndex(int[] nums) {
+        int firstMax = 0, secondMax = 0, index = -1;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > firstMax) {
+                secondMax = firstMax;
+                firstMax = nums[i];
+                index = i;
+            } else if (nums[i] > secondMax) {
+                secondMax = nums[i];
+            }
+        }
+        return firstMax >= 2 * secondMax ? index : -1;
+    }
 }
