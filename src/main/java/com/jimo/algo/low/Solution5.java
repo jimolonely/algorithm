@@ -122,4 +122,31 @@ public class Solution5 {
         }
         return w;
     }
+
+    public boolean backspaceCompare(String S, String T) {
+        if (S.equals(T)) {
+            return true;
+        }
+        Stack<Character> s = new Stack<>();
+        Stack<Character> t = new Stack<>();
+        for (char c : S.toCharArray()) {
+            if (c == '#') {
+                if (!s.isEmpty()) {
+                    s.pop();
+                }
+            } else {
+                s.push(c);
+            }
+        }
+        for (char c : T.toCharArray()) {
+            if (c == '#') {
+                if (!t.isEmpty()) {
+                    t.pop();
+                }
+            } else {
+                t.push(c);
+            }
+        }
+        return s.equals(t);
+    }
 }
