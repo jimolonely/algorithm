@@ -1,8 +1,7 @@
 package com.jimo.algo.low;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author jimo
@@ -101,5 +100,26 @@ public class Solution5 {
             }
         }
         return firstMax >= 2 * secondMax ? index : -1;
+    }
+
+    public String mostCommonWord(String paragraph, String[] banned) {
+        String[] sa = paragraph.split("([!?',;. ])");
+        Map<String, Integer> m = new HashMap<>(sa.length / 2 > 0 ? sa.length / 2 : sa.length);
+        Set<String> set = new HashSet<>(Arrays.asList(banned));
+        for (String s : sa) {
+            s = s.toLowerCase();
+            if (!"".equals(s) && !set.contains(s)) {
+                m.put(s, m.getOrDefault(s, 0) + 1);
+            }
+        }
+        int max = 0;
+        String w = null;
+        for (Map.Entry<String, Integer> e : m.entrySet()) {
+            if (e.getValue() > max) {
+                max = e.getValue();
+                w = e.getKey();
+            }
+        }
+        return w;
     }
 }
