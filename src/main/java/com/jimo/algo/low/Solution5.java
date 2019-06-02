@@ -159,4 +159,22 @@ public class Solution5 {
         }
         return re;
     }
+
+    public int peakIndexInMountainArray(int[] A) {
+        if (A.length < 3) {
+            return 0;
+        }
+        int left = 0, right = A.length - 1;
+        while (left < right) {
+            int mid = (left + right) / 2;
+            if (A[mid] > A[mid - 1] && A[mid] > A[mid + 1]) {
+                return mid;
+            } else if (A[mid] > A[mid + 1]) {
+                right = mid;
+            } else {
+                left = mid;
+            }
+        }
+        return 0;
+    }
 }
