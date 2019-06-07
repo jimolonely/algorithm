@@ -266,4 +266,51 @@ public class Solution5 {
         }
         return sum;
     }
+
+    public String[] uncommonFromSentences1(String A, String B) {
+        String[] s1 = A.split(" ");
+        String[] s2 = B.split(" ");
+        Set<String> re = new HashSet<>();
+        Set<String> set = new HashSet<>();
+
+        for (String s : s1) {
+            if (set.contains(s)) {
+                re.remove(s);
+            } else {
+                re.add(s);
+            }
+            set.add(s);
+        }
+        HashSet<String> sa = new HashSet<>(set);
+        set.clear();
+        for (String s : s2) {
+            if (set.contains(s)) {
+                re.remove(s);
+            } else {
+                if (sa.contains(s)) {
+                    re.remove(s);
+                } else {
+                    re.add(s);
+                }
+            }
+            set.add(s);
+        }
+        return re.toArray(new String[0]);
+    }
+
+    public String[] uncommonFromSentences(String A, String B) {
+        String s = A + " " + B;
+        String[] a = s.split(" ");
+        Set<String> set = new HashSet<>();
+        Set<String> re = new HashSet<>();
+        for (String s1 : a) {
+            if (set.contains(s1)) {
+                re.remove(s1);
+            } else {
+                re.add(s1);
+            }
+            set.add(s1);
+        }
+        return re.toArray(new String[0]);
+    }
 }
