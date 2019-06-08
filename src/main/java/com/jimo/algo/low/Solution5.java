@@ -313,4 +313,30 @@ public class Solution5 {
         }
         return re.toArray(new String[0]);
     }
+
+    public int[] fairCandySwap(int[] A, int[] B) {
+        int sa = 0, sb = 0;
+        for (int a : A) {
+            sa += a;
+        }
+        for (int b : B) {
+            sb += b;
+        }
+        Arrays.sort(A);
+        Arrays.sort(B);
+        int i = 0, j = 0;
+        // sa+y-x=sb+x-y
+        // diff = x - y = (sa - sb)/2
+        int diff = (sa - sb) / 2;
+        while (i < A.length && j < B.length) {
+            if (A[i] - B[j] == diff) {
+                return new int[]{A[i], B[j]};
+            } else if (A[i] - B[j] < diff) {
+                i++;
+            } else {
+                j++;
+            }
+        }
+        return new int[]{0, 0};
+    }
 }
