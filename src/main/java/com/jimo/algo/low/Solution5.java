@@ -339,4 +339,16 @@ public class Solution5 {
         }
         return new int[]{0, 0};
     }
+
+    public int numSpecialEquivGroups(String[] A) {
+        Set<String> set = new HashSet<>();
+        for (String s : A) {
+            int[] cnt = new int[52];
+            for (int i = 0; i < s.length(); i++) {
+                cnt[s.charAt(i) - 'a' + 26 * (i % 2)]++;
+            }
+            set.add(Arrays.toString(cnt));
+        }
+        return set.size();
+    }
 }
