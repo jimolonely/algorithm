@@ -366,4 +366,23 @@ public class Solution5 {
         }
         return !(asc && desc);
     }
+
+    private TreeNode head;
+
+    public TreeNode increasingBST(TreeNode root) {
+        head = new TreeNode(0);
+        TreeNode dumy = head;
+        rebuild(root);
+        return dumy.right;
+    }
+
+    private void rebuild(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        rebuild(root.left);
+        head.right = new TreeNode(root.val);
+        head = head.right;
+        rebuild(root.right);
+    }
 }
