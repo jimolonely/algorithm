@@ -351,4 +351,19 @@ public class Solution5 {
         }
         return set.size();
     }
+
+    public boolean isMonotonic(int[] A) {
+        if (A.length < 3) {
+            return true;
+        }
+        boolean asc = false, desc = false;
+        for (int i = 1; i < A.length; i++) {
+            if (A[i - 1] < A[i]) {
+                asc = true;
+            } else if (A[i - 1] > A[i]) {
+                desc = true;
+            }
+        }
+        return !(asc && desc);
+    }
 }
