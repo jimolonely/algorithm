@@ -401,4 +401,13 @@ public class Solution5 {
         }
         return A;
     }
+
+    public int smallestRangeI(int[] A, int K) {
+        int max = 0, min = Integer.MAX_VALUE;
+        for (int i : A) {
+            max = Math.max(i, max);
+            min = Math.min(i, min);
+        }
+        return Math.max(0, max - min - 2 * K);
+    }
 }
