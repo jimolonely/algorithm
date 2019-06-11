@@ -431,4 +431,24 @@ public class Solution5 {
         }
         return new String(chars);
     }
+
+    public int[] sortArrayByParityII(int[] A) {
+        // 奇偶指针
+        int i = 0, j = 1;
+        while (i < A.length) {
+            if (A[i] % 2 == 0) {
+                i += 2;
+            } else {
+                while (j < A.length && A[j] % 2 == 1) {
+                    j += 2;
+                }
+                if (j < A.length) {
+                    int t = A[i];
+                    A[i] = A[j];
+                    A[j] = t;
+                }
+            }
+        }
+        return A;
+    }
 }
