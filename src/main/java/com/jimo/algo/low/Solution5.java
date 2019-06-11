@@ -410,4 +410,25 @@ public class Solution5 {
         }
         return Math.max(0, max - min - 2 * K);
     }
+
+    public String reverseOnlyLetters(String S) {
+        char[] chars = S.toCharArray();
+        int left = 0, right = chars.length - 1;
+        while (left < right) {
+            if (!Character.isLetter(chars[left])) {
+                left++;
+                continue;
+            }
+            if (!Character.isLetter(chars[right])) {
+                right--;
+                continue;
+            }
+            char t = chars[left];
+            chars[left] = chars[right];
+            chars[right] = t;
+            left++;
+            right--;
+        }
+        return new String(chars);
+    }
 }
