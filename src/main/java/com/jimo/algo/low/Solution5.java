@@ -451,4 +451,32 @@ public class Solution5 {
         }
         return A;
     }
+
+    public boolean isLongPressedName(String name, String typed) {
+        if (name.length() > typed.length()) {
+            return false;
+        }
+        char[] names = name.toCharArray();
+        char[] typeds = typed.toCharArray();
+
+        int i = 0, j = 0, cntName = 0, cntTyped = 0;
+        while (i < names.length && j < typeds.length) {
+            int cnt = 1;
+            while (i + 1 < names.length && names[i] == names[i + 1]) {
+                i++;
+                cnt++;
+            }
+            int cnt2 = 1;
+            while (j + 1 < typeds.length && typeds[j] == typeds[j + 1]) {
+                j++;
+                cnt2++;
+            }
+            if (names[i] != typeds[j] || cnt > cnt2) {
+                return false;
+            }
+            i++;
+            j++;
+        }
+        return i == names.length && j == typeds.length;
+    }
 }
