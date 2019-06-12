@@ -479,4 +479,20 @@ public class Solution5 {
         }
         return i == names.length && j == typeds.length;
     }
+
+    public int numUniqueEmails(String[] emails) {
+        Set<String> set = new HashSet<>();
+        for (String email : emails) {
+            String[] a = email.split("@");
+            int i = a[0].indexOf('+');
+            String left;
+            if (i > -1) {
+                left = a[0].substring(0, i).replaceAll("\\.", "");
+            } else {
+                left = a[0].replaceAll("\\.", "");
+            }
+            set.add(left + "@" + a[1]);
+        }
+        return set.size();
+    }
 }
