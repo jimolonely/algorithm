@@ -512,4 +512,22 @@ public class Solution5 {
             return q.size();
         }
     }
+
+    public String[] reorderLogFiles(String[] logs) {
+        Arrays.sort(logs, (log1, log2) -> {
+            String[] s = log1.split(" ", 2);
+            String[] s2 = log2.split(" ", 2);
+            boolean d1 = Character.isDigit(s[1].charAt(0));
+            boolean d2 = Character.isDigit(s2[1].charAt(0));
+            if (!d1 && !d2) {
+                int content = s[1].compareTo(s2[1]);
+                if (content != 0) {
+                    return content;
+                }
+                return s[0].compareTo(s2[0]);
+            }
+            return d1 ? (d2 ? 0 : 1) : -1;
+        });
+        return logs;
+    }
 }
