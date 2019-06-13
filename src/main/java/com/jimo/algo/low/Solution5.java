@@ -543,4 +543,22 @@ public class Solution5 {
             return root.val + rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R);
         }
     }
+
+    public int[] diStringMatch(String S) {
+        char[] chars = S.toCharArray();
+        int left = 0, right = chars.length;
+        int[] re = new int[chars.length + 1];
+        int i = 0;
+        for (char c : chars) {
+            if (c == 'I') {
+                re[i++] = left;
+                left++;
+            } else {
+                re[i++] = right;
+                right--;
+            }
+        }
+        re[i] = right;
+        return re;
+    }
 }
