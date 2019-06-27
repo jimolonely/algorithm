@@ -578,4 +578,31 @@ public class Solution5 {
         }
         return cnt;
     }
+
+    public boolean isAlienSorted(String[] words, String order) {
+        int[] sort = new int[26];
+        for (int i = 0; i < order.length(); i++) {
+            sort[order.charAt(i) - 'a'] = i;
+        }
+        String pre = words[0];
+        for (int i = 1; i < words.length; i++) {
+            String s = words[i];
+            int min = pre.length() > s.length() ? s.length() : pre.length();
+            int j;
+            for (j = 0; j < min; j++) {
+                int pi = sort[pre.charAt(j) - 'a'];
+                int si = sort[s.charAt(j) - 'a'];
+                if (pi < si) {
+                    break;
+                } else if (pi > si) {
+                    return false;
+                }
+            }
+            if (j == min && pre.length() > min) {
+                return false;
+            }
+            pre = s;
+        }
+        return true;
+    }
 }
