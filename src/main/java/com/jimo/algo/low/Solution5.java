@@ -561,4 +561,21 @@ public class Solution5 {
         re[i] = right;
         return re;
     }
+
+    public int minDeletionSize(String[] A) {
+        int col = A[0].length();
+        int row = A.length;
+        int cnt = 0;
+        for (int i = 0; i < col; i++) {
+            char c = A[0].charAt(i);
+            for (int j = 1; j < row; j++) {
+                if (A[j].charAt(i) < c) {
+                    cnt++;
+                    break;
+                }
+                c = A[j].charAt(i);
+            }
+        }
+        return cnt;
+    }
 }
