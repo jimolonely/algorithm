@@ -605,4 +605,15 @@ public class Solution5 {
         }
         return true;
     }
+
+    public int bitwiseComplement(int N) {
+        if (N == 0) {
+            return 1;
+        }
+        int m = 1;
+        while (m <= N) {
+            m <<= 1;
+        }
+        return (m - 1) ^ N;
+    }
 }
